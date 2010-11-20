@@ -1,1347 +1,0 @@
-TUnicodeCore
-v7
-r0
-t309789878.637850
-cCheck dependencies
-cSymLink /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp
-cProcessInfoPlistFile /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Info.plist /Externals/MyProjects/jsoncpp/Mac/Info.plist
-cCopyStringsFile /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
-cCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/NVObjBase.he ../include/NVObjBase.he
-cCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/jsoncpp.he ../include/jsoncpp.he
-cCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/JsonValue.he ../include/JsonValue.he
-cCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/json_internalarray.inl ../src/jsoncpp/json_internalarray.inl
-cCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/json_internalmap.inl ../src/jsoncpp/json_internalmap.inl
-cCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/json_valueiterator.inl ../src/jsoncpp/json_valueiterator.inl
-cCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/JsonReader.he ../include/JsonReader.he
-cCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/JsonWriter.he ../include/JsonWriter.he
-cPhaseScriptExecution /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp.rc
-cCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/Localizable.strings build/jsoncpp.build/Deployment/UnicodeCore.build/omnisrc/Localizable.strings
-cCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/OmnisTools.he ../include/OmnisTools.he
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/NVObjBase.o /Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/JsonValue.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/json_reader.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_reader.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/json_value.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_value.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/json_writer.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_writer.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/JsonReader.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonReader.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/JsonWriter.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonWriter.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/OmnisTools.o /Externals/MyProjects/jsoncpp/Mac/../src/OmnisTools.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/NVObjBase.o /Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-cLd /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp normal ppc
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/JsonValue.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/json_reader.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_reader.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/json_value.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_value.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/json_writer.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_writer.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/JsonReader.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonReader.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/JsonWriter.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonWriter.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-cCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/OmnisTools.o /Externals/MyProjects/jsoncpp/Mac/../src/OmnisTools.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-cLd /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp normal i386
-cCreateUniversalBinary /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/MacOS/jsoncpp normal "ppc i386"
-cTouch /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp
-
-N/Developer/Headers/FlatCarbon/ATSUnicode.h
-c000000004AC5DD870000000000000035
-t1254481287
-s53
-
-N/Developer/Headers/FlatCarbon/Appearance.h
-c000000004AC5DD87000000000000001B
-t1254481287
-s27
-
-N/Developer/Headers/FlatCarbon/CFString.h
-c000000004AC5DD870000000000000027
-t1254481287
-s39
-
-N/Developer/Headers/FlatCarbon/ConditionalMacros.h
-c000000004AC5DD870000000000000027
-t1254481287
-s39
-
-N/Developer/Headers/FlatCarbon/ControlDefinitions.h
-c000000004AC5DD87000000000000001B
-t1254481287
-s27
-
-N/Developer/Headers/FlatCarbon/Controls.h
-c000000004AC5DD87000000000000001B
-t1254481287
-s27
-
-N/Developer/Headers/FlatCarbon/Fonts.h
-c000000004AC5DD870000000000000035
-t1254481287
-s53
-
-N/Developer/Headers/FlatCarbon/Gestalt.h
-c000000004AC5DD870000000000000027
-t1254481287
-s39
-
-N/Developer/Headers/FlatCarbon/LowMem.h
-c000000004AC5DD870000000000000027
-t1254481287
-s39
-
-N/Developer/Headers/FlatCarbon/MacTypes.h
-c000000004AC5DD870000000000000027
-t1254481287
-s39
-
-N/Developer/Headers/FlatCarbon/MacWindows.h
-c000000004AC5DD87000000000000001B
-t1254481287
-s27
-
-N/Developer/Headers/FlatCarbon/Menus.h
-c000000004AC5DD87000000000000001B
-t1254481287
-s27
-
-N/Developer/Headers/FlatCarbon/PMApplication.h
-c000000004AC5DD87000000000000001B
-t1254481287
-s27
-
-N/Developer/Headers/FlatCarbon/Printing.h
-c000000004AC5DD870000000000000031
-t1254481287
-s49
-
-N/Developer/Headers/FlatCarbon/Quickdraw.h
-c000000004AC5DD870000000000000035
-t1254481287
-s53
-
-N/Developer/SDKs/MacOSX10.5.sdk
-c000000004C445C5F00000000000000EE
-t1279548511
-s238
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/ATSUnicode.h
-c000000004817F9680000000000000035
-t1209530728
-s53
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/Appearance.h
-c000000004817F968000000000000001B
-t1209530728
-s27
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/CFString.h
-c000000004817F9680000000000000027
-t1209530728
-s39
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/ConditionalMacros.h
-c000000004817F9680000000000000027
-t1209530728
-s39
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/ControlDefinitions.h
-c000000004817F968000000000000001B
-t1209530728
-s27
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/Controls.h
-c000000004817F968000000000000001B
-t1209530728
-s27
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/Fonts.h
-c000000004817F9680000000000000035
-t1209530728
-s53
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/Gestalt.h
-c000000004817F9680000000000000027
-t1209530728
-s39
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/LowMem.h
-c000000004817F9690000000000000027
-t1209530729
-s39
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/MacTypes.h
-c000000004817F9690000000000000027
-t1209530729
-s39
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/MacWindows.h
-c000000004817F969000000000000001B
-t1209530729
-s27
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/Menus.h
-c000000004817F969000000000000001B
-t1209530729
-s27
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/PMApplication.h
-c000000004817F969000000000000001B
-t1209530729
-s27
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/Printing.h
-c000000004817F9690000000000000031
-t1209530729
-s49
-
-N/Developer/SDKs/MacOSX10.5.sdk/Developer/Headers/FlatCarbon/Quickdraw.h
-c000000004817F9690000000000000035
-t1209530729
-s53
-
-N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h
-c000000004864BE3E00000000000005D7
-t1214561854
-s1495
-
-N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h
-c0000000048649969000000000000AA17
-t1214552425
-s43543
-
-N/Developer/SDKs/MacOSX10.5.sdk/usr/include/assert.h
-c0000000047BA99300000000000000DCB
-t1203411248
-s3531
-
-N/Developer/SDKs/MacOSX10.5.sdk/usr/include/stdio.h
-c0000000047BA99310000000000003D1D
-t1203411249
-s15645
-
-N/Developer/SDKs/MacOSX10.5.sdk/usr/include/stdlib.h
-c0000000047BA99310000000000002A79
-t1203411249
-s10873
-
-N/Developer/SDKs/MacOSX10.5.sdk/usr/include/string.h
-c0000000047BA99320000000000001731
-t1203411250
-s5937
-
-N/Developer/SDKs/MacOSX10.5.sdk/usr/include/wchar.h
-c0000000047BA993200000000000025DA
-t1203411250
-s9690
-
-N/Developer/SDKs/MacOSX10.5.sdk/usr/lib/gcc/i686-apple-darwin10/4.0.1/include/stdarg.h
-c000000004C4DDD0900000000000010D9
-t1280171273
-s4313
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/anums.he
-c000000004A9E235B00000000000019B5
-t1251877723
-s6581
-i"basics.h"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/basics.h
-c000000004A9E235B0000000000005DFE
-t1251877723
-s24062
-i"xbasics.he"
-i"xmemory.he"
-i"chrbasic.he"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/carbonin.h
-c000000004BB6C7FC0000000000001552
-t1270269948
-s5458
-i<Carbon/Carbon.h>
-i<CarbonHeadersPCH>
-i<ConditionalMacros.h>
-i"OMNISINC.H"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/chrbasic.he
-c000000004CA9C33C00000000000086A5
-t1286193980
-s34469
-i<string.h>
-i<tchar.h>
-i<CoreFoundation/cfstring.h>
-i<cfstring.h>
-i<wchar.h>
-i"omstring.cpp"
-i"omstring.c"
-i"omstring.h"
-i"icuapi.he"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/extbmp.he
-c000000004A9E235B000000000000119C
-t1251877723
-s4508
-i"basics.h"
-i"gdi.he"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/extcomp.he
-c000000004A9E235B0000000000000371
-t1251877723
-s881
-i<tchar.h>
-i"basics.h"
-i"hwnd.he"
-i"gdi.he"
-i"gdipict.he"
-i"strclass.he"
-i"extfval.he"
-i"extqlist.he"
-i"extbmp.he"
-i"anums.he"
-i"xmemory.he"
-i"xkey.he"
-i"extcrb.he"
-i"pri.he"
-i"extfile.he"
-i"extdefs.he"
-i"flddefs.he"
-i"extfuncs.he"
-i"xextcinl.hi"
-i"handle.he"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/extcrb.he
-c000000004A9E235B00000000000010E4
-t1251877723
-s4324
-i"basics.h"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/extdefs.he
-c000000004CA9E173000000000000A1B1
-t1286201715
-s41393
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/extfile.he
-c000000004A9E235B00000000000016B4
-t1251877723
-s5812
-i"basics.h"
-i"strclass.he"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/extfuncs.he
-c000000004A9E235B0000000000004871
-t1251877723
-s18545
-i"basics.h"
-i"hwnd.he"
-i"extdefs.he"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/extfval.he
-c000000004A9E235B0000000000003BF8
-t1251877723
-s15352
-i"basics.h"
-i"extcrb.he"
-i"extfuncs.he"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/extqlist.he
-c000000004A9E235B0000000000001733
-t1251877723
-s5939
-i"basics.h"
-i"extfval.he"
-i"strclass.he"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/flddefs.he
-c000000004A9E235B000000000000B802
-t1251877723
-s47106
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/gdi.he
-c000000004A9E235B000000000000C347
-t1251877723
-s49991
-i"xgdi.he"
-i"xgdiinl.hi"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/gdipict.he
-c000000004A9E235B0000000000002895
-t1251877723
-s10389
-i"basics.h"
-i"gdi.he"
-i"hwnd.he"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/handle.he
-c000000004A9E235B0000000000000CEC
-t1251877723
-s3308
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/hwnd.he
-c000000004A9E235B0000000000009254
-t1251877723
-s37460
-i"xhwnd.he"
-i"xhwndinl.hi"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/omnisinc.h
-c000000004A9E235B00000000000002A4
-t1251877723
-s676
-i<MacHeaders.h>
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/omstring.c
-c000000004A9E235B0000000000003E0F
-t1251877723
-s15887
-i"basics.h"
-i"omstring.h"
-i<corefoundation/cfstring.h>
-i<stdio.h>
-i<stdarg.h>
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/omstring.h
-c000000004A9E235B0000000000001466
-t1251877723
-s5222
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/pri.he
-c000000004A9E235B000000000000CFE6
-t1251877723
-s53222
-i"basics.h"
-i"gdi.he"
-i"hwnd.he"
-i"extcrb.he"
-i"strclass.he"
-i"xpri.he"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/strclass.he
-c000000004A9E235B0000000000002646
-t1251877723
-s9798
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/xbasics.he
-c000000004A9E235B0000000000000D15
-t1251877723
-s3349
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/xextcinl.hi
-c000000004A9E235B0000000000000AF2
-t1251877723
-s2802
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/xgdi.he
-c000000004A9E235B00000000000077A9
-t1251877723
-s30633
-i<MacTypes.h>
-i<Fonts.h>
-i<Menus.h>
-i<MacWindows.h>
-i<Gestalt.h>
-i"ATSUnicode.h"
-i<MacTypes.h>
-i<QuickDraw.h>
-i<LowMem.h>
-i"basics.h"
-i"xgdi.he"
-i"strclass.he"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/xgdiinl.hi
-c000000004A9E235B000000000000457B
-t1251877723
-s17787
-i<Appearance.h>
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/xhwnd.he
-c000000004A9E235B0000000000003AEE
-t1251877723
-s15086
-i"GDI.HE"
-i<Controls.h>
-i<ControlDefinitions.h>
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/xhwndinl.hi
-c000000004A9E235B0000000000001B80
-t1251877723
-s7040
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/xkey.he
-c000000004A9E235B00000000000014F9
-t1251877723
-s5369
-i"basics.h"
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/xmemory.he
-c000000004A9E235B0000000000000CA3
-t1251877723
-s3235
-
-N/Externals/MyProjects/Mac/complib/u_complib.framework/Versions/A/Headers/xpri.he
-c000000004A9E235B000000000000144A
-t1251877723
-s5194
-i<PMApplication.h>
-i<Printing.h>
-
-N/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h
-c000000004A9E235B0000000000000239
-t1251877723
-s569
-i"carbonin.h"
-
-N/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/u_complib
-c000000004A9E24F000000000000BCC18
-t1251878128
-s773144
-
-N/Externals/MyProjects/jsoncpp/Mac/../include/JsonReader.he
-c000000004CAEE203000000000000064B
-t1286529539
-s1611
-i"json/reader.h"
-i<extcomp.he>
-i"OmnisTools.he"
-i"NVObjBase.he"
-
-N/Externals/MyProjects/jsoncpp/Mac/../include/JsonValue.he
-c000000004CB0A0200000000000000C3C
-t1286643744
-s3132
-i"json/value.h"
-i<extcomp.he>
-i"OmnisTools.he"
-i"NVObjBase.he"
-
-N/Externals/MyProjects/jsoncpp/Mac/../include/JsonWriter.he
-c000000004CAEE228000000000000062B
-t1286529576
-s1579
-i"json/writer.h"
-i<extcomp.he>
-i"OmnisTools.he"
-i"NVObjBase.he"
-
-N/Externals/MyProjects/jsoncpp/Mac/../include/NVObjBase.he
-c000000004CAF209D000000000000051F
-t1286545565
-s1311
-i<extcomp.he>
-i"jsoncpp.he"
-i"OmnisTools.he"
-
-N/Externals/MyProjects/jsoncpp/Mac/../include/OmnisTools.he
-c000000004CB092AB0000000000000D14
-t1286640299
-s3348
-i<extcomp.he>
-i<chrbasic.he>
-i<string>
-
-N/Externals/MyProjects/jsoncpp/Mac/../include/json_batchallocator.h
-c000000004B99EDD70000000000000F59
-t1268379095
-s3929
-i<stdlib.h>
-i<assert.h>
-
-N/Externals/MyProjects/jsoncpp/Mac/../include/jsoncpp.he
-c000000004CAEE5CF000000000000047F
-t1286530511
-s1151
-i<extcomp.he>
-i"OmnisTools.he"
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/JsonReader.cpp
-c000000004CAE2999000000000000206E
-t1286482329
-s8302
-i<extcomp.he>
-i"JsonValue.he"
-i"JsonReader.he"
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp
-c000000004CC353D800000000000072BF
-t1287869400
-s29375
-i"jsoncpp.he"
-i"JsonValue.he"
-i<string>
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/JsonWriter.cpp
-c000000004CAE29A10000000000001B48
-t1286482337
-s6984
-i<extcomp.he>
-i"JsonValue.he"
-i"JsonWriter.he"
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp
-c000000004CC4489500000000000005F7
-t1287932053
-s1527
-i"NVObjBase.he"
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/OmnisTools.cpp
-c000000004CB0945700000000000013FF
-t1286640727
-s5119
-i"OmnisTools.he"
-i<sstream>
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp.cpp
-c000000004CAF1EAE0000000000002CFE
-t1286545070
-s11518
-i"jsoncpp.he"
-i"JsonValue.he"
-i"JsonReader.he"
-i"JsonWriter.he"
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp.rc
-c000000004CAE29730000000000000F24
-t1286482291
-s3876
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_internalarray.inl
-c000000004B99EDD7000000000000317D
-t1268379095
-s12669
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_internalmap.inl
-c000000004B99EDD70000000000003FA4
-t1268379095
-s16292
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_reader.cpp
-c000000004B99EDD700000000000051D7
-t1268379095
-s20951
-i<json/reader.h>
-i<json/value.h>
-i<utility>
-i<cstdio>
-i<cassert>
-i<cstring>
-i<iostream>
-i<stdexcept>
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_value.cpp
-c000000004B99EDD70000000000009885
-t1268379095
-s39045
-i<iostream>
-i<json/value.h>
-i<json/writer.h>
-i<utility>
-i<stdexcept>
-i<cstring>
-i<cassert>
-i<cpptl/conststring.h>
-i<cstddef>
-i"json_batchallocator.h"
-i"json_internalarray.inl"
-i"json_internalmap.inl"
-i"json_valueiterator.inl"
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_valueiterator.inl
-c000000004B99EDD70000000000001CC7
-t1268379095
-s7367
-
-N/Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_writer.cpp
-c000000004B99EDD70000000000004F5A
-t1268379095
-s20314
-i<json/writer.h>
-i<utility>
-i<assert.h>
-i<stdio.h>
-i<string.h>
-i<iostream>
-i<sstream>
-i<iomanip>
-
-N/Externals/MyProjects/jsoncpp/Mac/English.lproj/InfoPlist.strings
-c000000004CA7249300000000000000F8
-t1286022291
-s248
-
-N/Externals/MyProjects/jsoncpp/Mac/Info.plist
-c000000004CA7248500000000000002C6
-t1286022277
-s710
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp
-t1288097078
-s136
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Info.plist
-t1287167911
-s710
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/MacOS/jsoncpp
-t1288097078
-s773556
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/PkgInfo
-t1287167911
-s8
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/English.lproj/InfoPlist.strings
-t1287167911
-s250
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/JsonReader.he
-t1287167911
-s1611
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/JsonValue.he
-t1287167911
-s3132
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/JsonWriter.he
-t1287167911
-s1579
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/Localizable.strings
-t1287167911
-s3708
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/NVObjBase.he
-t1287167911
-s1311
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/OmnisTools.he
-t1287167911
-s3348
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/json_internalarray.inl
-t1287167911
-s12669
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/json_internalmap.inl
-t1287167911
-s16292
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/json_valueiterator.inl
-t1287167911
-s7367
-
-N/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/jsoncpp.he
-t1287167911
-s1151
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/JsonReader.o
-t1287167926
-s17952
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/JsonValue.o
-t1288097077
-s40796
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/JsonWriter.o
-t1287167927
-s11196
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/NVObjBase.o
-t1288097076
-s2652
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/OmnisTools.o
-t1287167928
-s6552
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/json_reader.o
-t1287167923
-s83100
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/json_value.o
-t1287167925
-s99280
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/json_writer.o
-t1287167925
-s49752
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp
-t1288097078
-s413108
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp.LinkFileList
-c000000004CB89FA70000000000000411
-t1287167911
-s1041
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp.o
-t1287167921
-s8208
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/JsonReader.o
-t1287167918
-s22820
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/JsonValue.o
-t1288097075
-s47576
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/JsonWriter.o
-t1287167918
-s14208
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/NVObjBase.o
-t1288097075
-s2992
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/OmnisTools.o
-t1287167919
-s8660
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/json_reader.o
-t1287167915
-s97756
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/json_value.o
-t1287167917
-s116544
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/json_writer.o
-t1287167917
-s59472
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp
-t1288097077
-s354828
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp.LinkFileList
-c000000004CB89FA70000000000000408
-t1287167911
-s1032
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp.o
-t1287167913
-s10624
-
-N/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/omnisrc/Localizable.strings
-t1287167911
-s3708
-
-N/Externals/MyProjects/jsoncpp/include/NVObjBase.he
-c000000004CAF209D000000000000051F
-t1286545565
-s1311
-i<extcomp.he>
-i"jsoncpp.he"
-i"OmnisTools.he"
-
-N/Externals/MyProjects/jsoncpp/include/OmnisTools.he
-c000000004CB092AB0000000000000D14
-t1286640299
-s3348
-i<extcomp.he>
-i<chrbasic.he>
-i<string>
-
-N/Externals/MyProjects/jsoncpp/include/json/config.h
-c000000004B99EDD70000000000000600
-t1268379095
-s1536
-i<cpptl/config.h>
-
-N/Externals/MyProjects/jsoncpp/include/json/features.h
-c000000004B99EDD7000000000000050A
-t1268379095
-s1290
-i"forwards.h"
-
-N/Externals/MyProjects/jsoncpp/include/json/forwards.h
-c000000004B99EDD700000000000002DF
-t1268379095
-s735
-i"config.h"
-
-N/Externals/MyProjects/jsoncpp/include/json/reader.h
-c000000004B99EDD70000000000001956
-t1268379095
-s6486
-i"features.h"
-i"value.h"
-i<deque>
-i<stack>
-i<string>
-i<iostream>
-
-N/Externals/MyProjects/jsoncpp/include/json/value.h
-c000000004CA9EAC800000000000084A8
-t1286204104
-s33960
-i"forwards.h"
-i<string>
-i<vector>
-i<map>
-i<cpptl/smallmap.h>
-i<cpptl/forwards.h>
-
-N/Externals/MyProjects/jsoncpp/include/json/writer.h
-c000000004B99EDD7000000000000182C
-t1268379095
-s6188
-i"value.h"
-i<vector>
-i<string>
-i<iostream>
-
-N/Externals/MyProjects/jsoncpp/include/jsoncpp.he
-c000000004CAEE5CF000000000000047F
-t1286530511
-s1151
-i<extcomp.he>
-i"OmnisTools.he"
-
-N/Externals/MyProjects/jsoncpp/src/jsoncpp/json_internalarray.inl
-c000000004B99EDD7000000000000317D
-t1268379095
-s12669
-
-N/Externals/MyProjects/jsoncpp/src/jsoncpp/json_internalmap.inl
-c000000004B99EDD70000000000003FA4
-t1268379095
-s16292
-
-N/Externals/MyProjects/jsoncpp/src/jsoncpp/json_valueiterator.inl
-c000000004B99EDD70000000000001CC7
-t1268379095
-s7367
-
-N/System/Library/Frameworks/Carbon.framework/Carbon
-c000000004C0FDD7E000000000000A5F0
-t1276108158
-s42480
-
-N/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h
-c000000004C44E75100000000000005FF
-t1279584081
-s1535
-
-N/System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h
-c000000004C4DF551000000000000B3BB
-t1280177489
-s46011
-
-N/usr/include/assert.h
-c000000004AC59C810000000000000DCB
-t1254464641
-s3531
-
-N/usr/include/stdio.h
-c000000004AC59C820000000000004174
-t1254464642
-s16756
-
-N/usr/include/stdlib.h
-c000000004AC59C820000000000002DF5
-t1254464642
-s11765
-
-N/usr/include/string.h
-c000000004AC59C820000000000001731
-t1254464642
-s5937
-
-N/usr/include/wchar.h
-c000000004AC59C8200000000000025DA
-t1254464642
-s9690
-
-N/usr/lib/gcc/i686-apple-darwin10/4.0.1/include/stdarg.h
-c000000004C4DD03900000000000010D9
-t1280167993
-s4313
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies309789870#309789870#0(0"0(0#1#0"8610030176#0"0#
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/JsonReader.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonReader.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/JsonValue.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-s309789876.808152
-e309789878.002568
-r1
-xCompileC
-xbuild/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/JsonValue.o
-x/Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_0
-o<command line>:1:7: warning: missing whitespace after the macro name
-oIn file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h:19,
-o                 from <command line>:1:
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:16: warning: missing whitespace after the macro name
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:1: warning: "ismach" redefined
-o<command line>:1:1: warning: this is the location of the previous definition
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:51: warning: ISO C++ forbids declaration of 'operator==' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:52: warning: ISO C++ forbids declaration of 'operator!=' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:53: warning: ISO C++ forbids declaration of 'operator!' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'PixMap** GetPortPixMapHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr LockPortBitsHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr UnlockPortBitsHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIsetViewportOrg(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetViewportOrg(HDCstruct*, qdim*, qdim*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qpoint*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIinvertRgn(HDCstruct*, qrgn*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetMainScreen(qrect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'OpaqueRgnHandle* GDIgetGrayRgn()':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetGrayBounds(Rect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetAllScreens(qrect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi: In function 'void WNDsetWindowOrg(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)
-lSLF07#2@62"Compile /Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp309789876#309789878#0(10575"<command line>:1:7: warning: missing whitespace after the macro nameIn file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h:19,                 from <command line>:1:/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:16: warning: missing whitespace after the macro name/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:1: warning: "ismach" redefined<command line>:1:1: warning: this is the location of the previous definition/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:51: warning: ISO C++ forbids declaration of 'operator==' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:52: warning: ISO C++ forbids declaration of 'operator!=' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:53: warning: ISO C++ forbids declaration of 'operator!' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'PixMap** GetPortPixMapHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr LockPortBitsHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr UnlockPortBitsHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIsetViewportOrg(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetViewportOrg(HDCstruct*, qdim*, qdim*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qpoint*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIinvertRgn(HDCstruct*, qrgn*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetMainScreen(qrect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'OpaqueRgnHandle* GDIgetGrayRgn()':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetGrayBounds(Rect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetAllScreens(qrect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi: In function 'void WNDsetWindowOrg(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)37(22@39"Missing whitespace after the macro name309789876#0#69#0(6@14"<command line>309789876#1#0#1#0#0"0(22@39"Missing whitespace after the macro name309789876#226#147#3(7@36"In file included from <command line>309789876#18446744073709551615#0#0(6@14"<command line>309789876#1#0#1#0#0"0(7@112"In file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h309789876#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h273570523#19#0#19#0#0"0(13@133"Missing whitespace after the macro name in /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h309789876#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(22@18""ismach" redefined309789876#373#125#3(7@36"In file included from <command line>309789876#18446744073709551615#0#0(6@14"<command line>309789876#1#0#1#0#0"0(7@112"In file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h309789876#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h273570523#19#0#19#0#0"0(13@112""ismach" redefined in /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h309789876#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#13""*" redefined0(22@47"This is the location of the previous definition309789876#498#77#0(6@14"<command line>309789876#1#0#1#0#47"this is the location of the previous definition0(22@56"ISO C++ forbids declaration of 'operator==' with no type309789877#575#161#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#51#0#51#0#47"ISO C++ forbids declaration of '*' with no type0(22@56"ISO C++ forbids declaration of 'operator!=' with no type309789877#736#161#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#52#0#52#0#47"ISO C++ forbids declaration of '*' with no type0(22@55"ISO C++ forbids declaration of 'operator!' with no type309789877#897#160#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#53#0#53#0#47"ISO C++ forbids declaration of '*' with no type0(22@152"'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)309789877#1199#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#276#0#276#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)309789877#1454#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#276#0#276#0#33"'*' is deprecated (declared at *)0(22@150"'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)309789877#1847#253#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#278#0#278#0#33"'*' is deprecated (declared at *)0(22@150"'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)309789877#2100#253#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#278#0#278#0#33"'*' is deprecated (declared at *)0(22@152"'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)309789877#2493#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#279#0#279#0#33"'*' is deprecated (declared at *)0(22@152"'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)309789877#2748#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#279#0#279#0#33"'*' is deprecated (declared at *)0(22@147"'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)309789877#3157#252#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#86#0#86#0#33"'*' is deprecated (declared at *)0(22@147"'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)309789877#3409#252#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#86#0#86#0#33"'*' is deprecated (declared at *)0(22@166"'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)309789877#3661#271#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#87#0#87#0#33"'*' is deprecated (declared at *)0(22@166"'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)309789877#3932#271#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#87#0#87#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789877#4359#258#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#101#0#101#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789877#4617#258#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#101#0#101#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789877#5021#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#226#0#226#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789877#5271#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#226#0#226#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789877#5664#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#246#0#246#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789877#5914#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#246#0#246#0#33"'*' is deprecated (declared at *)0(22@148"'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)309789877#6308#254#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#383#0#383#0#33"'*' is deprecated (declared at *)0(22@148"'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)309789877#6562#254#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#383#0#383#0#33"'*' is deprecated (declared at *)0(22@161"'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)309789877#6952#267#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#527#0#527#0#33"'*' is deprecated (declared at *)0(22@161"'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)309789877#7219#267#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#527#0#527#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789877#7626#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#538#0#538#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789877#7874#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#538#0#538#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789877#8258#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#548#0#548#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789877#8506#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#548#0#548#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789877#8890#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#558#0#558#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789877#9138#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#558#0#558#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789877#9539#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#154#0#154#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789877#9798#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#154#0#154#0#33"'*' is deprecated (declared at *)0(22@152"'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)309789877#10057#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#156#0#156#0#33"'*' is deprecated (declared at *)0(22@152"'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)309789877#10316#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#156#0#156#0#33"'*' is deprecated (declared at *)0(0#0#54"/Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp8608762496#1195"    cd /Externals/MyProjects/jsoncpp/Mac    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.0 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -fvisibility-inlines-hidden -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/jsoncpp.hmap -F/Externals/MyProjects/jsoncpp/Mac/build/Deployment -F/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib -I/Externals/MyProjects/jsoncpp/Mac/build/Deployment/include -I/Externals/MyProjects/jsoncpp/Mac/../include -I/Developer/Headers/FlatCarbon -I/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/DerivedSources/i386 -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/DerivedSources -fpermissive -fno-for-scope -fshort-wchar -Dismach_o -Dismach-o -include /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h -c /Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp -o /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/JsonValue.o0#
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/JsonWriter.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonWriter.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/NVObjBase.o /Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-s309789875.495845
-e309789876.808027
-r1
-xCompileC
-xbuild/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/NVObjBase.o
-x/Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_0
-o<command line>:1:7: warning: missing whitespace after the macro name
-oIn file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h:19,
-o                 from <command line>:1:
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:16: warning: missing whitespace after the macro name
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:1: warning: "ismach" redefined
-o<command line>:1:1: warning: this is the location of the previous definition
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:51: warning: ISO C++ forbids declaration of 'operator==' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:52: warning: ISO C++ forbids declaration of 'operator!=' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:53: warning: ISO C++ forbids declaration of 'operator!' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'PixMap** GetPortPixMapHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr LockPortBitsHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr UnlockPortBitsHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIsetViewportOrg(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetViewportOrg(HDCstruct*, qdim*, qdim*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qpoint*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIinvertRgn(HDCstruct*, qrgn*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetMainScreen(qrect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'OpaqueRgnHandle* GDIgetGrayRgn()':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetGrayBounds(Rect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetAllScreens(qrect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi: In function 'void WNDsetWindowOrg(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)
-lSLF07#2@62"Compile /Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp309789875#309789876#0(10575"<command line>:1:7: warning: missing whitespace after the macro nameIn file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h:19,                 from <command line>:1:/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:16: warning: missing whitespace after the macro name/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:1: warning: "ismach" redefined<command line>:1:1: warning: this is the location of the previous definition/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:51: warning: ISO C++ forbids declaration of 'operator==' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:52: warning: ISO C++ forbids declaration of 'operator!=' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:53: warning: ISO C++ forbids declaration of 'operator!' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'PixMap** GetPortPixMapHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr LockPortBitsHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr UnlockPortBitsHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIsetViewportOrg(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetViewportOrg(HDCstruct*, qdim*, qdim*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qpoint*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIinvertRgn(HDCstruct*, qrgn*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetMainScreen(qrect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'OpaqueRgnHandle* GDIgetGrayRgn()':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetGrayBounds(Rect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetAllScreens(qrect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi: In function 'void WNDsetWindowOrg(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)37(22@39"Missing whitespace after the macro name309789875#0#69#0(6@14"<command line>309789875#1#0#1#0#0"0(22@39"Missing whitespace after the macro name309789875#226#147#3(7@36"In file included from <command line>309789875#18446744073709551615#0#0(6@14"<command line>309789875#1#0#1#0#0"0(7@112"In file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h309789875#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h273570523#19#0#19#0#0"0(13@133"Missing whitespace after the macro name in /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h309789875#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(22@18""ismach" redefined309789875#373#125#3(7@36"In file included from <command line>309789875#18446744073709551615#0#0(6@14"<command line>309789875#1#0#1#0#0"0(7@112"In file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h309789875#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h273570523#19#0#19#0#0"0(13@112""ismach" redefined in /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h309789875#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#13""*" redefined0(22@47"This is the location of the previous definition309789875#498#77#0(6@14"<command line>309789875#1#0#1#0#47"this is the location of the previous definition0(22@56"ISO C++ forbids declaration of 'operator==' with no type309789876#575#161#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#51#0#51#0#47"ISO C++ forbids declaration of '*' with no type0(22@56"ISO C++ forbids declaration of 'operator!=' with no type309789876#736#161#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#52#0#52#0#47"ISO C++ forbids declaration of '*' with no type0(22@55"ISO C++ forbids declaration of 'operator!' with no type309789876#897#160#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#53#0#53#0#47"ISO C++ forbids declaration of '*' with no type0(22@152"'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)309789876#1199#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#276#0#276#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)309789876#1454#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#276#0#276#0#33"'*' is deprecated (declared at *)0(22@150"'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)309789876#1847#253#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#278#0#278#0#33"'*' is deprecated (declared at *)0(22@150"'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)309789876#2100#253#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#278#0#278#0#33"'*' is deprecated (declared at *)0(22@152"'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)309789876#2493#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#279#0#279#0#33"'*' is deprecated (declared at *)0(22@152"'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)309789876#2748#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#279#0#279#0#33"'*' is deprecated (declared at *)0(22@147"'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)309789876#3157#252#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#86#0#86#0#33"'*' is deprecated (declared at *)0(22@147"'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)309789876#3409#252#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#86#0#86#0#33"'*' is deprecated (declared at *)0(22@166"'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)309789876#3661#271#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#87#0#87#0#33"'*' is deprecated (declared at *)0(22@166"'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)309789876#3932#271#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#87#0#87#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789876#4359#258#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#101#0#101#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789876#4617#258#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#101#0#101#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789876#5021#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#226#0#226#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789876#5271#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#226#0#226#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789876#5664#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#246#0#246#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789876#5914#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#246#0#246#0#33"'*' is deprecated (declared at *)0(22@148"'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)309789876#6308#254#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#383#0#383#0#33"'*' is deprecated (declared at *)0(22@148"'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)309789876#6562#254#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#383#0#383#0#33"'*' is deprecated (declared at *)0(22@161"'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)309789876#6952#267#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#527#0#527#0#33"'*' is deprecated (declared at *)0(22@161"'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)309789876#7219#267#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#527#0#527#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789876#7626#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#538#0#538#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789876#7874#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#538#0#538#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789876#8258#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#548#0#548#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789876#8506#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#548#0#548#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789876#8890#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#558#0#558#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789876#9138#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#558#0#558#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789876#9539#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#154#0#154#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789876#9798#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#154#0#154#0#33"'*' is deprecated (declared at *)0(22@152"'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)309789876#10057#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#156#0#156#0#33"'*' is deprecated (declared at *)0(22@152"'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)309789876#10316#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#156#0#156#0#33"'*' is deprecated (declared at *)0(0#0#54"/Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp8609278496#1195"    cd /Externals/MyProjects/jsoncpp/Mac    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.0 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -fvisibility-inlines-hidden -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/jsoncpp.hmap -F/Externals/MyProjects/jsoncpp/Mac/build/Deployment -F/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib -I/Externals/MyProjects/jsoncpp/Mac/build/Deployment/include -I/Externals/MyProjects/jsoncpp/Mac/../include -I/Developer/Headers/FlatCarbon -I/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/DerivedSources/i386 -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/DerivedSources -fpermissive -fno-for-scope -fshort-wchar -Dismach_o -Dismach-o -include /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h -c /Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp -o /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/NVObjBase.o0#
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/OmnisTools.o /Externals/MyProjects/jsoncpp/Mac/../src/OmnisTools.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/json_reader.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_reader.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/json_value.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_value.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/json_writer.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_writer.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp.cpp normal i386 c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/JsonReader.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonReader.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/JsonValue.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-s309789870.566797
-e309789875.966046
-r1
-xCompileC
-xbuild/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/JsonValue.o
-x/Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp
-xnormal
-xppc
-xc++
-xcom.apple.compilers.gcc.4_0
-o<command line>:1:7: warning: missing whitespace after the macro name
-oIn file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h:19,
-o                 from <command line>:1:
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:16: warning: missing whitespace after the macro name
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:1: warning: "ismach" redefined
-o<command line>:1:1: warning: this is the location of the previous definition
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:51: warning: ISO C++ forbids declaration of 'operator==' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:52: warning: ISO C++ forbids declaration of 'operator!=' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:53: warning: ISO C++ forbids declaration of 'operator!' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'PixMap** GetPortPixMapHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr LockPortBitsHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr UnlockPortBitsHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIsetViewportOrg(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetViewportOrg(HDCstruct*, qdim*, qdim*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qpoint*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIinvertRgn(HDCstruct*, qrgn*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetMainScreen(qrect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'OpaqueRgnHandle* GDIgetGrayRgn()':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetGrayBounds(Rect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetAllScreens(qrect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi: In function 'void WNDsetWindowOrg(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)
-lSLF07#2@62"Compile /Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp309789870#309789875#0(10575"<command line>:1:7: warning: missing whitespace after the macro nameIn file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h:19,                 from <command line>:1:/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:16: warning: missing whitespace after the macro name/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:1: warning: "ismach" redefined<command line>:1:1: warning: this is the location of the previous definition/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:51: warning: ISO C++ forbids declaration of 'operator==' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:52: warning: ISO C++ forbids declaration of 'operator!=' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:53: warning: ISO C++ forbids declaration of 'operator!' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'PixMap** GetPortPixMapHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr LockPortBitsHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr UnlockPortBitsHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIsetViewportOrg(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetViewportOrg(HDCstruct*, qdim*, qdim*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qpoint*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIinvertRgn(HDCstruct*, qrgn*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetMainScreen(qrect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'OpaqueRgnHandle* GDIgetGrayRgn()':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetGrayBounds(Rect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetAllScreens(qrect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi: In function 'void WNDsetWindowOrg(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)37(22@39"Missing whitespace after the macro name309789870#0#69#0(6@14"<command line>309789870#1#0#1#0#0"0(22@39"Missing whitespace after the macro name309789870#226#147#3(7@36"In file included from <command line>309789870#18446744073709551615#0#0(6@14"<command line>309789870#1#0#1#0#0"0(7@112"In file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h309789870#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h273570523#19#0#19#0#0"0(13@133"Missing whitespace after the macro name in /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h309789870#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(22@18""ismach" redefined309789870#373#125#3(7@36"In file included from <command line>309789870#18446744073709551615#0#0(6@14"<command line>309789870#1#0#1#0#0"0(7@112"In file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h309789870#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h273570523#19#0#19#0#0"0(13@112""ismach" redefined in /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h309789870#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#13""*" redefined0(22@47"This is the location of the previous definition309789870#498#77#0(6@14"<command line>309789870#1#0#1#0#47"this is the location of the previous definition0(22@56"ISO C++ forbids declaration of 'operator==' with no type309789875#575#161#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#51#0#51#0#47"ISO C++ forbids declaration of '*' with no type0(22@56"ISO C++ forbids declaration of 'operator!=' with no type309789875#736#161#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#52#0#52#0#47"ISO C++ forbids declaration of '*' with no type0(22@55"ISO C++ forbids declaration of 'operator!' with no type309789875#897#160#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#53#0#53#0#47"ISO C++ forbids declaration of '*' with no type0(22@152"'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)309789875#1199#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#276#0#276#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)309789875#1454#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#276#0#276#0#33"'*' is deprecated (declared at *)0(22@150"'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)309789875#1847#253#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#278#0#278#0#33"'*' is deprecated (declared at *)0(22@150"'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)309789875#2100#253#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#278#0#278#0#33"'*' is deprecated (declared at *)0(22@152"'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)309789875#2493#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#279#0#279#0#33"'*' is deprecated (declared at *)0(22@152"'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)309789875#2748#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#279#0#279#0#33"'*' is deprecated (declared at *)0(22@147"'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)309789875#3157#252#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#86#0#86#0#33"'*' is deprecated (declared at *)0(22@147"'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)309789875#3409#252#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#86#0#86#0#33"'*' is deprecated (declared at *)0(22@166"'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)309789875#3661#271#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#87#0#87#0#33"'*' is deprecated (declared at *)0(22@166"'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)309789875#3932#271#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#87#0#87#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789875#4359#258#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#101#0#101#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789875#4617#258#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#101#0#101#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789875#5021#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#226#0#226#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789875#5271#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#226#0#226#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789875#5664#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#246#0#246#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789875#5914#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#246#0#246#0#33"'*' is deprecated (declared at *)0(22@148"'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)309789875#6308#254#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#383#0#383#0#33"'*' is deprecated (declared at *)0(22@148"'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)309789875#6562#254#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#383#0#383#0#33"'*' is deprecated (declared at *)0(22@161"'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)309789875#6952#267#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#527#0#527#0#33"'*' is deprecated (declared at *)0(22@161"'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)309789875#7219#267#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#527#0#527#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#7626#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#538#0#538#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#7874#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#538#0#538#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#8258#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#548#0#548#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#8506#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#548#0#548#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#8890#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#558#0#558#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#9138#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#558#0#558#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789875#9539#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#154#0#154#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789875#9798#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#154#0#154#0#33"'*' is deprecated (declared at *)0(22@152"'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)309789875#10057#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#156#0#156#0#33"'*' is deprecated (declared at *)0(22@152"'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)309789875#10316#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#156#0#156#0#33"'*' is deprecated (declared at *)0(0#0#54"/Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp8612015328#1202"    cd /Externals/MyProjects/jsoncpp/Mac    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.0 -x c++ -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mtune=G4 -fvisibility-inlines-hidden -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/jsoncpp.hmap -F/Externals/MyProjects/jsoncpp/Mac/build/Deployment -F/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib -I/Externals/MyProjects/jsoncpp/Mac/build/Deployment/include -I/Externals/MyProjects/jsoncpp/Mac/../include -I/Developer/Headers/FlatCarbon -I/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/DerivedSources/ppc -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/DerivedSources -fpermissive -fno-for-scope -fshort-wchar -Dismach_o -Dismach-o -include /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h -c /Externals/MyProjects/jsoncpp/Mac/../src/JsonValue.cpp -o /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/JsonValue.o0#
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/JsonWriter.o /Externals/MyProjects/jsoncpp/Mac/../src/JsonWriter.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/NVObjBase.o /Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-s309789870.557720
-e309789875.495520
-r1
-xCompileC
-xbuild/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/NVObjBase.o
-x/Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp
-xnormal
-xppc
-xc++
-xcom.apple.compilers.gcc.4_0
-o<command line>:1:7: warning: missing whitespace after the macro name
-oIn file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h:19,
-o                 from <command line>:1:
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:16: warning: missing whitespace after the macro name
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:1: warning: "ismach" redefined
-o<command line>:1:1: warning: this is the location of the previous definition
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:51: warning: ISO C++ forbids declaration of 'operator==' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:52: warning: ISO C++ forbids declaration of 'operator!=' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:53: warning: ISO C++ forbids declaration of 'operator!' with no type
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'PixMap** GetPortPixMapHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr LockPortBitsHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr UnlockPortBitsHDC(HDCstruct*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIsetViewportOrg(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetViewportOrg(HDCstruct*, qdim*, qdim*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qpoint*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIinvertRgn(HDCstruct*, qrgn*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetMainScreen(qrect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'OpaqueRgnHandle* GDIgetGrayRgn()':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetGrayBounds(Rect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetAllScreens(qrect*)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi: In function 'void WNDsetWindowOrg(HDCstruct*, qdim, qdim)':
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)
-o/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)
-lSLF07#2@62"Compile /Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp309789870#309789875#0(10575"<command line>:1:7: warning: missing whitespace after the macro nameIn file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h:19,                 from <command line>:1:/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:16: warning: missing whitespace after the macro name/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h:24:1: warning: "ismach" redefined<command line>:1:1: warning: this is the location of the previous definition/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:51: warning: ISO C++ forbids declaration of 'operator==' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:52: warning: ISO C++ forbids declaration of 'operator!=' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he:53: warning: ISO C++ forbids declaration of 'operator!' with no type/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'PixMap** GetPortPixMapHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:276: warning: 'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr LockPortBitsHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:278: warning: 'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he: In function 'OSErr UnlockPortBitsHDC(HDCstruct*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he:279: warning: 'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIsetViewportOrg(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:86: warning: 'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:87: warning: 'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetViewportOrg(HDCstruct*, qdim*, qdim*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:101: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:226: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDImoveTo(HDCstruct*, qpoint*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:246: warning: 'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIinvertRgn(HDCstruct*, qrgn*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:383: warning: 'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetMainScreen(qrect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:527: warning: 'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'OpaqueRgnHandle* GDIgetGrayRgn()':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:538: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void GDIgetGrayBounds(Rect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:548: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi: In function 'void doGetAllScreens(qrect*)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi:558: warning: 'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi: In function 'void WNDsetWindowOrg(HDCstruct*, qdim, qdim)':/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:154: warning: 'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi:156: warning: 'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)37(22@39"Missing whitespace after the macro name309789870#0#69#0(6@14"<command line>309789870#1#0#1#0#0"0(22@39"Missing whitespace after the macro name309789870#226#147#3(7@36"In file included from <command line>309789870#18446744073709551615#0#0(6@14"<command line>309789870#1#0#1#0#0"0(7@112"In file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h309789870#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h273570523#19#0#19#0#0"0(13@133"Missing whitespace after the macro name in /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h309789870#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(22@18""ismach" redefined309789870#373#125#3(7@36"In file included from <command line>309789870#18446744073709551615#0#0(6@14"<command line>309789870#1#0#1#0#0"0(7@112"In file included from /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h309789870#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h273570523#19#0#19#0#0"0(13@112""ismach" redefined in /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h309789870#18446744073709551615#0#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#0"0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbonin.h291962748#24#0#24#0#13""*" redefined0(22@47"This is the location of the previous definition309789870#498#77#0(6@14"<command line>309789870#1#0#1#0#47"this is the location of the previous definition0(22@56"ISO C++ forbids declaration of 'operator==' with no type309789875#575#161#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#51#0#51#0#47"ISO C++ forbids declaration of '*' with no type0(22@56"ISO C++ forbids declaration of 'operator!=' with no type309789875#736#161#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#52#0#52#0#47"ISO C++ forbids declaration of '*' with no type0(22@55"ISO C++ forbids declaration of 'operator!' with no type309789875#897#160#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xbasics.he273570523#53#0#53#0#47"ISO C++ forbids declaration of '*' with no type0(22@152"'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)309789875#1199#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#276#0#276#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortPixMap' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4484)309789875#1454#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#276#0#276#0#33"'*' is deprecated (declared at *)0(22@150"'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)309789875#1847#253#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#278#0#278#0#33"'*' is deprecated (declared at *)0(22@150"'LockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:240)309789875#2100#253#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#278#0#278#0#33"'*' is deprecated (declared at *)0(22@152"'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)309789875#2493#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#279#0#279#0#33"'*' is deprecated (declared at *)0(22@152"'UnlockPortBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:255)309789875#2748#255#0(6@87"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdi.he273570523#279#0#279#0#33"'*' is deprecated (declared at *)0(22@147"'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)309789875#3157#252#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#86#0#86#0#33"'*' is deprecated (declared at *)0(22@147"'SetOrigin' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:498)309789875#3409#252#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#86#0#86#0#33"'*' is deprecated (declared at *)0(22@166"'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)309789875#3661#271#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#87#0#87#0#33"'*' is deprecated (declared at *)0(22@166"'SyncCGContextOriginWithPort' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5929)309789875#3932#271#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#87#0#87#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789875#4359#258#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#101#0#101#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789875#4617#258#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#101#0#101#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789875#5021#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#226#0#226#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789875#5271#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#226#0#226#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789875#5664#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#246#0#246#0#33"'*' is deprecated (declared at *)0(22@144"'MoveTo' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:797)309789875#5914#250#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#246#0#246#0#33"'*' is deprecated (declared at *)0(22@148"'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)309789875#6308#254#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#383#0#383#0#33"'*' is deprecated (declared at *)0(22@148"'InvertRgn' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:1831)309789875#6562#254#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#383#0#383#0#33"'*' is deprecated (declared at *)0(22@161"'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)309789875#6952#267#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#527#0#527#0#33"'*' is deprecated (declared at *)0(22@161"'GetQDGlobalsScreenBits' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5400)309789875#7219#267#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#527#0#527#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#7626#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#538#0#538#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#7874#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#538#0#538#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#8258#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#548#0#548#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#8506#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#548#0#548#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#8890#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#558#0#558#0#33"'*' is deprecated (declared at *)0(22@142"'GetGrayRgn' is deprecated (declared at /System/Library/Frameworks/Carbon.framework/Frameworks/HIToolbox.framework/Headers/MacWindows.h:11984)309789875#9138#248#0(6@90"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xgdiinl.hi273570523#558#0#558#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789875#9539#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#154#0#154#0#33"'*' is deprecated (declared at *)0(22@152"'GetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:4527)309789875#9798#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#154#0#154#0#33"'*' is deprecated (declared at *)0(22@152"'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)309789875#10057#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#156#0#156#0#33"'*' is deprecated (declared at *)0(22@152"'SetPortBounds' is deprecated (declared at /System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QuickdrawAPI.h:5097)309789875#10316#259#0(6@91"/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/xhwndinl.hi273570523#156#0#156#0#33"'*' is deprecated (declared at *)0(0#0#54"/Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp8609120544#1202"    cd /Externals/MyProjects/jsoncpp/Mac    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.0 -x c++ -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mtune=G4 -fvisibility-inlines-hidden -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/jsoncpp.hmap -F/Externals/MyProjects/jsoncpp/Mac/build/Deployment -F/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib -I/Externals/MyProjects/jsoncpp/Mac/build/Deployment/include -I/Externals/MyProjects/jsoncpp/Mac/../include -I/Developer/Headers/FlatCarbon -I/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/DerivedSources/ppc -I/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/DerivedSources -fpermissive -fno-for-scope -fshort-wchar -Dismach_o -Dismach-o -include /Externals/MyProjects/jsoncpp/Mac/../../Mac/complib/u_complib.framework/Headers/carbnuni.h -c /Externals/MyProjects/jsoncpp/Mac/../src/NVObjBase.cpp -o /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/NVObjBase.o0#
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/OmnisTools.o /Externals/MyProjects/jsoncpp/Mac/../src/OmnisTools.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/json_reader.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_reader.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/json_value.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_value.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/json_writer.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp/json_writer.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-r0
-
-CCompileC build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp.o /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp.cpp normal ppc c++ com.apple.compilers.gcc.4_0
-r0
-
-CCopyStringsFile /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
-r0
-
-CCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/JsonReader.he ../include/JsonReader.he
-r0
-
-CCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/JsonValue.he ../include/JsonValue.he
-r0
-
-CCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/JsonWriter.he ../include/JsonWriter.he
-r0
-
-CCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/Localizable.strings build/jsoncpp.build/Deployment/UnicodeCore.build/omnisrc/Localizable.strings
-r0
-
-CCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/NVObjBase.he ../include/NVObjBase.he
-r0
-
-CCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/OmnisTools.he ../include/OmnisTools.he
-r0
-
-CCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/json_internalarray.inl ../src/jsoncpp/json_internalarray.inl
-r0
-
-CCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/json_internalmap.inl ../src/jsoncpp/json_internalmap.inl
-r0
-
-CCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/json_valueiterator.inl ../src/jsoncpp/json_valueiterator.inl
-r0
-
-CCpResource build/Deployment/jsoncpp.u_xcomp/Contents/Resources/jsoncpp.he ../include/jsoncpp.he
-r0
-
-CCreateUniversalBinary /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/MacOS/jsoncpp normal "ppc i386"
-s309789878.599230
-e309789878.635600
-r1
-xCreateUniversalBinary
-x/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/MacOS/jsoncpp
-xnormal
-xppc i386
-lSLF07#2@95"CreateUniversalBinary build/Deployment/jsoncpp.u_xcomp/Contents/MacOS/jsoncpp normal "ppc i386"309789878#309789878#0(0"0(0#0#42"/Externals/MyProjects/jsoncpp/Mac/ppc i3868609794656#386"    cd /Externals/MyProjects/jsoncpp/Mac    /usr/bin/lipo -create /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp -output /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/MacOS/jsoncpp0#
-
-CLd /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp normal i386
-s309789878.002650
-e309789878.599132
-r1
-xLd
-x/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp
-xnormal
-xi386
-lSLF07#2@115"Link /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp309789878#309789878#0(0"0(0#0#0"8610689696#538"    cd /Externals/MyProjects/jsoncpp/Mac    /Developer/usr/bin/g++-4.0 -arch i386 -bundle -L/Externals/MyProjects/jsoncpp/Mac/build/Deployment -F/Externals/MyProjects/jsoncpp/Mac/build/Deployment -F/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib -filelist /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp.LinkFileList -framework Carbon -framework u_complib -o /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/i386/jsoncpp0#
-
-CLd /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp normal ppc
-s309789875.966126
-e309789877.706326
-r1
-xLd
-x/Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp
-xnormal
-xppc
-lSLF07#2@114"Link /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp309789875#309789877#0(0"0(0#0#0"8608994656#535"    cd /Externals/MyProjects/jsoncpp/Mac    /Developer/usr/bin/g++-4.0 -arch ppc -bundle -L/Externals/MyProjects/jsoncpp/Mac/build/Deployment -F/Externals/MyProjects/jsoncpp/Mac/build/Deployment -F/Externals/MyProjects/jsoncpp/Mac/../../Mac/complib -filelist /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp.LinkFileList -framework Carbon -framework u_complib -o /Externals/MyProjects/jsoncpp/Mac/build/jsoncpp.build/Deployment/UnicodeCore.build/Objects-normal/ppc/jsoncpp0#
-
-CPhaseScriptExecution /Externals/MyProjects/jsoncpp/Mac/../src/jsoncpp.rc
-r0
-
-CProcessInfoPlistFile /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp/Contents/Info.plist /Externals/MyProjects/jsoncpp/Mac/Info.plist
-r0
-
-CSymLink /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp
-s309780548.378575
-e309780548.381228
-r1
-xSymLink
-x/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp
-x/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp
-lSLF07#2@74"Process /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp309780548#309780548#0(0"0(0#0#0"8622310816#191"    cd /Externals/MyProjects/jsoncpp/Mac    /bin/ln -sf /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp0#
-
-CTouch /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp
-s309789878.635676
-e309789878.637821
-r1
-xTouch
-x/Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp
-lSLF07#2@72"Touch /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp309789878#309789878#0(0"0(0#0#0"8609353472#130"    cd /Externals/MyProjects/jsoncpp/Mac    /usr/bin/touch -c /Externals/MyProjects/jsoncpp/Mac/build/Deployment/jsoncpp.u_xcomp0#
-
