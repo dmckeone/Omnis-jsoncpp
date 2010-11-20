@@ -1,0 +1,56 @@
+/* JSON READER (HEADER)
+ * 
+ * This wraps the behaviour of the Json::Reader class
+ *
+ * NOTE: All headers for external components must have the .he extension instead of the standard .h
+ *       To enable code-highliting in Visual Studio 2008 go to Tools->Options-Text Editor-File Extension 
+ *       and add "he" as a "Microsoft Visual C++" experience.
+ *
+ * October 2, 2010 David McKeone (Created)
+ */
+
+// jsoncpp includes
+#include "json/reader.h"
+
+//Omnis includes
+#include <extcomp.he>
+#include "OmnisTools.he"
+#include "NVObjBase.he"
+
+#ifndef JSON_READER_HE
+#define JSON_READER_HE
+
+using OmnisTools::tThreadData;
+
+// Class definition for C++ version of your object
+class JsonReader : public NVObjBase
+{
+private:
+	Json::Reader jsonReader;
+	long myProperty;
+protected:
+public:
+	// Static tracking variable
+	static qshort objResourceId;
+	
+	// Constructor / Destructor
+	JsonReader( qobjinst objinst );
+	JsonReader( qobjinst objinst, tThreadData* );
+	virtual ~JsonReader();
+
+	// Methods Available and Method Call Handling
+	virtual qlong returnMethods( EXTCompInfo* pEci );
+	virtual qlong methodCall( tThreadData* pThreadData );
+
+	// Properties and Property Call Handling
+	virtual qlong returnProperties( EXTCompInfo* pEci );
+	virtual qlong getProperty( EXTCompInfo* pEci );
+	virtual qlong setProperty( EXTCompInfo* pEci );
+	virtual qlong canAssignProperty( EXTCompInfo* pEci, qlong propID );
+	
+	// Custom (Your) Methods
+	void methodParse( tThreadData*, qshort );
+	void methodGetFormattedErrorMessages( tThreadData*, qshort );
+};
+
+#endif /* JSON_READER_HE */

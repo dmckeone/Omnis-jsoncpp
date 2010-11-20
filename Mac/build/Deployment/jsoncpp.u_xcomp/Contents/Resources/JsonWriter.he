@@ -1,0 +1,55 @@
+/* JSON WRITER (HEADER)
+ * 
+ * This wraps the behaviour of the Json::WRITER class
+ *
+ * NOTE: All headers for external components must have the .he extension instead of the standard .h
+ *       To enable code-highliting in Visual Studio 2008 go to Tools->Options-Text Editor-File Extension 
+ *       and add "he" as a "Microsoft Visual C++" experience.
+ *
+ * October 2, 2010 David McKeone (Created)
+ */
+
+// jsoncpp includes
+#include "json/writer.h"
+
+//Omnis includes
+#include <extcomp.he>
+#include "OmnisTools.he"
+#include "NVObjBase.he"
+
+#ifndef JSON_WRITER_HE
+#define JSON_WRITER_HE
+
+using OmnisTools::tThreadData;
+
+// Class definition for C++ version of your object
+class JsonWriter : public NVObjBase
+{
+private:
+	Json::StyledWriter jsonWriter;
+	long myProperty;
+protected:
+public:
+	// Static tracking variable
+	static qshort objResourceId;
+	
+	// Constructor / Destructor
+	JsonWriter( qobjinst objinst );
+	JsonWriter( qobjinst objinst, tThreadData* );
+	virtual ~JsonWriter();
+	
+	// Methods Available and Method Call Handling
+	virtual qlong returnMethods( EXTCompInfo* pEci );
+	virtual qlong methodCall( tThreadData* pThreadData );
+	
+	// Properties and Property Call Handling
+	virtual qlong returnProperties( EXTCompInfo* pEci );
+	virtual qlong getProperty( EXTCompInfo* pEci );
+	virtual qlong setProperty( EXTCompInfo* pEci );
+	virtual qlong canAssignProperty( EXTCompInfo* pEci, qlong propID );
+	
+	// Custom (Your) Methods
+	void methodWrite( tThreadData* pThreadData, qshort pParamCount );
+};
+
+#endif /* JSON_WRITER_HE */
