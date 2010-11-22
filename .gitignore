@@ -1,0 +1,20 @@
+# Build Directory
+build/
+*.pbxuser
+*.mode1v3
+
+# Mac OS
+.DS_Store
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
