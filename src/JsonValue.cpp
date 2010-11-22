@@ -664,17 +664,15 @@ void JsonValue::methodGet( tThreadData* pThreadData, qshort pParamCount )
 	} 
 
 	std::string keyValue;
-	int indexValue;
+	UInt indexValue;
 	ffttype valType; keyVal.getType(valType);
 	
-	if ( valType == fftCharacter || valType == fftInteger) {
-		if ( jsonValue.isObject() ) {
-			keyValue = getStringFromEXTFldVal( keyVal );
-			returnValue = jsonValue[keyValue];
-		} else if ( jsonValue.isArray() && valType == fftInteger ) {
-			indexValue = static_cast<int>( keyVal.getLong() );
-			returnValue = jsonValue[indexValue];
-		}
+	if (valType == fftInteger) {
+		indexValue = static_cast<UInt>( keyVal.getLong() );
+		returnValue = jsonValue[indexValue];
+	} else if (valType == fftCharacter) {
+		keyValue = getStringFromEXTFldVal( keyVal );
+		returnValue = jsonValue[keyValue];
 	}
 	
 	if ( !(returnValue.isNull()) ) {
@@ -778,15 +776,15 @@ void JsonValue::methodGetMemberNames( tThreadData* pThreadData, qshort pParamCou
 	// Loop the member names to create the list
 	qlong memberLength;
 	std::string rowMember;
-	str255 textForRow;
 	for (qlong lineNumber = 0; lineNumber < memberNames.size(); lineNumber++) {
-		rowMember = memberNames[lineNumber];
 		
-		getEXTFldValFromString(fValMember, rowMember);
-		fValMember.getChar(textForRow, qtrue);
 		retList->insertRow(0);
-		retList->setCurRow( lineNumber+1 );
-		//, &textForRow, lineNumber );
+		//retList->setCurRow( lineNumber+1 );
+		retList->getColValRef(lineNumber+1, 1, fValMember, qtrue);
+		
+		// Retrieve member name and place it in the list
+		rowMember = memberNames[lineNumber];
+		getEXTFldValFromString(fValMember, rowMember);
 	}
 	
 	fValReturn.setList(retList, qtrue, qfalse); 
