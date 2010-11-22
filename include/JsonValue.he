@@ -9,13 +9,15 @@
  * October 2, 2010 David McKeone (Created)
  */
 
+//Omnis includes
+#include <extcomp.he>
+#include "NVObjBase.he"
+#include "OmnisTools.he"
+
 // jsoncpp includes
 #include "json/value.h"
 
-//Omnis includes
-#include <extcomp.he>
-#include "OmnisTools.he"
-#include "NVObjBase.he"
+typedef unsigned int UInt;
 
 #ifndef JSON_VALUE_HE
 #define JSON_VALUE_HE

@@ -1,3 +1,5 @@
+#include <jsoncpp.he>
+
 #include <json/writer.h>
 #include <utility>
 #include <assert.h>

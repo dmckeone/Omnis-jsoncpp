@@ -5,7 +5,7 @@
  * March 30, 2010 David McKeone (Created)
  */
 
-#include <extcomp.he>
+#include "jsoncpp.he"
 #include "JsonValue.he"
 #include "JsonWriter.he"
 

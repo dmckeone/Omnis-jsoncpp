@@ -9,13 +9,13 @@
  * October 2, 2010 David McKeone (Created)
  */
 
-// jsoncpp includes
-#include "json/writer.h"
-
 //Omnis includes
 #include <extcomp.he>
-#include "OmnisTools.he"
 #include "NVObjBase.he"
+#include "OmnisTools.he"
+
+// jsoncpp includes
+#include "json/writer.h"
 
 #ifndef JSON_WRITER_HE
 #define JSON_WRITER_HE

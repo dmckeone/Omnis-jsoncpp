@@ -1,5 +1,6 @@
 # Build Directory
-build/
+Mac/build/*
+Windows/build/*
 *.pbxuser
 *.mode1v3
 
@@ -10,6 +11,16 @@ build/
 *.slo
 *.lo
 *.o
+*.exp
+*.lib
+*.obj
+*.res
+*.dep
+*.idb
+*.pdb
+*.manifest
+*.pdb
+*.res
 
 # Compiled Dynamic libraries
 *.so

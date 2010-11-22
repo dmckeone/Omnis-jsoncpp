@@ -1,4 +1,4 @@
-LIBRARY         NVObjTemplate
+LIBRARY         jsoncpp
 EXPORTS
     NVObjWndProc  @1
  

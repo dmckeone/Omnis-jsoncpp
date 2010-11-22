@@ -101,7 +101,7 @@ void removeObject( qlong propID, NVObjBase* nvObj ) {
 // This method is used as a dispatch point for all behaviour in the component.
 // All messages(Msg) that are not caught in the switch() are handled by WNDdefWindowProc()
 
-extern "C" qlong OMNISWNDPROC OmnisWndProc(HWND hwnd, LPARAM Msg, WPARAM wParam, LPARAM lParam, EXTCompInfo* eci)
+extern "C" qlong OMNISWNDPROC NVObjWndProc( HWND hwnd, LPARAM Msg, WPARAM wParam, LPARAM lParam, EXTCompInfo* eci )
 {
 	ECOsetupCallbacks(hwnd, eci); // Initialize callback tables - THIS MUST BE DONE 		
 	
