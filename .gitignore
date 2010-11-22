@@ -3,6 +3,7 @@ Mac/build/*
 Windows/build/*
 *.pbxuser
 *.mode1v3
+*.user
 
 # Mac OS
 .DS_Store
@@ -21,6 +22,8 @@ Windows/build/*
 *.manifest
 *.pdb
 *.res
+*.aps
+*.ncb
 
 # Compiled Dynamic libraries
 *.so
