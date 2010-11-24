@@ -174,6 +174,7 @@ std::string OmnisTools::getISO8601DateStringFromEXTFldVal(EXTfldval& fVal) {
 			break;
 	}
 	
+	return retString;
 }
 
 
