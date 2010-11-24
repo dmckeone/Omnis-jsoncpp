@@ -86,25 +86,22 @@ std::string OmnisTools::getStringFromEXTFldVal(EXTfldval& fVal) {
 	qlong maxLength = fVal.getBinLen()+1; // Use binary length as approximation of maximum size
 	qlong length = 0;
 	qchar* omnisString = new qchar[maxLength];
-	fVal.getChar(maxLength, omnisString, length, qfalse);
-	length++; // Increment for \0 string terminator
-	
+	fVal.getChar(maxLength, omnisString, length);
+
 	// Translate qchar* string into UTF8 binary
 	qbyte* utf8data = new qbyte[length];
 	CHRunicode::charToUtf8(omnisString, length, utf8data);
 	
+	// TODO: This doesn't work on Windows
 	// Copy UTF8 binary into char* string
-	char* cString = new char[length];
-	memcpy(cString, utf8data, length);
-	cString[length] = '\0'; // Set terminator
+	char* cString = reinterpret_cast<char*> (utf8data);
 	
 	// Create standard string
-	retString = std::string(cString);
+	retString = std::string(cString, length);
 	
 	// Clean-up
 	delete [] omnisString;
 	delete [] utf8data;
-	delete [] cString;
 	
 	return retString;
 }
@@ -112,34 +109,31 @@ std::string OmnisTools::getStringFromEXTFldVal(EXTfldval& fVal) {
 // Set an existing EXTfldval object from a std::string
 void OmnisTools::getEXTFldValFromString(EXTfldval& fVal, std::string readString) {
 	qlong length;
-	qchar* omnisString = getQCharFromString( readString, length);
+	qchar* omnisString = getQCharFromString(readString, length);
 	
-	fVal.setChar(omnisString, length-1); // Set value of character field, but exclude the last character since it will be the null terminator from the C String
+	fVal.setChar(omnisString, length); // Set value of character field, but exclude the last character since it will be the null terminator from the C String
 	
 	// Clean-up
 	delete [] omnisString;
 }
 
-qchar* OmnisTools::getQCharFromString( std::string readString, qlong &retLength ) {
-	qlong length = readString.size()+1; // Include /0 terminator in length
+// Get a dynamically allocated qchar* array from a std::string
+qchar* OmnisTools::getQCharFromString(std::string readString, qlong &retLength) {
+	qlong length = readString.size();
 	
-	// Initialize C string and setup variables needed for memory copy
-	char* cString = new char[length];
-	strcpy(cString, readString.c_str()); //Get C String
-	qbyte* utf8data = new qbyte[length];
+	// Cast-away constness of c_str() pointer 
+	char* cString = const_cast<char*>(readString.c_str());
+	
+	// Feed into raw byte data
+	qbyte* utf8data = reinterpret_cast<qbyte*> (cString);
+	
+	// Allocate new qchar* string
 	qchar* omnisString = new qchar[length];
-	
-	// Copy C string into qbyte buffer
-	memcpy(utf8data, cString, length);
 	
 	// Convert to Omnis Character field
 	CHRunicode::utf8ToChar(utf8data, length, omnisString);  // Convert characters into Omnis Char Field
 	
 	retLength = length;
-	
-	// Clean-up
-	delete [] utf8data;
-	delete [] cString;
 	
 	return omnisString;
 }
