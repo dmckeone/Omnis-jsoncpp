@@ -182,7 +182,7 @@
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="..\..\Windows\ULIBS"
-				IgnoreDefaultLibraryNames="libc.lib, msvcrt.lib"
+				IgnoreDefaultLibraryNames="libc.lib"
 				ModuleDefinitionFile="..\src\$(ProjectName).def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(IntDir)/$(ProjectName).pdb"

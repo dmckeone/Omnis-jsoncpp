@@ -1,6 +1,7 @@
 # Build Directory
 Mac/build/*
 Windows/build/*
+
 *.pbxuser
 *.mode1v3
 *.user
