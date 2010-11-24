@@ -84,24 +84,22 @@ std::string OmnisTools::getStringFromEXTFldVal(EXTfldval& fVal) {
 	
 	// Get a qchar* string
 	qlong maxLength = fVal.getBinLen()+1; // Use binary length as approximation of maximum size
-	qlong length = 0;
+	qlong length = 0, stringLength = 0;
 	qchar* omnisString = new qchar[maxLength];
 	fVal.getChar(maxLength, omnisString, length);
 
 	// Translate qchar* string into UTF8 binary
-	qbyte* utf8data = new qbyte[length];
-	CHRunicode::charToUtf8(omnisString, length, utf8data);
+	qbyte* utf8data = reinterpret_cast<qbyte*>(omnisString);
+	stringLength = CHRunicode::charToUtf8(omnisString, length, utf8data);
 	
-	// TODO: This doesn't work on Windows
-	// Copy UTF8 binary into char* string
+	// Translate UTF8 binary into char* string
 	char* cString = reinterpret_cast<char*> (utf8data);
 	
 	// Create standard string
-	retString = std::string(cString, length);
+	retString = std::string(cString,stringLength);
 	
 	// Clean-up
 	delete [] omnisString;
-	delete [] utf8data;
 	
 	return retString;
 }
@@ -131,9 +129,7 @@ qchar* OmnisTools::getQCharFromString(std::string readString, qlong &retLength) 
 	qchar* omnisString = new qchar[length];
 	
 	// Convert to Omnis Character field
-	CHRunicode::utf8ToChar(utf8data, length, omnisString);  // Convert characters into Omnis Char Field
-	
-	retLength = length;
+	retLength = CHRunicode::utf8ToChar(utf8data, length, omnisString);  // Convert characters into Omnis Char Field
 	
 	return omnisString;
 }

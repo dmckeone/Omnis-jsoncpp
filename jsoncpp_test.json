@@ -1,7 +1,7 @@
 // Configuration options
 {
     // Default encoding for text
-    "encoding" : "UTF-8",
+    "éncoding" : "UTF-8",
     
     // Plug-ins loaded at start-up
     "plug-ins" : [
