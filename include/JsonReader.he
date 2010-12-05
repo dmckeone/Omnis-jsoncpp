@@ -14,6 +14,9 @@
 #include "NVObjBase.he"
 #include "OmnisTools.he"
 
+//Boost includes
+#include <Boost/smart_ptr.hpp>
+
 // jsoncpp includes
 #include "json/reader.h"
 
@@ -39,14 +42,14 @@ public:
 	virtual ~JsonReader();
 
 	// Methods Available and Method Call Handling
-	virtual qlong returnMethods( EXTCompInfo* pEci );
+	virtual qlong returnMethods( tThreadData* pThreadData );
 	virtual qlong methodCall( tThreadData* pThreadData );
 
 	// Properties and Property Call Handling
-	virtual qlong returnProperties( EXTCompInfo* pEci );
-	virtual qlong getProperty( EXTCompInfo* pEci );
-	virtual qlong setProperty( EXTCompInfo* pEci );
-	virtual qlong canAssignProperty( EXTCompInfo* pEci, qlong propID );
+	virtual qlong returnProperties( tThreadData* pThreadData );
+	virtual qlong getProperty( tThreadData* pThreadData );
+	virtual qlong setProperty( tThreadData* pThreadData );
+	virtual qlong canAssignProperty( tThreadData* pThreadData, qlong propID );
 	
 	// Custom (Your) Methods
 	void methodParse( tThreadData*, qshort );

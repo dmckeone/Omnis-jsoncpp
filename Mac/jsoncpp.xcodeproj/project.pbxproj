@@ -335,6 +335,7 @@
 				GCC_PREFIX_HEADER = $PROJECT_DIR/../../Mac/complib/u_complib.framework/Headers/carbnuni.h;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
+					$BOOST_ROOT,
 					$PROJECT_DIR/../include,
 					/Developer/Headers/FlatCarbon,
 					$PROJECT_DIR/../../Mac/complib/u_complib.framework/Headers,
@@ -342,7 +343,7 @@
 				INFOPLIST_FILE = $PROJECT_DIR/Info.plist;
 				INIT_ROUTINE = "";
 				INSTALL_PATH = "$(OMNIS_XCOMP_PATH)";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = $BOOST_ROOT/stage/lib;
 				LIBRARY_STYLE = DYNAMIC;
 				OTHER_CFLAGS = (
 					"-fpermissive",
@@ -381,16 +382,16 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = $PROJECT_DIR/../../Mac/complib/u_complib.framework/Headers/carbnuni.h;
-				GCC_VERSION = 4.0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
+					$BOOST_ROOT,
 					$PROJECT_DIR/../include,
 					/Developer/Headers/FlatCarbon,
 					$PROJECT_DIR/../../Mac/complib/u_complib.framework/Headers,
 				);
 				INFOPLIST_FILE = $PROJECT_DIR/Info.plist;
 				INSTALL_PATH = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = $BOOST_ROOT/stage/lib;
 				LIBRARY_STYLE = DYNAMIC;
 				OTHER_CFLAGS = (
 					"-fpermissive",

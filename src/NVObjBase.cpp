@@ -36,11 +36,11 @@ void NVObjBase::copy( NVObjBase* pObj )
 }
 
 // Methods Available and Method Call Handling (These should be overriden by a sub-class)
-qlong NVObjBase::returnMethods( EXTCompInfo* pEci ) { return 1L; }
+qlong NVObjBase::returnMethods( tThreadData* pThreadData ) { return 1L; }
 qlong NVObjBase::methodCall( tThreadData* pThreadData ) { return 1L; }
 
 // Properties and Property Call Handling (These should be overriden by a sub-class)
-qlong NVObjBase::returnProperties( EXTCompInfo* pEci ) { return qtrue; }
-qlong NVObjBase::getProperty( EXTCompInfo* pEci ) { return qtrue; }
-qlong NVObjBase::setProperty( EXTCompInfo* pEci ) { return qtrue; }
-qlong NVObjBase::canAssignProperty( EXTCompInfo* pEci, qlong propID ) { return qfalse; }
+qlong NVObjBase::returnProperties( tThreadData* pThreadData ) { return qtrue; }
+qlong NVObjBase::getProperty( tThreadData* pThreadData ) { return qtrue; }
+qlong NVObjBase::setProperty( tThreadData* pThreadData ) { return qtrue; }
+qlong NVObjBase::canAssignProperty( tThreadData* pThreadData, qlong propID ) { return qfalse; }

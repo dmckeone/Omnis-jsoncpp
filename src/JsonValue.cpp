@@ -10,6 +10,8 @@
 
 #include <string>
 
+using boost::shared_ptr;
+
 // Resource #'s for Value Type constants
 const static qshort kConstValueTypeStart = 23001,
                     kConstValueTypeEnd   = 23008;
@@ -21,11 +23,15 @@ using namespace OmnisTools;
  **                       CONSTRUCTORS / DESTRUCTORS                                             **
  **************************************************************************************************/
 
-JsonValue::JsonValue(qobjinst objinst) : NVObjBase(objinst)
-{ }
-
-JsonValue::JsonValue(qobjinst objinst, tThreadData *pThreadData) : NVObjBase(objinst)
+JsonValue::JsonValue(qobjinst objinst) : NVObjBase(objinst), document(new Json::Value())
 { 
+	jsonValue = &(*document);
+}
+
+JsonValue::JsonValue(qobjinst objinst, tThreadData *pThreadData) : NVObjBase(objinst), document(new Json::Value())
+{ 
+	jsonValue = &(*document);
+	
 	// Constructor for $new(), interpret parameters (if any)
 	pThreadData->mCurMethodName = "$new";
 	qshort paramCount = ECOgetParamCount(pThreadData->mEci);
@@ -40,19 +46,29 @@ void JsonValue::copy( NVObjBase* pObj ) {
 	// Copy in super class (This does *this = *pObj)
 	NVObjBase::copy(pObj);
 	
-	// Copy the Json::Value into the new object
+	// Copy the Json::Value and top pointer into the new object
 	jsonValue = dynamic_cast<JsonValue*>(pObj)->jsonValue;
+	document = dynamic_cast<JsonValue*>(pObj)->document;
 }
 
 // Get the internal Json::Value
-Json::Value JsonValue::getJsonValue() {
-	return jsonValue;
+Json::Value& JsonValue::getJsonValue() {
+	return *jsonValue;
 }
 
 // Set the internal Json::Value
-void JsonValue::setJsonValue(Json::Value v) {
+void JsonValue::setJsonValue(shared_ptr<Json::Value> v) {
 	// Set the new value
-	jsonValue = v;
+	document = v;
+	// Set the current data pointer
+	jsonValue = &(*document);
+}
+
+void JsonValue::setJsonValue(boost::shared_ptr<Json::Value> v, Json::Value* pos) {
+	// Set the new value
+	document = v;
+	// Set the current data pointer
+	jsonValue = pos;
 }
 
 /**************************************************************************************************
@@ -91,7 +107,10 @@ const static qshort cMethodConstruct  = 2100,
                     cMethodClear      = 2115,
                     cMethodIsValidIndex = 2116,
                     cMethodIsMember = 2117,
-                    cMethodGetMemberNames = 2118;
+                    cMethodGetMemberNames = 2118,
+					cMethodCopy = 2119,
+					cMethodRoot = 2120,
+					cMethodSet  = 2121;
 
 /**************************************************************************************************
  **                                 INSTANCE METHODS                                             **
@@ -181,6 +200,18 @@ qlong JsonValue::methodCall( tThreadData* pThreadData )
 			pThreadData->mCurMethodName = "$getMemberNames";
 			methodGetMemberNames(pThreadData, paramCount);
 			break;
+		case cMethodCopy:
+			pThreadData->mCurMethodName = "$copy";
+			methodCopy(pThreadData, paramCount);
+			break;
+		case cMethodRoot:
+			pThreadData->mCurMethodName = "$root";
+			methodRoot(pThreadData, paramCount);
+			break;
+		case cMethodSet:
+			pThreadData->mCurMethodName = "$set";
+			methodSet(pThreadData, paramCount);
+			break;
 	}
 
 	return 0L;
@@ -242,15 +273,18 @@ ECOmethodEvent cJsonValueMethodsTable[] =
 	cMethodClear, cMethodClear, fftNone, 0, 0, 0, 0,
 	cMethodIsValidIndex, cMethodIsValidIndex, fftBoolean, 1, &cJsonValueMethodsParamsTable[4], 0, 0,
 	cMethodIsMember, cMethodIsMember, fftBoolean, 1, &cJsonValueMethodsParamsTable[5], 0, 0,
-	cMethodGetMemberNames, cMethodGetMemberNames, fftList, 0, 0, 0, 0
+	cMethodGetMemberNames, cMethodGetMemberNames, fftList, 0, 0, 0, 0,
+	cMethodCopy, cMethodCopy, fftObject, 0, 0, 0, 0,
+	cMethodRoot, cMethodRoot, fftObject, 0, 0, 0, 0,
+	cMethodSet, cMethodSet, fftNone, 0, 0, 0, 0
 };
 
 // List of methods in Simple
-qlong JsonValue::returnMethods(EXTCompInfo* pEci)
+qlong JsonValue::returnMethods(tThreadData* pThreadData)
 {
 	const qshort cMethodCount = sizeof(cJsonValueMethodsTable) / sizeof(ECOmethodEvent);
 	
-	return ECOreturnMethods( gInstLib, pEci, &cJsonValueMethodsTable[0], cMethodCount );
+	return ECOreturnMethods( gInstLib, pThreadData->mEci, &cJsonValueMethodsTable[0], cMethodCount );
 }
 
 /* PROPERTIES */
@@ -272,33 +306,33 @@ ECOproperty cJsonValuePropertyTable[] =
 };
 
 // List of properties in this component
-qlong JsonValue::returnProperties( EXTCompInfo* pEci )
+qlong JsonValue::returnProperties( tThreadData* pThreadData )
 {
 	const qshort propertyCount = sizeof(cJsonValuePropertyTable) / sizeof(ECOproperty);
 
-	return ECOreturnProperties( gInstLib, pEci, &cJsonValuePropertyTable[0], propertyCount );
+	return ECOreturnProperties( gInstLib, pThreadData->mEci, &cJsonValuePropertyTable[0], propertyCount );
 }
 
 // Assignability of properties
-qlong JsonValue::canAssignProperty( EXTCompInfo* pEci, qlong propID ) {
+qlong JsonValue::canAssignProperty( tThreadData* pThreadData, qlong propID ) {
 	switch (propID) {
 		case cPropertyValueType:
 			return qfalse;
 		case cPropertyValueTypeDesc:
 			return qfalse;
 		case cPropertyContents:
-			return qtrue;
+			return qfalse;
 		default:
 			return qfalse;
 	}
 }
 
 // Method to retrieve a property of the object
-qlong JsonValue::getProperty( EXTCompInfo* pEci ) 
+qlong JsonValue::getProperty( tThreadData* pThreadData ) 
 {
 	EXTfldval fValReturn;
 	
-	qlong propID = ECOgetId( pEci );
+	qlong propID = ECOgetId( pThreadData->mEci );
 	switch( propID ) {
 		case cPropertyValueType:
 			propertyValueType(fValReturn); // Put property into return value
@@ -307,25 +341,25 @@ qlong JsonValue::getProperty( EXTCompInfo* pEci )
 			propertyValueTypeDesc(fValReturn); // Put property into return value
 			break;
 		case cPropertyContents:
-			getPropertyContents(fValReturn); // Put property into return value
+			getPropertyContents(fValReturn, pThreadData); // Put property into return value
 			break;		    
 	}
 	
-	ECOaddParam(pEci, &fValReturn); // Return to caller
+	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 	
 	return 1L;
 }
 
 // Method to set a property of the object
-qlong JsonValue::setProperty( EXTCompInfo* pEci )
+qlong JsonValue::setProperty( tThreadData* pThreadData )
 {	
 	// Retrieve value to set for property, always in first parameter
 	EXTfldval fVal;
-	if( getParamVar( pEci, 1, fVal) == qfalse ) 
+	if( getParamVar( pThreadData->mEci, 1, fVal) == qfalse ) 
 		return qfalse;
 	
 	// Assign to the appropriate property
-	qlong propID = ECOgetId( pEci );
+	qlong propID = ECOgetId( pThreadData->mEci );
 	switch( propID ) {
 		case cPropertyValueType:
 			// Value type is not an assignable property
@@ -335,8 +369,7 @@ qlong JsonValue::setProperty( EXTCompInfo* pEci )
 			return qfalse;
 		case cPropertyContents:
 			// Value type description is not an assignable property
-			setPropertyContents(fVal);
-			return qtrue;
+			return qfalse;
 		default:
 			return qfalse;
 	}
@@ -347,7 +380,7 @@ qlong JsonValue::setProperty( EXTCompInfo* pEci )
  **************************************************************************************************/
 
 void JsonValue::propertyValueType(EXTfldval &retVal) {
-	switch (jsonValue.type()) {
+	switch (jsonValue->type()) {
 		case Json::nullValue:
 			retVal.setConstant(kConstValueTypeStart, kConstValueTypeEnd, 0);
 			break;
@@ -379,7 +412,7 @@ void JsonValue::propertyValueType(EXTfldval &retVal) {
 
 // Returns the text version of the constant name
 void JsonValue::propertyValueTypeDesc(EXTfldval &retVal) {
-	switch (jsonValue.type()) {
+	switch (jsonValue->type()) {
 		case Json::nullValue:
 			getEXTFldValFromString(retVal,"kJSONNullValueType");
 			break;
@@ -410,25 +443,25 @@ void JsonValue::propertyValueTypeDesc(EXTfldval &retVal) {
 }
 
 // Return the contents of this value to the caller
-void JsonValue::getPropertyContents(EXTfldval &retVal) {
-	switch (jsonValue.type()) {
+void JsonValue::getPropertyContents(EXTfldval &retVal, tThreadData* pThreadData) {
+	switch (jsonValue->type()) {
 		case Json::nullValue:
 			retVal.setNull(fftCharacter, dpFcharacter);
 			break;
 		case Json::intValue:
-			retVal.setLong(jsonValue.asInt());
+			retVal.setLong(jsonValue->asInt());
 			break;
 		case Json::uintValue:
-			retVal.setLong(jsonValue.asUInt());
+			retVal.setLong(jsonValue->asUInt());
 			break;
 		case Json::realValue:
-			retVal.setNum(jsonValue.asDouble());
+			retVal.setNum(jsonValue->asDouble());
 			break;
 		case Json::stringValue:
-			getEXTFldValFromString(retVal,jsonValue.asString());
+			getEXTFldValFromString(retVal,jsonValue->asString());
 			break;
 		case Json::booleanValue:
-			retVal.setBool( getQBoolFromBool(jsonValue.asBool()) );
+			retVal.setBool( getQBoolFromBool(jsonValue->asBool()) );
 			break;
 		case Json::arrayValue:
 			getEXTFldValFromString(retVal,"<JSON Array>");
@@ -442,74 +475,65 @@ void JsonValue::getPropertyContents(EXTfldval &retVal) {
 }
 
 // Helper method to initialize the jsonValue to a new value.
-void JsonValue::setValueFromEXTfldval(EXTfldval &fVal) {
-	jsonValue = Json::Value();
-	
+void JsonValue::setValueFromEXTfldval(tThreadData* pThreadData, EXTfldval &fVal) {
 	// Get the data type of the parameter
 	ffttype valType; fVal.getType(valType);
 	
 	// Perform appropriate initialization for each type
 	if (valType == fftCharacter) {
-		jsonValue = getStringFromEXTFldVal(fVal);
+		*jsonValue = getStringFromEXTFldVal(fVal);
 	} else if (valType == fftInteger) {
-		jsonValue = static_cast<int>( fVal.getLong() );
+		*jsonValue = static_cast<int>( fVal.getLong() );
 	} else if (valType == fftNumber) {
-		jsonValue = getDoubleFromEXTFldVal(fVal);
+		*jsonValue = getDoubleFromEXTFldVal(fVal);
 	} else if (valType == fftBoolean) {
-		jsonValue = getBoolFromQBool(fVal.getBool());
-	}
-	
-	// If no parameters were passed or an object couldn't be found, then init to NULL
-	if ( jsonValue.isNull() ) {
-		jsonValue = Json::Value();
+		*jsonValue = getBoolFromQBool(fVal.getBool());
+	} else if (valType == fftObject) {
+		JsonValue* assignObj = getObjForEXTfldval<JsonValue>(pThreadData, fVal);
+		if (assignObj) {
+			*jsonValue = *(assignObj->jsonValue);
+		}
 	}
 }
 
 // Helper method to set the jsonValue for a specific array position
-void JsonValue::setValueFromEXTfldval(EXTfldval &fVal, int group) {
-	jsonValue[group] = Json::Value();
-	
+void JsonValue::setValueFromEXTfldval(tThreadData* pThreadData, EXTfldval &fVal, int group) {
 	// Get the data type of the parameter
 	ffttype valType; fVal.getType(valType);
 	
 	// Perform appropriate initialization for each type
 	if (valType == fftCharacter) {
-		jsonValue[group] = getStringFromEXTFldVal(fVal);
+		(*jsonValue)[group] = getStringFromEXTFldVal(fVal);
 	} else if (valType == fftInteger) {
-		jsonValue[group] = static_cast<int>( fVal.getLong() );
+		(*jsonValue)[group] = static_cast<int>( fVal.getLong() );
 	} else if (valType == fftNumber) {
-		jsonValue[group] = getDoubleFromEXTFldVal(fVal);
+		(*jsonValue)[group] = getDoubleFromEXTFldVal(fVal);
 	} else if (valType == fftBoolean) {
-		jsonValue[group] = getBoolFromQBool(fVal.getBool());
-	}
-	
-	// If no parameters were passed or an object couldn't be found, then init to NULL
-	if ( jsonValue[group].isNull() ) {
-		jsonValue[group] = Json::Value();
+		(*jsonValue)[group] = getBoolFromQBool(fVal.getBool());
 	}
 }
 
 // Helper method to set the jsonValue for a specific group
-void JsonValue::setValueFromEXTfldval(EXTfldval &fVal, std::string group) {
-	jsonValue[group] = Json::Value();
+void JsonValue::setValueFromEXTfldval(tThreadData* pThreadData, EXTfldval &fVal, std::string group) {
+	(*jsonValue)[group] = Json::Value();
 	
 	// Get the data type of the parameter
 	ffttype valType; fVal.getType(valType);
 	
 	// Perform appropriate initialization for each type
 	if (valType == fftCharacter) {
-		jsonValue[group] = getStringFromEXTFldVal(fVal);
+		(*jsonValue)[group] = getStringFromEXTFldVal(fVal);
 	} else if (valType == fftInteger) {
-		jsonValue[group] = static_cast<int>( fVal.getLong() );
+		(*jsonValue)[group] = static_cast<int>( fVal.getLong() );
 	} else if (valType == fftNumber) {
-		jsonValue[group] = getDoubleFromEXTFldVal(fVal);
+		(*jsonValue)[group] = getDoubleFromEXTFldVal(fVal);
 	} else if (valType == fftBoolean) {
-		jsonValue[group] = getBoolFromQBool(fVal.getBool());
+		(*jsonValue)[group] = getBoolFromQBool(fVal.getBool());
 	}
 	
 	// If no parameters were passed or an object couldn't be found, then init to NULL
-	if ( jsonValue[group].isNull() ) {
-		jsonValue[group] = Json::Value();
+	if ( (*jsonValue)[group].isNull() ) {
+		(*jsonValue)[group] = Json::Value();
 	}
 }
 
@@ -520,14 +544,8 @@ void JsonValue::setValueFromParameter(tThreadData *pThreadData, qshort paramNumb
 		// Interpret the parameter we have
 		EXTfldval fVal; fVal.setFldVal((qfldval)param->mData);
 		
-		setValueFromEXTfldval(fVal);
+		setValueFromEXTfldval(pThreadData, fVal);
 	}
-}
-
-// Set the contents of this value
-void JsonValue::setPropertyContents(EXTfldval &fVal) {
-	// Read parameters
-	setValueFromEXTfldval(fVal);
 }
 
 /**************************************************************************************************
@@ -555,7 +573,7 @@ void JsonValue::methodInitialize( tThreadData* pThreadData, qshort pParamCount )
 void JsonValue::methodIsNull( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue.isNull());
+	qbool result = getQBoolFromBool(jsonValue->isNull());
 	
 	fValReturn.setBool(result); // Put property into return value
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
@@ -564,7 +582,7 @@ void JsonValue::methodIsNull( tThreadData* pThreadData, qshort pParamCount )
 void JsonValue::methodIsBool( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue.isBool());
+	qbool result = getQBoolFromBool(jsonValue->isBool());
 	
 	fValReturn.setBool(result); // Put property into return value
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
@@ -573,7 +591,7 @@ void JsonValue::methodIsBool( tThreadData* pThreadData, qshort pParamCount )
 void JsonValue::methodIsInt( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue.isInt());
+	qbool result = getQBoolFromBool(jsonValue->isInt());
 	
 	fValReturn.setBool(result); // Put property into return value
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
@@ -582,7 +600,7 @@ void JsonValue::methodIsInt( tThreadData* pThreadData, qshort pParamCount )
 void JsonValue::methodIsUInt( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue.isUInt());
+	qbool result = getQBoolFromBool(jsonValue->isUInt());
 	
 	fValReturn.setBool(result); // Put property into return value
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
@@ -591,7 +609,7 @@ void JsonValue::methodIsUInt( tThreadData* pThreadData, qshort pParamCount )
 void JsonValue::methodIsIntegral( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue.isIntegral());
+	qbool result = getQBoolFromBool(jsonValue->isIntegral());
 	
 	fValReturn.setBool(result); // Put property into return value
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
@@ -600,7 +618,7 @@ void JsonValue::methodIsIntegral( tThreadData* pThreadData, qshort pParamCount )
 void JsonValue::methodIsDouble( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue.isDouble());
+	qbool result = getQBoolFromBool(jsonValue->isDouble());
 	
 	fValReturn.setBool(result); // Put property into return value
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
@@ -609,7 +627,7 @@ void JsonValue::methodIsDouble( tThreadData* pThreadData, qshort pParamCount )
 void JsonValue::methodIsNumeric( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue.isNumeric());
+	qbool result = getQBoolFromBool(jsonValue->isNumeric());
 	
 	fValReturn.setBool(result); // Put property into return value
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
@@ -618,7 +636,7 @@ void JsonValue::methodIsNumeric( tThreadData* pThreadData, qshort pParamCount )
 void JsonValue::methodIsString( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue.isString());
+	qbool result = getQBoolFromBool(jsonValue->isString());
 	
 	fValReturn.setBool(result); // Put property into return value
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
@@ -627,7 +645,7 @@ void JsonValue::methodIsString( tThreadData* pThreadData, qshort pParamCount )
 void JsonValue::methodIsArray( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue.isArray());
+	qbool result = getQBoolFromBool(jsonValue->isArray());
 	
 	fValReturn.setBool(result); // Put property into return value
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
@@ -636,7 +654,7 @@ void JsonValue::methodIsArray( tThreadData* pThreadData, qshort pParamCount )
 void JsonValue::methodIsObject( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue.isObject());
+	qbool result = getQBoolFromBool(jsonValue->isObject());
 	
 	fValReturn.setBool(result); // Put property into return value
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
@@ -650,39 +668,69 @@ void JsonValue::methodGet( tThreadData* pThreadData, qshort pParamCount )
 	
 	if ( getParamVar(pThreadData, 1, keyVal) == qfalse)
 		return;
-	
-	JsonValue *omnisObj;
-	Json::Value returnValue = Json::Value(), 
-	            resultValue = Json::Value(); // Set result to Null.  If something is found it will override, otherwise this will be returned.;
-	
-	// Optional, if parameter passed then assign default value
-	if ( getParamVar(pThreadData, 2, defVal) == qtrue) {
-		omnisObj = getObjForEXTfldval<JsonValue>(pThreadData, defVal);
-		if (omnisObj) {
-			resultValue = omnisObj->getJsonValue(); 
-		}
-	} 
+
+	// Pointer to the Json::Value with the data we are looking for
+	Json::Value* posPointer = 0;
 
 	std::string keyValue;
 	UInt indexValue;
 	ffttype valType; keyVal.getType(valType);
 	
 	if (valType == fftInteger) {
-		indexValue = static_cast<UInt>( keyVal.getLong() );
-		returnValue = jsonValue[indexValue];
+		if (jsonValue->isArray()) {
+			indexValue = static_cast<UInt>( keyVal.getLong() );
+			posPointer = &((*jsonValue)[indexValue]);
+		}
 	} else if (valType == fftCharacter) {
-		keyValue = getStringFromEXTFldVal( keyVal );
-		returnValue = jsonValue[keyValue];
-	}
-	
-	if ( !(returnValue.isNull()) ) {
-		resultValue = returnValue;
+		if (jsonValue->isObject()) {
+			keyValue = getStringFromEXTFldVal( keyVal );
+			posPointer = &((*jsonValue)[keyValue]);
+		}
 	}
 	
 	// Create return value object
 	JsonValue *newObj = createNVObj<JsonValue>(pThreadData);
-	newObj->setJsonValue(resultValue);
+	if ( posPointer != 0 ) {
+		// Return pointer to found position
+		newObj->setJsonValue(document, posPointer); // Set value and pointer to source
+	} else {
+		// Wasn't able to locate an object.
+		if ( getParamVar(pThreadData, 2, defVal) == qtrue) {
+			// Optional, if parameter passed then assign default value
+			
+			JsonValue* defaultObj = getObjForEXTfldval<JsonValue>(pThreadData, defVal);
+			if (defaultObj) {
+				newObj->setJsonValue(defaultObj->document, defaultObj->jsonValue); // Set value and pointer to source
+			}
+		} else {
+			// Create and return new null object
+			shared_ptr<Json::Value> nullObj(new Json::Value());
+			newObj->setJsonValue(nullObj);
+		}
+	}
 	
+	retVal.setObjInst( newObj->mObjInst, qtrue ); 
+	ECOaddParam( pThreadData->mEci, &retVal );
+}
+
+// Create a copy of the pointer at the current position.  This copied pointer is trimmed above the current position.
+void JsonValue::methodCopy( tThreadData* pThreadData, qshort pParamCount ) {
+	shared_ptr<Json::Value> copyValue(new Json::Value(*jsonValue));
+	
+	JsonValue *newObj = createNVObj<JsonValue>(pThreadData);
+	newObj->setJsonValue(copyValue);
+	
+	EXTfldval retVal;
+	retVal.setObjInst( newObj->mObjInst, qtrue ); 
+	ECOaddParam( pThreadData->mEci, &retVal );
+}
+
+// Get a pointer to the root of the current object
+void JsonValue::methodRoot( tThreadData* pThreadData, qshort pParamCount ) {
+	JsonValue *newObj = createNVObj<JsonValue>(pThreadData);
+	newObj->setJsonValue(document);
+	
+	EXTfldval retVal;
 	retVal.setObjInst( newObj->mObjInst, qtrue ); 
 	ECOaddParam( pThreadData->mEci, &retVal );
 }
@@ -690,7 +738,7 @@ void JsonValue::methodGet( tThreadData* pThreadData, qshort pParamCount )
 // Return size
 void JsonValue::methodSize( tThreadData* pThreadData, qshort pParamCount ) {
 	// Get size from value object
-	int size = jsonValue.size();
+	int size = jsonValue->size();
 	qlong qsize = static_cast<qlong>(size);
 	
 	// Return to Omnis
@@ -702,7 +750,7 @@ void JsonValue::methodSize( tThreadData* pThreadData, qshort pParamCount ) {
 // Returns true if Value object empty
 void JsonValue::methodEmpty( tThreadData* pThreadData, qshort pParamCount ) {
 	// Get size from value object
-	qbool status = getQBoolFromBool( jsonValue.empty() );
+	qbool status = getQBoolFromBool( jsonValue->empty() );
 	
 	// Return to Omnis
 	EXTfldval fValReturn;
@@ -712,7 +760,7 @@ void JsonValue::methodEmpty( tThreadData* pThreadData, qshort pParamCount ) {
 
 // Clears the contents of the Value object
 void JsonValue::methodClear( tThreadData* pThreadData, qshort pParamCount ) {
-	jsonValue.clear();
+	jsonValue->clear();
 }
 
 // Returns true if the index is in the array
@@ -725,7 +773,7 @@ void JsonValue::methodIsValidIndex( tThreadData* pThreadData, qshort pParamCount
 	int index = indexVal.getLong();
 	
 	// Send key to Value object
-	qbool status = getQBoolFromBool( jsonValue.isValidIndex(index) );
+	qbool status = getQBoolFromBool( jsonValue->isValidIndex(index) );
 	
 	// Return to Omnis
 	EXTfldval fValReturn;
@@ -744,7 +792,7 @@ void JsonValue::methodIsMember( tThreadData* pThreadData, qshort pParamCount ) {
 	std::string key = getStringFromEXTFldVal(keyVal);
 	
 	// Send key to Value object
-	qbool status = getQBoolFromBool( jsonValue.isMember(key) );
+	qbool status = getQBoolFromBool( jsonValue->isMember(key) );
 	
 	// Return to Omnis
 	EXTfldval fValReturn;
@@ -765,13 +813,13 @@ void JsonValue::methodGetMemberNames( tThreadData* pThreadData, qshort pParamCou
 	retList->addCol(fftCharacter, dpFcharacter, 10000000, &colName);
 	
 	// Ensure that the Json::Value is an Object (since those are the only one's with member names)
-	if ( !(jsonValue.isObject()) ) {
+	if ( !(jsonValue->isObject()) ) {
 		fValReturn.setList(retList, qtrue, qfalse); 
 		ECOaddParam(pThreadData->mEci, &fValReturn);
 		return;
 	}
 	
-	Json::Value::Members memberNames = jsonValue.getMemberNames();
+	Json::Value::Members memberNames = jsonValue->getMemberNames();
 	
 	// Loop the member names to create the list
 	qlong memberLength;
@@ -792,109 +840,13 @@ void JsonValue::methodGetMemberNames( tThreadData* pThreadData, qshort pParamCou
 	return;
 }
 
-// Method for setting data in the Value.
-//
-// Should work like:
-// Do Value.$set('encoding','UTF-8')
-// Do Value.$set('indent','length',5)
-// Do Value.$set('indent','use_space', kTrue)
-
+// This method sets the value for the current position to the first parameter
 void JsonValue::methodSet( tThreadData* pThreadData, qshort pParamCount) {
-	qshort paramNumber = 1;
-	EXTfldval *paramVal = new EXTfldval[pParamCount];
-	std::string stringVal, stringAssign;
-	int intVal, intAssign;
-	double doubleAssign;
-	bool boolAssign;
-	ffttype valType;
+	EXTfldval fVal;
 	
-	
-	// Loop through all parameters and assign their value to the array
-	while ( getParamVar(pThreadData, paramNumber, paramVal[paramNumber-1]) == qtrue ) {
-		paramNumber++;
-	}
-	
-	// If parameters don't match then quit
-	if (paramNumber != pParamCount) {
-		delete [] paramVal; // Clean-up
+	if ( getParamVar(pThreadData, 1, fVal) == qfalse)
 		return;
-	}
 	
-	// Assign values into the jsonValue
-	if (pParamCount == 2) {
-		// Simple assignment for a single value
-		intVal = -1;
-		stringVal = "";
-		
-		paramVal[0].getType(valType);
-		
-		if ( valType == fftInteger )
-			intVal = static_cast<int>(paramVal[1].getLong());
-		else if ( valType == fftCharacter )
-			stringVal = getStringFromEXTFldVal(paramVal[0]);
-		else
-			return;
-
-		
-		paramVal[1].getType(valType);
-		
-		switch (valType) {
-			case fftCharacter:
-				stringAssign = getStringFromEXTFldVal(paramVal[1]);
-				if (intVal >= 0 )
-					jsonValue[intVal] = stringAssign;
-				else
-					jsonValue[stringVal] = stringAssign;
-				
-				break;
-			case fftInteger:
-				intAssign = static_cast<int>(paramVal[1].getLong());
-				if (intVal >= 0 )
-					jsonValue[intVal] = intAssign;
-				else
-					jsonValue[stringVal] = intAssign;
-				
-				break;
-			case fftNumber:
-				doubleAssign = getDoubleFromEXTFldVal(paramVal[1]);
-				if (intVal >= 0 )
-					jsonValue[intVal] = doubleAssign;
-				else
-					jsonValue[stringVal] = doubleAssign;
-				
-				break;
-			case fftBoolean:
-				boolAssign = paramVal[1].getBool();
-				if (intVal >= 0 )
-					jsonValue[intVal] = boolAssign;
-				else
-					jsonValue[stringVal] = boolAssign;
-				
-				break;
-			case fftDate:
-				stringAssign = getISO8601DateStringFromEXTFldVal(paramVal[1]);
-				if (intVal >= 0 )
-					jsonValue[intVal] = stringAssign;
-				else
-					jsonValue[stringVal] = stringAssign;
-				
-				break;
-			default:
-				break;
-		}
-		
-		
-	} else {
-		// Assign values into the Value
-		Json::Value mainValue;
-		for (qshort i = 1; i <= paramNumber; ++i) {
-		
-		
-		
-		}
-		
-	}
-	
-	delete [] paramVal; // Clean-up
+	setValueFromEXTfldval(pThreadData, fVal);
 }
 

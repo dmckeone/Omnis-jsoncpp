@@ -198,7 +198,7 @@ extern "C" qlong OMNISWNDPROC NVObjWndProc( HWND hwnd, LPARAM Msg, WPARAM wParam
 			
 			// Create a temporary object, use it to retrieve the methods, and destruct it.
 			NVObjBase* obj = createObject( propID, 0, &threadData ); // 0 = no qobjinst (because this isn't being created by Omnis)
-			qlong ret = obj->returnMethods( eci );
+			qlong ret = obj->returnMethods( &threadData );
 			removeObject( propID, obj );
 
 			return ret;
@@ -226,7 +226,7 @@ extern "C" qlong OMNISWNDPROC NVObjWndProc( HWND hwnd, LPARAM Msg, WPARAM wParam
 			
 			// Create a temporary object, use it to retrieve the properties, and destruct it.
 			NVObjBase* obj = createObject( propID, 0, &threadData );  // 0 = no qobjinst (because this isn't being created by Omnis)
-			qlong ret = obj->returnProperties( eci );
+			qlong ret = obj->returnProperties( &threadData );
 			removeObject( propID, obj );
 			
 			return ret;
@@ -236,13 +236,14 @@ extern "C" qlong OMNISWNDPROC NVObjWndProc( HWND hwnd, LPARAM Msg, WPARAM wParam
 		case ECM_PROPERTYCANASSIGN:
 		{
 			// Get ID of property
+			tThreadData threadData(eci);
 			qlong propID = ECOgetId( eci );
 			
 			// Get the instance of the object
 			NVObjBase* nvObj = (NVObjBase*)ECOfindNVObject( eci->mOmnisInstance, lParam );
 			if( NULL != nvObj )
 				// Get the property from that instance
-				return nvObj->canAssignProperty( eci, propID );
+				return nvObj->canAssignProperty( &threadData, propID );
 			else
 				return qfalse;
 		}
@@ -250,11 +251,13 @@ extern "C" qlong OMNISWNDPROC NVObjWndProc( HWND hwnd, LPARAM Msg, WPARAM wParam
 		// ECM_GETPROPERTY - this is sent by OMNIS to determine the value of a specific property
 		case ECM_GETPROPERTY:
 		{
+			tThreadData threadData(eci);
+			
 			// Get the instance of the object
 			NVObjBase* nvObj = (NVObjBase*)ECOfindNVObject( eci->mOmnisInstance, lParam );
 			if( NULL != nvObj )
 				// Get the property from that instance
-				return nvObj->getProperty( eci );
+				return nvObj->getProperty( &threadData );
 			else
 				return 0L;
 		}
@@ -262,10 +265,12 @@ extern "C" qlong OMNISWNDPROC NVObjWndProc( HWND hwnd, LPARAM Msg, WPARAM wParam
 		// ECM_SETPROPERTY - this is sent by OMNIS to set the value of a specific property
 		case ECM_SETPROPERTY:
 		{			
+			tThreadData threadData(eci);
+			
 			NVObjBase* nvObj = (NVObjBase*)ECOfindNVObject( eci->mOmnisInstance, lParam );
 			if( NULL != nvObj )
 				// Set the property in the instance
-				return nvObj->setProperty( eci );
+				return nvObj->setProperty( &threadData );
 			else
 				return 0L;
 		}

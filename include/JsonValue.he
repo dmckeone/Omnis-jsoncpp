@@ -14,6 +14,9 @@
 #include "NVObjBase.he"
 #include "OmnisTools.he"
 
+//Boost includes
+#include <Boost/smart_ptr.hpp>
+
 // jsoncpp includes
 #include "json/value.h"
 
@@ -40,26 +43,26 @@ public:
 	virtual void copy( NVObjBase* pObj );
 	
 	// C++ only methods
-	Json::Value getJsonValue();
-	void setJsonValue(Json::Value);
+	Json::Value& getJsonValue();
+	void setJsonValue(boost::shared_ptr<Json::Value> newValue);
+	void setJsonValue(boost::shared_ptr<Json::Value> newValue, Json::Value* posPointer);
 	
 	// Methods Available and Method Call Handling
-	virtual qlong returnMethods( EXTCompInfo* pEci );
+	virtual qlong returnMethods( tThreadData* pThreadData );
 	virtual qlong methodCall( tThreadData* pThreadData );
 
 	// Properties and Property Call Handling
-	virtual qlong returnProperties( EXTCompInfo* pEci );
-	virtual qlong getProperty( EXTCompInfo* pEci );
-	virtual qlong setProperty( EXTCompInfo* pEci );
-	virtual qlong canAssignProperty( EXTCompInfo* pEci, qlong propID );
+	virtual qlong returnProperties( tThreadData* pThreadData );
+	virtual qlong getProperty( tThreadData* pThreadData );
+	virtual qlong setProperty( tThreadData* pThreadData );
+	virtual qlong canAssignProperty( tThreadData* pThreadData, qlong propID );
 	
 	// Returns the value type constant of the value
 	void propertyValueType(EXTfldval&);
 	void propertyValueTypeDesc(EXTfldval&);
 	
 	// $contents property
-	void getPropertyContents(EXTfldval&);
-	void setPropertyContents(EXTfldval&);
+	void getPropertyContents(EXTfldval&, tThreadData*);
 	
 	// Wrapped Methods
 	// Initialization
@@ -80,6 +83,8 @@ public:
 	
 	// Retrieval
 	void methodGet( tThreadData*, qshort );
+	void methodCopy( tThreadData*, qshort );
+	void methodRoot( tThreadData*, qshort );
 	
 	// Array
 	void methodSize( tThreadData*, qshort );
@@ -93,14 +98,13 @@ public:
 	
 	// Assignment
 	void methodSet( tThreadData*, qshort );
-	
 private:
-	Json::Value jsonValue;
-	long myProperty;
+	boost::shared_ptr<Json::Value> document; // Pointer to the root of the document, shared pointer for easy life-time management.
+	Json::Value *jsonValue; // Pointer to the current position in the object
 	
-	void setValueFromEXTfldval( EXTfldval& ); 
-	void setValueFromEXTfldval( EXTfldval&, std::string group);
-	void setValueFromEXTfldval( EXTfldval&, int group);
+	void setValueFromEXTfldval( tThreadData*, EXTfldval& ); 
+	void setValueFromEXTfldval( tThreadData*, EXTfldval&, std::string group);
+	void setValueFromEXTfldval( tThreadData*, EXTfldval&, int group);
 	void setValueFromParameter( tThreadData*, qshort );
 };
 

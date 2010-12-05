@@ -31,14 +31,14 @@ public:
 	virtual void copy( NVObjBase* pObj );
 	
 	// Methods Available and Method Call Handling (These should be overriden by a sub-class)
-	virtual qlong returnMethods( EXTCompInfo* pEci );
+	virtual qlong returnMethods( tThreadData* pThreadData );
 	virtual qlong methodCall( tThreadData* pThreadData );
 
 	// Properties and Property Call Handling (These should be overriden by a sub-class)
-	virtual qlong returnProperties( EXTCompInfo* pEci );
-	virtual qlong getProperty( EXTCompInfo* pEci );
-	virtual qlong setProperty( EXTCompInfo* pEci );
-	virtual qlong canAssignProperty( EXTCompInfo* pEci, qlong propID );
+	virtual qlong returnProperties( tThreadData* pThreadData );
+	virtual qlong getProperty( tThreadData* pThreadData );
+	virtual qlong setProperty( tThreadData* pThreadData );
+	virtual qlong canAssignProperty( tThreadData* pThreadData, qlong propID );
 };
 
 

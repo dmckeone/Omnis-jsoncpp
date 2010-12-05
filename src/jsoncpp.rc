@@ -26,6 +26,10 @@ BEGIN
     2116                    "$isValidIndex:$isValidIndex(Index) returns kTrue if Index is in the array"
     2117                    "$isMember:$isMember(Key) returns kTrue if Object contains Key"
     2118                    "$getMemberNames:$getMemberNames() return list of Keys in Object"
+    2119                    "$copy:$copy() return a copy of the object.  (Note that the copy is truncated at the current position and $root will be restablished)"
+    2120                    "$root:$root() returns an object for the root of the object"
+    2121					"$set:$set(Element) sets the current object to the value specified in Element"
+    2122					"$list:$list() Return a name value pair list with all values from the current position"
 
     2200                    "$parse:$parse(Character JsonDocument) returns a Value object"
 

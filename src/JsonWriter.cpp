@@ -9,6 +9,7 @@
 #include "JsonValue.he"
 #include "JsonWriter.he"
 
+using boost::shared_ptr;
 using namespace OmnisTools;
 
 /**************************************************************************************************
@@ -102,11 +103,11 @@ ECOmethodEvent cJsonWriterMethodsTable[] =
 };
 
 // List of methods in JsonWriter
-qlong JsonWriter::returnMethods(EXTCompInfo* pEci)
+qlong JsonWriter::returnMethods(tThreadData* pThreadData)
 {
 	const qshort cMethodCount = sizeof(cJsonWriterMethodsTable) / sizeof(ECOmethodEvent);
 	
-	return ECOreturnMethods( gInstLib, pEci, &cJsonWriterMethodsTable[0], cMethodCount );
+	return ECOreturnMethods( gInstLib, pThreadData->mEci, &cJsonWriterMethodsTable[0], cMethodCount );
 }
 
 /* PROPERTIES */
@@ -126,15 +127,15 @@ ECOproperty cJsonWriterPropertyTable[] =
 };
 
 // List of properties in Simple
-qlong JsonWriter::returnProperties( EXTCompInfo* pEci )
+qlong JsonWriter::returnProperties( tThreadData* pThreadData )
 {
 	const qshort propertyCount = sizeof(cJsonWriterPropertyTable) / sizeof(ECOproperty);
 	
-	return ECOreturnProperties( gInstLib, pEci, &cJsonWriterPropertyTable[0], propertyCount );
+	return ECOreturnProperties( gInstLib, pThreadData->mEci, &cJsonWriterPropertyTable[0], propertyCount );
 }
 
 // Assignability of properties
-qlong JsonWriter::canAssignProperty( EXTCompInfo* pEci, qlong propID ) {
+qlong JsonWriter::canAssignProperty( tThreadData* pThreadData, qlong propID ) {
 	switch (propID) {
 		default:
 			return qfalse;
@@ -142,15 +143,15 @@ qlong JsonWriter::canAssignProperty( EXTCompInfo* pEci, qlong propID ) {
 }
 
 // Method to retrieve a property of the object
-qlong JsonWriter::getProperty( EXTCompInfo* pEci ) 
+qlong JsonWriter::getProperty( tThreadData* pThreadData ) 
 {
 	EXTfldval fValReturn;
 	
-	qlong propID = ECOgetId( pEci );
+	qlong propID = ECOgetId( pThreadData->mEci );
 	switch( propID ) {
 		case cPropertyMyProperty:
 			fValReturn.setLong(myProperty); // Put property into return value
-			ECOaddParam(pEci, &fValReturn); // Return to caller
+			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 			break;	       
 	}
 	
@@ -158,16 +159,16 @@ qlong JsonWriter::getProperty( EXTCompInfo* pEci )
 }
 
 // Method to set a property of the object
-qlong JsonWriter::setProperty( EXTCompInfo* pEci )
+qlong JsonWriter::setProperty( tThreadData* pThreadData )
 {
 	// Setup the EXTfldval with the parameter data
 	EXTfldval fVal;
 	
-	if( getParamVar( pEci, 1, fVal ) == qfalse )
+	if( getParamVar( pThreadData->mEci, 1, fVal ) == qfalse )
 		return 0L;
 	
 	// Assign to the appropriate property
-	qlong propID = ECOgetId( pEci );
+	qlong propID = ECOgetId( pThreadData->mEci );
 	switch( propID ) {
 		case cPropertyMyProperty:
 			myProperty = fVal.getLong();
@@ -194,11 +195,13 @@ void JsonWriter::methodWrite( tThreadData* pThreadData, qshort pParamCount )
 	// Read parameter into Omnis object
 	JsonValue *jvRoot = getObjForEXTfldval<JsonValue>(pThreadData, fValRoot);
 	
-	// Get value object for writer
-	Json::Value root = jvRoot->getJsonValue();
-	
-	// Write
-	std::string output = jsonWriter.write(root);
+	// Write value object (If it exists)
+	std::string output;
+	if (jvRoot) {
+		output = jsonWriter.write( jvRoot->getJsonValue() );
+	} else {
+		output = "";
+	}
 	
 	// Return the output of the writer to the caller
 	getEXTFldValFromString(fValReturn, output);

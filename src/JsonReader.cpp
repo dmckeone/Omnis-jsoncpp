@@ -9,6 +9,7 @@
 #include "JsonValue.he"
 #include "JsonReader.he"
 
+using boost::shared_ptr;
 using namespace OmnisTools;
 
 /**************************************************************************************************
@@ -108,11 +109,11 @@ ECOmethodEvent cJsonReaderMethodsTable[] =
 };
 
 // List of methods in JsonReader
-qlong JsonReader::returnMethods(EXTCompInfo* pEci)
+qlong JsonReader::returnMethods(tThreadData* pThreadData)
 {
 	const qshort cMethodCount = sizeof(cJsonReaderMethodsTable) / sizeof(ECOmethodEvent);
 	
-	return ECOreturnMethods( gInstLib, pEci, &cJsonReaderMethodsTable[0], cMethodCount );
+	return ECOreturnMethods( gInstLib, pThreadData->mEci, &cJsonReaderMethodsTable[0], cMethodCount );
 }
 
 /* PROPERTIES */
@@ -132,15 +133,15 @@ ECOproperty cJsonReaderPropertyTable[] =
 };
 
 // List of properties in Simple
-qlong JsonReader::returnProperties( EXTCompInfo* pEci )
+qlong JsonReader::returnProperties( tThreadData* pThreadData )
 {
 	const qshort propertyCount = sizeof(cJsonReaderPropertyTable) / sizeof(ECOproperty);
 	
-	return ECOreturnProperties( gInstLib, pEci, &cJsonReaderPropertyTable[0], propertyCount );
+	return ECOreturnProperties( gInstLib, pThreadData->mEci, &cJsonReaderPropertyTable[0], propertyCount );
 }
 
 // Assignability of properties
-qlong JsonReader::canAssignProperty( EXTCompInfo* pEci, qlong propID ) {
+qlong JsonReader::canAssignProperty( tThreadData* pThreadData, qlong propID ) {
 	switch (propID) {
 		default:
 			return qfalse;
@@ -148,15 +149,15 @@ qlong JsonReader::canAssignProperty( EXTCompInfo* pEci, qlong propID ) {
 }
 
 // Method to retrieve a property of the object
-qlong JsonReader::getProperty( EXTCompInfo* pEci ) 
+qlong JsonReader::getProperty( tThreadData* pThreadData ) 
 {
 	EXTfldval fValReturn;
 	
-	qlong propID = ECOgetId( pEci );
+	qlong propID = ECOgetId( pThreadData->mEci );
 	switch( propID ) {
 		case cPropertyMyProperty:
 			fValReturn.setLong(myProperty); // Put property into return value
-			ECOaddParam(pEci, &fValReturn); // Return to caller
+			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 			break;	       
 	}
 	
@@ -164,10 +165,10 @@ qlong JsonReader::getProperty( EXTCompInfo* pEci )
 }
 
 // Method to set a property of the object
-qlong JsonReader::setProperty( EXTCompInfo* pEci )
+qlong JsonReader::setProperty( tThreadData* pThreadData )
 {
 	// Retrieve value to set for property, always in first parameter
-	EXTParamInfo* param = ECOfindParamNum( pEci, 1 );
+	EXTParamInfo* param = ECOfindParamNum( pThreadData->mEci, 1 );
 	if( !param ) { return 0L; }
 	
 	// Setup the EXTfldval with the parameter data
@@ -176,7 +177,7 @@ qlong JsonReader::setProperty( EXTCompInfo* pEci )
 	fVal.setReadOnly( qfalse );
 	
 	// Assign to the appropriate property
-	qlong propID = ECOgetId( pEci );
+	qlong propID = ECOgetId( pThreadData->mEci );
 	switch( propID ) {
 		case cPropertyMyProperty:
 			myProperty = fVal.getLong();
@@ -216,8 +217,9 @@ void JsonReader::methodParse( tThreadData* pThreadData, qshort pParamCount )
 	// Get instance
 	JsonValue *jvRoot = getObjForEXTfldval<JsonValue>(pThreadData, fValRoot);
 	
-	// Set the value in the object instance and notify Omnis that the parameter changed
-	jvRoot->setJsonValue(root);
+	// Set up the shared pointer for the value and send it to the object instance. Also notify Omnis that the parameter changed.
+	shared_ptr<Json::Value> ptr(new Json::Value(root));
+	jvRoot->setJsonValue(ptr);
 	ECOsetParameterChanged( pThreadData->mEci, 2 );
 	
 	// Return the status of the parse to the caller
