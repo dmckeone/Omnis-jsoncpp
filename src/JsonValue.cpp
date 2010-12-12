@@ -822,7 +822,6 @@ void JsonValue::methodGetMemberNames( tThreadData* pThreadData, qshort pParamCou
 	Json::Value::Members memberNames = jsonValue->getMemberNames();
 	
 	// Loop the member names to create the list
-	qlong memberLength;
 	std::string rowMember;
 	for (qlong lineNumber = 0; lineNumber < static_cast<qlong>(memberNames.size()); lineNumber++) {
 		
