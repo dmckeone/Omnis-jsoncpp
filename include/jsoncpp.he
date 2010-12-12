@@ -31,8 +31,6 @@ class NVObjBase;  // To prevent circular include reference with NVObjBase.he dec
 NVObjBase* createObject( qlong, qobjinst, tThreadData* );
 void removeObject( qlong, NVObjBase* );
 
-extern "C" qlong OMNISWNDPROC NVObjWndProc( HWND hwnd, LPARAM Msg, WPARAM wParam, LPARAM lParam, EXTCompInfo* eci );
-
 /*
 <template T>
 T* createObject( qlong, qobjinst, tThreadData* ) {
