@@ -19,7 +19,7 @@ BEGIN
     2109                    "$isString:$isString() returns kTrue if value is a string"
     2110                    "$isArray:$isArray() returns kTrue if value is an array"
     2111                    "$isObject:$isObject() returns kTrue if value is an object"
-    2112                    "$get:$get(Key, Default) returns a Value object for the specified integer (array) or character (object) named.  e.g. $get(1) - Returns Value object 1 in the array (indexed from 0).  $get('setting') Returns Value object 'setting' in the object.  DefaultValue is a Value object that is returned if no value is located for the Key."
+    2112                    "$get:$get(Key) returns a Value object for the specified integer (array) or character (object) named.  e.g. $get(1) - Returns Value object 1 in the array (indexed from 0).  $get('setting') Returns Value object 'setting' in the object."
     2113                    "$size:$size() returns the size of the array"
     2114                    "$empty:$empty() returns kTrue if empty"
     2115                    "$clear:$clear() clears the object"
@@ -29,7 +29,6 @@ BEGIN
     2119                    "$copy:$copy() return a copy of the object.  (Note that the copy is truncated at the current position and $root will be restablished)"
     2120                    "$root:$root() returns an object for the root of the object"
     2121					"$set:$set(Element) sets the current object to the value specified in Element"
-    2122					"$list:$list() Return a name value pair list with all values from the current position"
 
     2200                    "$parse:$parse(Character JsonDocument) returns a Value object"
 
@@ -50,7 +49,7 @@ BEGIN
     4004                    "Index:index in array"
     4005                    "Key:key in object"
 
-    4100                    "Number"
+    4100                    "Character string with JSON document"
 
     4200                    "Number"
 

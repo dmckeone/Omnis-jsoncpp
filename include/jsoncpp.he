@@ -31,12 +31,5 @@ class NVObjBase;  // To prevent circular include reference with NVObjBase.he dec
 NVObjBase* createObject( qlong, qobjinst, tThreadData* );
 void removeObject( qlong, NVObjBase* );
 
-/*
-<template T>
-T* createObject( qlong, qobjinst, tThreadData* ) {
-	
-}
-*/
-
 
 #endif /* NV_OBJ_TEMPLATE_HE */

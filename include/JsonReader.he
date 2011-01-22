@@ -28,10 +28,6 @@ using OmnisTools::tThreadData;
 // Class definition for C++ version of your object
 class JsonReader : public NVObjBase
 {
-private:
-	Json::Reader jsonReader;
-	long myProperty;
-protected:
 public:
 	// Static tracking variable
 	static qshort objResourceId;
@@ -50,8 +46,11 @@ public:
 	virtual qlong getProperty( tThreadData* pThreadData );
 	virtual qlong setProperty( tThreadData* pThreadData );
 	virtual qlong canAssignProperty( tThreadData* pThreadData, qlong propID );
+private:
+	Json::Reader jsonReader;
+	long myProperty;
 	
-	// Custom (Your) Methods
+	// Parse and error messages
 	void methodParse( tThreadData*, qshort );
 	void methodGetFormattedErrorMessages( tThreadData*, qshort );
 };

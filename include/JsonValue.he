@@ -56,6 +56,10 @@ public:
 	virtual qlong getProperty( tThreadData* pThreadData );
 	virtual qlong setProperty( tThreadData* pThreadData );
 	virtual qlong canAssignProperty( tThreadData* pThreadData, qlong propID );
+
+private:
+	boost::shared_ptr<Json::Value> document; // Pointer to the root of the document, shared pointer for easy life-time management.
+	Json::Value *jsonValue; // Pointer to the current position in the object
 	
 	// Returns the value type constant of the value
 	void propertyValueType(EXTfldval&);
@@ -98,9 +102,11 @@ public:
 	
 	// Assignment
 	void methodSet( tThreadData*, qshort );
-private:
-	boost::shared_ptr<Json::Value> document; // Pointer to the root of the document, shared pointer for easy life-time management.
-	Json::Value *jsonValue; // Pointer to the current position in the object
+
+	// EXTfldval conversions
+	void getEXTfldvalForValue(tThreadData* pThreadData, EXTfldval &retVal, UInt indexValue);
+	void getEXTfldvalForValue(tThreadData* pThreadData, EXTfldval &retVal, std::string keyValue);
+	void getEXTfldvalForValue(tThreadData* pThreadData, EXTfldval &retVal, Json::Value* posPointer);
 	
 	void setValueFromEXTfldval( tThreadData*, EXTfldval& ); 
 	void setValueFromEXTfldval( tThreadData*, EXTfldval&, std::string group);

@@ -55,6 +55,25 @@ namespace OmnisTools {
 	std::string getISO8601DateStringFromEXTFldVal(EXTfldval&);
 	
 	// ************ TEMPLATES ************ //
+
+	// Generic method for retrieving an object by it's instance
+	template <class T>
+	T* getObjForInstance(tThreadData* pThreadData, qobjinst objinst) {
+		objinst = reinterpret_cast<qobjinst>(ECOgetNVObject(objinst)); // Attempt to get super class for NV Objects that are inherited by Omnis objects
+		LPARAM objinstPtr = reinterpret_cast<LPARAM>(objinst);
+		void* omnisPtr = ECOfindNVObject(pThreadData->mEci->mOmnisInstance, objinstPtr);
+		
+		T* retPtr = reinterpret_cast<T*>( omnisPtr );
+		return retPtr;
+	}
+	
+	// Generic method for retrieving an object from it's EXTfldval
+	template <class T>
+	T* getObjForEXTfldval(tThreadData* pThreadData, EXTfldval &fVal) {
+		qobjinst objinst = fVal.getObjInst(qfalse);
+		
+		return getObjForInstance<T>(pThreadData, objinst);
+	}
 	
 	// Generic method for creating a new object in the Omnis pool
 	template <class T>
@@ -66,7 +85,7 @@ namespace OmnisTools {
 		
 		pThreadData->mEci->mCompId = saveCompId; // Restore the saved comp ID
 		
-		T* nvObj = reinterpret_cast<T*>( ECOfindNVObject(pThreadData->mEci->mOmnisInstance, reinterpret_cast<LPARAM>(newObjInst)) );
+		T* nvObj = getObjForInstance<T>(pThreadData, newObjInst); // Locate the newly created object pointer
 		
 		return nvObj;
 	}
@@ -78,20 +97,6 @@ namespace OmnisTools {
 		qshort objectType = T::objResourceId;
 		
 		return createNVObj<T>(objectType, pThreadData);
-	}
-
-	// Generic method for retrieving an object by it's instance
-	template <class T>
-	T* getObjForInstance(tThreadData* pThreadData, qobjinst objinst) {
-		return reinterpret_cast<T*>( ECOfindNVObject(pThreadData->mEci->mOmnisInstance, reinterpret_cast<LPARAM>(objinst)) );
-	}
-	
-	// Generic method for retrieving an object from it's EXTfldval
-	template <class T>
-	T* getObjForEXTfldval(tThreadData* pThreadData, EXTfldval &fVal) {
-		qobjinst objinst = fVal.getObjInst(qfalse);
-		
-		return getObjForInstance<T>(pThreadData, objinst);
 	}
 }
 	

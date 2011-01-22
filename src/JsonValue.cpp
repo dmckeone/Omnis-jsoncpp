@@ -474,6 +474,31 @@ void JsonValue::getPropertyContents(EXTfldval &retVal, tThreadData* pThreadData)
 	}
 }
 
+void JsonValue::getEXTfldvalForValue(tThreadData* pThreadData, EXTfldval &retVal, UInt indexValue) {
+	Json::Value* posPointer = &((*jsonValue)[indexValue]);
+	getEXTfldvalForValue(pThreadData, retVal, posPointer);
+}
+
+void JsonValue::getEXTfldvalForValue(tThreadData* pThreadData, EXTfldval &retVal, std::string keyValue) {
+	Json::Value* posPointer = &((*jsonValue)[keyValue]);
+	getEXTfldvalForValue(pThreadData, retVal, posPointer);
+}
+
+void JsonValue::getEXTfldvalForValue(tThreadData* pThreadData, EXTfldval &retVal, Json::Value* posPointer) {
+	// Create return value object
+	JsonValue *newObj = createNVObj<JsonValue>(pThreadData);
+	if ( posPointer != 0 ) {
+		// Return pointer to found position
+		newObj->setJsonValue(document, posPointer); // Set value and pointer to source
+	} else {
+		// Create and return new null object
+		shared_ptr<Json::Value> nullObj(new Json::Value());
+		newObj->setJsonValue(nullObj);
+	}
+	
+	retVal.setObjInst( newObj->mObjInst, qtrue );
+}
+
 // Helper method to initialize the jsonValue to a new value.
 void JsonValue::setValueFromEXTfldval(tThreadData* pThreadData, EXTfldval &fVal) {
 	// Get the data type of the parameter
@@ -668,10 +693,7 @@ void JsonValue::methodGet( tThreadData* pThreadData, qshort pParamCount )
 	
 	if ( getParamVar(pThreadData, 1, keyVal) == qfalse)
 		return;
-
-	// Pointer to the Json::Value with the data we are looking for
-	Json::Value* posPointer = 0;
-
+	
 	std::string keyValue;
 	UInt indexValue;
 	ffttype valType; keyVal.getType(valType);
@@ -679,37 +701,16 @@ void JsonValue::methodGet( tThreadData* pThreadData, qshort pParamCount )
 	if (valType == fftInteger) {
 		if (jsonValue->isArray()) {
 			indexValue = static_cast<UInt>( keyVal.getLong() );
-			posPointer = &((*jsonValue)[indexValue]);
+			getEXTfldvalForValue(pThreadData, retVal, indexValue);
 		}
 	} else if (valType == fftCharacter) {
 		if (jsonValue->isObject()) {
 			keyValue = getStringFromEXTFldVal( keyVal );
-			posPointer = &((*jsonValue)[keyValue]);
-		}
-	}
-	
-	// Create return value object
-	JsonValue *newObj = createNVObj<JsonValue>(pThreadData);
-	if ( posPointer != 0 ) {
-		// Return pointer to found position
-		newObj->setJsonValue(document, posPointer); // Set value and pointer to source
-	} else {
-		// Wasn't able to locate an object.
-		if ( getParamVar(pThreadData, 2, defVal) == qtrue) {
-			// Optional, if parameter passed then assign default value
+			getEXTfldvalForValue(pThreadData, retVal, keyValue);
 			
-			JsonValue* defaultObj = getObjForEXTfldval<JsonValue>(pThreadData, defVal);
-			if (defaultObj) {
-				newObj->setJsonValue(defaultObj->document, defaultObj->jsonValue); // Set value and pointer to source
-			}
-		} else {
-			// Create and return new null object
-			shared_ptr<Json::Value> nullObj(new Json::Value());
-			newObj->setJsonValue(nullObj);
 		}
 	}
 	
-	retVal.setObjInst( newObj->mObjInst, qtrue ); 
 	ECOaddParam( pThreadData->mEci, &retVal );
 }
 

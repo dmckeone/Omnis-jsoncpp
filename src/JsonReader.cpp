@@ -90,7 +90,7 @@ qlong JsonReader::methodCall( tThreadData* pThreadData )
 // NOTE: Json::Reader has the 4100-4199 parameter stripe
 ECOparam cJsonReaderMethodsParamsTable[] = 
 {
-	4100, fftNumber, 0, 0
+	4100, fftCharacter, 0, 0
 };
 
 // Table of Methods available for Simple
@@ -202,12 +202,17 @@ void JsonReader::methodParse( tThreadData* pThreadData, qshort pParamCount )
 		return;
 	if( getParamVar( pThreadData, 2, fValRoot ) == qfalse )
 		return;
-	if( getParamVar( pThreadData, 3, fValComments ) == qfalse )
-		return;
 	
+	// Setup optional collect comments variable
+	bool collectComments;
+	if( getParamVar( pThreadData, 3, fValComments ) == qtrue )
+		 collectComments = getBoolFromQBool(fValComments.getBool());
+	else {
+		 collectComments = false;
+	}
+
 	// Setup parameters for call to Json::Reader
 	std::string document = getStringFromEXTFldVal(fValDocument);
-	bool collectComments = getBoolFromQBool(fValComments.getBool());
 	Json::Value root;
 	
 	// Parse
@@ -216,6 +221,8 @@ void JsonReader::methodParse( tThreadData* pThreadData, qshort pParamCount )
 	// Read parse document into Omnis object
 	// Get instance
 	JsonValue *jvRoot = getObjForEXTfldval<JsonValue>(pThreadData, fValRoot);
+	if (!jvRoot)
+		return;  // Invalid object parameter
 	
 	// Set up the shared pointer for the value and send it to the object instance. Also notify Omnis that the parameter changed.
 	shared_ptr<Json::Value> ptr(new Json::Value(root));

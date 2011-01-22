@@ -11,6 +11,7 @@
  */
 
 #include "jsoncpp.he"
+#include "OmnisTools.he"
 
 #include "JsonValue.he"
 #include "JsonReader.he"
@@ -176,10 +177,14 @@ extern "C" qlong OMNISWNDPROC NVObjWndProc( HWND hwnd, LPARAM Msg, WPARAM wParam
 			tThreadData threadData(eci);
 			objCopyInfo* copyInfo = (objCopyInfo*)lParam;
 			qlong propID = eci->mCompId;  // Get ID of object
-			NVObjBase* src = (NVObjBase*)ECOfindNVObject( eci->mOmnisInstance, copyInfo->mSourceObject );
+			LPARAM source = reinterpret_cast<LPARAM>(ECOgetNVObject( (qobjinst) copyInfo->mSourceObject));
+			
+			NVObjBase* src = (NVObjBase*)ECOfindNVObject( eci->mOmnisInstance, source );
 			if( src )
 			{
-				NVObjBase* dest = (NVObjBase*)ECOfindNVObject( eci->mOmnisInstance, copyInfo->mDestinationObject );
+				LPARAM destination = reinterpret_cast<LPARAM>(ECOgetNVObject( (qobjinst) copyInfo->mDestinationObject));
+				
+				NVObjBase* dest = (NVObjBase*)ECOfindNVObject( eci->mOmnisInstance, destination );
 				if( !dest )
 				{
 					dest = src->dup(propID, (qobjinst)copyInfo->mDestinationObject, &threadData);
