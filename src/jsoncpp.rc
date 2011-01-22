@@ -30,7 +30,7 @@ BEGIN
     2120                    "$root:$root() returns an object for the root of the object"
     2121					"$set:$set(Element) sets the current object to the value specified in Element"
 
-    2200                    "$parse:$parse(Character JsonDocument) returns a Value object"
+    2200                    "$parse:$parse(std::string document, Json::Value root, bool comments) returns a Value object"
 
     2300                    "$write:$write(Json::Value) returns a JSON formatted document for the Value object"
 
@@ -49,7 +49,9 @@ BEGIN
     4004                    "Index:index in array"
     4005                    "Key:key in object"
 
-    4100                    "Character string with JSON document"
+    4100                    "Document:Character string with JSON document"
+    4101                    "Root:Value object to store the root element in"
+    4102                    "Comments:Collect comments.  Default = kFalse"
 
     4200                    "Number"
 

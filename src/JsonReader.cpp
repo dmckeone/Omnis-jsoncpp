@@ -90,7 +90,9 @@ qlong JsonReader::methodCall( tThreadData* pThreadData )
 // NOTE: Json::Reader has the 4100-4199 parameter stripe
 ECOparam cJsonReaderMethodsParamsTable[] = 
 {
-	4100, fftCharacter, 0, 0
+	4100, fftCharacter, 0, 0,
+	4101, fftObject, 0, 0,
+	4102, fftBoolean, 0, 0
 };
 
 // Table of Methods available for Simple
@@ -104,7 +106,7 @@ ECOparam cJsonReaderMethodsParamsTable[] =
 // 7) Enum Stop (Not sure what this does, 0 = disabled)
 ECOmethodEvent cJsonReaderMethodsTable[] = 
 {
-	cMethodParse, cMethodParse, fftObject, 1, &cJsonReaderMethodsParamsTable[0], 0, 0,
+	cMethodParse, cMethodParse, fftObject, 3, &cJsonReaderMethodsParamsTable[0], 0, 0,
 	cMethodGetFormattedErrorMessages, cMethodGetFormattedErrorMessages, fftNone, 0, 0, 0, 0
 };
 

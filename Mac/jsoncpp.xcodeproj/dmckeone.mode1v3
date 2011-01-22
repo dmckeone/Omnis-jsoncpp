@@ -276,7 +276,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>12</integer>
+									<integer>14</integer>
 									<integer>9</integer>
 									<integer>0</integer>
 								</array>
@@ -319,7 +319,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>jsoncpp.cpp</string>
+								<string>JsonReader.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,11 +327,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>jsoncpp.cpp</string>
+										<string>JsonReader.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>B07ECD7612EB526100888860</string>
+										<string>B0EEC4EC12EB5711007562EB</string>
 										<key>history</key>
 										<array>
 											<string>B02362011176604E001236FE</string>
@@ -376,7 +376,6 @@
 											<string>B019E59712AC199500A7787B</string>
 											<string>B019E59812AC199500A7787B</string>
 											<string>B019E5A712AC1AA200A7787B</string>
-											<string>B019E5A812AC1AA200A7787B</string>
 											<string>B019E68212AC390D00A7787B</string>
 											<string>B019E68512AC390D00A7787B</string>
 											<string>B030A82D12B568B100E3C806</string>
@@ -388,15 +387,16 @@
 											<string>B07ECCDD12EB412D00888860</string>
 											<string>B07ECCDE12EB412D00888860</string>
 											<string>B07ECD0D12EB44EF00888860</string>
-											<string>B07ECD0E12EB44EF00888860</string>
-											<string>B07ECD2512EB49AA00888860</string>
 											<string>B07ECD5112EB4DB700888860</string>
 											<string>B07ECD5212EB4DB700888860</string>
 											<string>B07ECD5312EB4DB700888860</string>
 											<string>B07ECD5412EB4DB700888860</string>
 											<string>B07ECD5512EB4DB700888860</string>
 											<string>B07ECD5612EB4DB700888860</string>
-											<string>B07ECD5712EB4DB700888860</string>
+											<string>B0EEC4E112EB5649007562EB</string>
+											<string>B0EEC4E212EB5649007562EB</string>
+											<string>B0EEC4E312EB5649007562EB</string>
+											<string>B0EEC4E412EB5649007562EB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -408,14 +408,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1209, 762}}</string>
+								<string>{{0, 0}, {1209, 758}}</string>
 								<key>RubberWindowFrame</key>
 								<string>93 111 1512 1000 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>762pt</string>
+							<string>758pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -428,14 +428,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 767}, {1209, 192}}</string>
+								<string>{{0, 763}, {1209, 196}}</string>
 								<key>RubberWindowFrame</key>
 								<string>93 111 1512 1000 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>192pt</string>
+							<string>196pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -454,9 +454,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>B07ECC5F12EB0DD400888860</string>
+				<string>B0EEC4E612EB5649007562EB</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>B07ECC6012EB0DD400888860</string>
+				<string>B0EEC4E712EB5649007562EB</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -594,10 +594,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>B07ECC7512EB135F00888860</string>
-		<string>B07ECC7612EB135F00888860</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>B030CA461166FCC200ED9C14</string>
 		<string>/Externals/MyProjects/jsoncpp/Mac/jsoncpp.xcodeproj</string>
 	</array>
@@ -623,7 +619,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>jsoncpp.cpp</string>
+								<string>carbonin.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -681,7 +677,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>B030CA461166FCC200ED9C14</string>
-				<string>B07ECC5712EB0DA200888860</string>
+				<string>B0EEC4E012EB5642007562EB</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
