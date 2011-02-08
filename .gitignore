@@ -29,6 +29,8 @@ Windows/build/debug/*
 
 # Compiled Dynamic libraries
 *.so
+*.dll
+*.xcomp
 
 # Compiled Static libraries
 *.lai
