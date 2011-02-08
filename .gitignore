@@ -2,6 +2,7 @@
 Mac/build/*
 Windows/build/*
 Windows/build/debug/*
+deploy/*
 
 *.pbxuser
 *.mode1v3
@@ -31,6 +32,7 @@ Windows/build/debug/*
 *.so
 *.dll
 *.xcomp
+*.u_xcomp
 
 # Compiled Static libraries
 *.lai
