@@ -40,7 +40,9 @@ JsonValue::JsonValue(qobjinst objinst, tThreadData *pThreadData) : NVObjBase(obj
 }
 
 JsonValue::~JsonValue()
-{ }
+{ 
+	
+}
 
 void JsonValue::copy( NVObjBase* pObj ) {
 	// Copy in super class (This does *this = *pObj)
