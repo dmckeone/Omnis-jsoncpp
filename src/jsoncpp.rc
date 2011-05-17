@@ -29,6 +29,8 @@ BEGIN
     2119                    "$copy:$copy() return a copy of the object.  (Note that the copy is truncated at the current position and $root will be restablished)"
     2120                    "$root:$root() returns an object for the root of the object"
     2121					"$set:$set(Element) sets the current object to the value specified in Element"
+    2122					"$valueToList:$valueToList() Returns a list representing the value object."
+    2123					"$listToValue:$listToValue(List) Puts the contents of the list into the value object"
 
     2200                    "$parse:$parse(std::string document, Json::Value root, bool comments) returns a Value object"
 
@@ -48,12 +50,15 @@ BEGIN
     4003                    "DefaultValue:(Optional) Default value object"
     4004                    "Index:index in array"
     4005                    "Key:key in object"
+    4006                    "List:list to convert to value"
 
     4100                    "Document:Character string with JSON document"
     4101                    "Root:Value object to store the root element in"
     4102                    "Comments:Collect comments.  Default = kFalse"
 
     4200                    "Number"
+    
+    20000                   "$empty:$empty"
 
     23000                   "kJSON"
     23001                   "ValueType~NullValueType:0:NullValueType:Null Value"

@@ -102,6 +102,10 @@ private:
 	
 	// Assignment
 	void methodSet( tThreadData*, qshort );
+    
+    // List-Value
+	void methodValueToList( tThreadData*, qshort );
+	void methodListToValue( tThreadData*, qshort );
 
 	// EXTfldval conversions
 	void getEXTfldvalForValue(tThreadData* pThreadData, EXTfldval &retVal, UInt indexValue);

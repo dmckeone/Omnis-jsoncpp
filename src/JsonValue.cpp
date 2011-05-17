@@ -91,28 +91,30 @@ const static qshort cPropertyValueType     = 3100,
 // This is where the resource # of the methods is defined.  In this project is also used as the Unique ID.
 //
 // NOTE:Json::Value has the 2100-2199 stripe
-const static qshort cMethodConstruct  = 2100,
-                    cMethodInitialize = 2101,
-                    cMethodIsNull     = 2102,
-                    cMethodIsBool     = 2103,
-                    cMethodIsInt      = 2104,
-                    cMethodIsUInt     = 2105,
-                    cMethodIsIntegral = 2106,
-                    cMethodIsDouble   = 2107,
-                    cMethodIsNumeric  = 2108,
-                    cMethodIsString   = 2109,
-                    cMethodIsArray    = 2110,
-                    cMethodIsObject   = 2111,
-                    cMethodGet        = 2112,
-                    cMethodSize       = 2113,
-                    cMethodEmpty      = 2114,
-                    cMethodClear      = 2115,
-                    cMethodIsValidIndex = 2116,
-                    cMethodIsMember = 2117,
+const static qshort cMethodConstruct      = 2100,
+                    cMethodInitialize     = 2101,
+                    cMethodIsNull         = 2102,
+                    cMethodIsBool         = 2103,
+                    cMethodIsInt          = 2104,
+                    cMethodIsUInt         = 2105,
+                    cMethodIsIntegral     = 2106,
+                    cMethodIsDouble       = 2107,
+                    cMethodIsNumeric      = 2108,
+                    cMethodIsString       = 2109,
+                    cMethodIsArray        = 2110,
+                    cMethodIsObject       = 2111,
+                    cMethodGet            = 2112,
+                    cMethodSize           = 2113,
+                    cMethodEmpty          = 2114,
+                    cMethodClear          = 2115,
+                    cMethodIsValidIndex   = 2116,
+                    cMethodIsMember       = 2117,
                     cMethodGetMemberNames = 2118,
-					cMethodCopy = 2119,
-					cMethodRoot = 2120,
-					cMethodSet  = 2121;
+					cMethodCopy           = 2119,
+					cMethodRoot           = 2120,
+					cMethodSet            = 2121,
+					cMethodValueToList    = 2122,
+					cMethodListToValue    = 2123;
 
 /**************************************************************************************************
  **                                 INSTANCE METHODS                                             **
@@ -214,6 +216,14 @@ qlong JsonValue::methodCall( tThreadData* pThreadData )
 			pThreadData->mCurMethodName = "$set";
 			methodSet(pThreadData, paramCount);
 			break;
+        case cMethodValueToList:
+			pThreadData->mCurMethodName = "$valueToList";
+			methodValueToList(pThreadData, paramCount);
+			break;
+        case cMethodListToValue:
+			pThreadData->mCurMethodName = "$listToValue";
+			methodListToValue(pThreadData, paramCount);
+			break;
 	}
 
 	return 0L;
@@ -242,8 +252,10 @@ ECOparam cJsonValueMethodsParamsTable[] =
 	4001, fftCharacter, 0, 0,
 	4002, fftCharacter, 0, 0,
 	4003, fftObject, EXTD_FLAG_PARAMOPT, 0,
-	4004, fftInteger, 0, 0,
-	4005, fftCharacter, 0, 0
+	4004, fftInteger,   0, 0,
+	4005, fftCharacter, 0, 0,
+    // $listToValue
+    4006, fftList,      0, 0
 };
 
 // Table of Methods available for Simple
@@ -257,28 +269,30 @@ ECOparam cJsonValueMethodsParamsTable[] =
 // 7) Enum Stop (Not sure what this does, 0 = disabled)
 ECOmethodEvent cJsonValueMethodsTable[] = 
 {
-	cMethodConstruct, cMethodConstruct, fftCharacter, 1, &cJsonValueMethodsParamsTable[0], 0, 0,
-	cMethodInitialize, cMethodInitialize, fftCharacter, 1, &cJsonValueMethodsParamsTable[1], 0, 0,
-	cMethodIsNull, cMethodIsNull, fftNone, 0, 0, 0, 0,
-	cMethodIsBool, cMethodIsBool, fftNone, 0, 0, 0, 0,
-	cMethodIsInt, cMethodIsInt, fftNone, 0, 0, 0, 0,
-	cMethodIsUInt, cMethodIsUInt, fftNone, 0, 0, 0, 0,
-	cMethodIsIntegral, cMethodIsIntegral, fftNone, 0, 0, 0, 0,
-	cMethodIsDouble, cMethodIsDouble, fftNone, 0, 0, 0, 0,
-	cMethodIsNumeric, cMethodIsNumeric, fftNone, 0, 0, 0, 0,
-	cMethodIsString, cMethodIsString, fftNone, 0, 0, 0, 0,
-	cMethodIsArray, cMethodIsArray, fftNone, 0, 0, 0, 0,
-	cMethodIsObject, cMethodIsObject, fftNone, 0, 0, 0, 0,
-	cMethodGet, cMethodGet, fftObject, 2, &cJsonValueMethodsParamsTable[2], 0, 0,
-	cMethodSize, cMethodSize, fftInteger, 0, 0, 0, 0,
-	cMethodEmpty, cMethodEmpty, fftBoolean, 0, 0, 0, 0,
-	cMethodClear, cMethodClear, fftNone, 0, 0, 0, 0,
-	cMethodIsValidIndex, cMethodIsValidIndex, fftBoolean, 1, &cJsonValueMethodsParamsTable[4], 0, 0,
-	cMethodIsMember, cMethodIsMember, fftBoolean, 1, &cJsonValueMethodsParamsTable[5], 0, 0,
-	cMethodGetMemberNames, cMethodGetMemberNames, fftList, 0, 0, 0, 0,
-	cMethodCopy, cMethodCopy, fftObject, 0, 0, 0, 0,
-	cMethodRoot, cMethodRoot, fftObject, 0, 0, 0, 0,
-	cMethodSet, cMethodSet, fftNone, 0, 0, 0, 0
+	cMethodConstruct,      cMethodConstruct,      fftCharacter, 1, &cJsonValueMethodsParamsTable[0], 0, 0,
+	cMethodInitialize,     cMethodInitialize,     fftCharacter, 1, &cJsonValueMethodsParamsTable[1], 0, 0,
+	cMethodIsNull,         cMethodIsNull,         fftNone,      0, 0, 0, 0,
+	cMethodIsBool,         cMethodIsBool,         fftNone,      0, 0, 0, 0,
+	cMethodIsInt,          cMethodIsInt,          fftNone,      0, 0, 0, 0,
+	cMethodIsUInt,         cMethodIsUInt,         fftNone,      0, 0, 0, 0,
+	cMethodIsIntegral,     cMethodIsIntegral,     fftNone,      0, 0, 0, 0,
+	cMethodIsDouble,       cMethodIsDouble,       fftNone,      0, 0, 0, 0,
+	cMethodIsNumeric,      cMethodIsNumeric,      fftNone,      0, 0, 0, 0,
+	cMethodIsString,       cMethodIsString,       fftNone,      0, 0, 0, 0,
+	cMethodIsArray,        cMethodIsArray,        fftNone,      0, 0, 0, 0,
+	cMethodIsObject,       cMethodIsObject,       fftNone,      0, 0, 0, 0,
+	cMethodGet,            cMethodGet,            fftObject,    2, &cJsonValueMethodsParamsTable[2], 0, 0,
+	cMethodSize,           cMethodSize,           fftInteger,   0, 0, 0, 0,
+	cMethodEmpty,          cMethodEmpty,          fftBoolean,   0, 0, 0, 0,
+	cMethodClear,          cMethodClear,          fftNone,      0, 0, 0, 0,
+	cMethodIsValidIndex,   cMethodIsValidIndex,   fftBoolean,   1, &cJsonValueMethodsParamsTable[4], 0, 0,
+	cMethodIsMember,       cMethodIsMember,       fftBoolean,   1, &cJsonValueMethodsParamsTable[5], 0, 0,
+	cMethodGetMemberNames, cMethodGetMemberNames, fftList,      0, 0, 0, 0,
+	cMethodCopy,           cMethodCopy,           fftObject,    0, 0, 0, 0,
+	cMethodRoot,           cMethodRoot,           fftObject,    0, 0, 0, 0,
+	cMethodSet,            cMethodSet,            fftNone,      0, 0, 0, 0,
+    cMethodValueToList,    cMethodValueToList,    fftList,      0, 0, 0, 0,
+    cMethodListToValue,    cMethodListToValue,    fftNone,      1, &cJsonValueMethodsParamsTable[6], 0, 0
 };
 
 // List of methods in Simple
@@ -302,9 +316,9 @@ qlong JsonValue::returnMethods(tThreadData* pThreadData)
 // 7) Enum Stop (Not sure what this does, 0 = disabled)
 ECOproperty cJsonValuePropertyTable[] = 
 {
-	cPropertyValueType    , cPropertyValueType    , fftInteger  , EXTD_FLAG_PROPCUSTOM|EXTD_FLAG_EXTCONSTANT, 0, kConstValueTypeStart, kConstValueTypeEnd, /* Shows under Custom category */
+	cPropertyValueType,     cPropertyValueType,     fftInteger,   EXTD_FLAG_PROPCUSTOM|EXTD_FLAG_EXTCONSTANT, 0, kConstValueTypeStart, kConstValueTypeEnd, /* Shows under Custom category */
 	cPropertyValueTypeDesc, cPropertyValueTypeDesc, fftCharacter, EXTD_FLAG_PROPCUSTOM, 0, 0, 0, /* Shows under Custom category */
-	cPropertyContents, cPropertyContents, fftCharacter, EXTD_FLAG_PROPCUSTOM, 0, 0, 0  /* Shows under Custom category */
+	cPropertyContents,      cPropertyContents,      fftCharacter, EXTD_FLAG_PROPCUSTOM, 0, 0, 0  /* Shows under Custom category */
 };
 
 // List of properties in this component
@@ -816,5 +830,17 @@ void JsonValue::methodSet( tThreadData* pThreadData, qshort pParamCount) {
 		return;
 	
 	setValueFromEXTfldval(pThreadData, fVal);
+}
+
+// Convert the current value object into a list
+void JsonValue::methodValueToList( tThreadData*, qshort ) {
+    
+    return;
+}
+
+// Convert a list into the current value object
+void JsonValue::methodListToValue( tThreadData*, qshort ) {
+    
+    return;
 }
 
