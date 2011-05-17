@@ -1,0 +1,26 @@
+/* STATIC METHODS (HEADER)
+ * 
+ * This file defines all static methods for the external
+ *
+ * NOTE: All headers for external components must have the .he extension instead of the standard .h
+ *       To enable code-highliting in Visual Studio 2008 go to Tools->Options-Text Editor-File Extension 
+ *       and add "he" as a "Microsoft Visual C++" experience.
+ *
+ * February 18, 2011 David McKeone (Created)
+ */
+
+#include <extcomp.he>
+#include "OmnisTools.he"
+
+#ifndef STATIC_HE_
+#define STATIC_HE_
+
+// Static method dispatch
+qlong staticMethodCall( OmnisTools::tThreadData* pThreadData );
+
+// Static method definition
+qlong returnStaticMethods( OmnisTools::tThreadData* pThreadData );
+
+void methodStaticEmpty(OmnisTools::tThreadData* pThreadData, qshort paramCount);
+
+#endif /* STATIC_HE_ */

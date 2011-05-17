@@ -451,19 +451,19 @@ void JsonValue::getPropertyContents(EXTfldval &retVal, tThreadData* pThreadData)
 			retVal.setNull(fftCharacter, dpFcharacter);
 			break;
 		case Json::intValue:
-			retVal.setLong(jsonValue->asInt());
+            getEXTFldValFromInt(retVal, jsonValue->asInt());
 			break;
 		case Json::uintValue:
-			retVal.setLong(jsonValue->asUInt());
+            getEXTFldValFromInt(retVal, jsonValue->asUInt());
 			break;
 		case Json::realValue:
-			retVal.setNum(jsonValue->asDouble());
+            getEXTFldValFromDouble(retVal, jsonValue->asDouble());
 			break;
 		case Json::stringValue:
 			getEXTFldValFromString(retVal,jsonValue->asString());
 			break;
 		case Json::booleanValue:
-			retVal.setBool( getQBoolFromBool(jsonValue->asBool()) );
+            getEXTFldValFromBool(retVal, jsonValue->asBool());
 			break;
 		case Json::arrayValue:
 			getEXTFldValFromString(retVal,"<JSON Array>");
@@ -498,7 +498,7 @@ void JsonValue::getEXTfldvalForValue(tThreadData* pThreadData, EXTfldval &retVal
 		newObj->setJsonValue(nullObj);
 	}
 	
-	retVal.setObjInst( newObj->mObjInst, qtrue );
+	retVal.setObjInst( newObj->getInstance(), qtrue );
 }
 
 // Helper method to initialize the jsonValue to a new value.
@@ -510,11 +510,11 @@ void JsonValue::setValueFromEXTfldval(tThreadData* pThreadData, EXTfldval &fVal)
 	if (valType == fftCharacter) {
 		*jsonValue = getStringFromEXTFldVal(fVal);
 	} else if (valType == fftInteger) {
-		*jsonValue = static_cast<int>( fVal.getLong() );
+		*jsonValue = getIntFromEXTFldVal(fVal);
 	} else if (valType == fftNumber) {
 		*jsonValue = getDoubleFromEXTFldVal(fVal);
 	} else if (valType == fftBoolean) {
-		*jsonValue = getBoolFromQBool(fVal.getBool());
+		*jsonValue = getBoolFromEXTFldVal(fVal);
 	} else if (valType == fftObject) {
 		JsonValue* assignObj = getObjForEXTfldval<JsonValue>(pThreadData, fVal);
 		if (assignObj) {
@@ -532,11 +532,11 @@ void JsonValue::setValueFromEXTfldval(tThreadData* pThreadData, EXTfldval &fVal,
 	if (valType == fftCharacter) {
 		(*jsonValue)[group] = getStringFromEXTFldVal(fVal);
 	} else if (valType == fftInteger) {
-		(*jsonValue)[group] = static_cast<int>( fVal.getLong() );
+		(*jsonValue)[group] = getIntFromEXTFldVal(fVal);
 	} else if (valType == fftNumber) {
 		(*jsonValue)[group] = getDoubleFromEXTFldVal(fVal);
 	} else if (valType == fftBoolean) {
-		(*jsonValue)[group] = getBoolFromQBool(fVal.getBool());
+		(*jsonValue)[group] = getBoolFromEXTFldVal(fVal);
 	}
 }
 
@@ -569,7 +569,8 @@ void JsonValue::setValueFromParameter(tThreadData *pThreadData, qshort paramNumb
 	EXTParamInfo* param = ECOfindParamNum( pThreadData->mEci, paramNumber );
 	if( param ) { 
 		// Interpret the parameter we have
-		EXTfldval fVal; fVal.setFldVal((qfldval)param->mData);
+		EXTfldval fVal; 
+        fVal.setFldVal((qfldval)param->mData);
 		
 		setValueFromEXTfldval(pThreadData, fVal);
 	}
@@ -600,90 +601,70 @@ void JsonValue::methodInitialize( tThreadData* pThreadData, qshort pParamCount )
 void JsonValue::methodIsNull( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue->isNull());
-	
-	fValReturn.setBool(result); // Put property into return value
+	getEXTFldValFromBool(fValReturn, jsonValue->isNull());
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 }
 
 void JsonValue::methodIsBool( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue->isBool());
-	
-	fValReturn.setBool(result); // Put property into return value
+	getEXTFldValFromBool(fValReturn, jsonValue->isBool());
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 }
 
 void JsonValue::methodIsInt( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue->isInt());
-	
-	fValReturn.setBool(result); // Put property into return value
+	getEXTFldValFromBool(fValReturn, jsonValue->isInt());
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 }
 
 void JsonValue::methodIsUInt( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue->isUInt());
-	
-	fValReturn.setBool(result); // Put property into return value
+	getEXTFldValFromBool(fValReturn, jsonValue->isUInt());
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 }
 
 void JsonValue::methodIsIntegral( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue->isIntegral());
-	
-	fValReturn.setBool(result); // Put property into return value
+	getEXTFldValFromBool(fValReturn, jsonValue->isIntegral());
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 }
 
 void JsonValue::methodIsDouble( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue->isDouble());
-	
-	fValReturn.setBool(result); // Put property into return value
+	getEXTFldValFromBool(fValReturn, jsonValue->isDouble());
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 }
 
 void JsonValue::methodIsNumeric( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue->isNumeric());
-	
-	fValReturn.setBool(result); // Put property into return value
+	getEXTFldValFromBool(fValReturn, jsonValue->isNumeric());
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 }
 
 void JsonValue::methodIsString( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue->isString());
-	
-	fValReturn.setBool(result); // Put property into return value
+	getEXTFldValFromBool(fValReturn, jsonValue->isString());
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 }
 
 void JsonValue::methodIsArray( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue->isArray());
-	
-	fValReturn.setBool(result); // Put property into return value
+	getEXTFldValFromBool(fValReturn, jsonValue->isArray());
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 }
 
 void JsonValue::methodIsObject( tThreadData* pThreadData, qshort pParamCount )
 {
 	EXTfldval fValReturn;
-	qbool result = getQBoolFromBool(jsonValue->isObject());
-	
-	fValReturn.setBool(result); // Put property into return value
+    getEXTFldValFromBool(fValReturn, jsonValue->isObject());
 	ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
 }
 
@@ -724,7 +705,7 @@ void JsonValue::methodCopy( tThreadData* pThreadData, qshort pParamCount ) {
 	newObj->setJsonValue(copyValue);
 	
 	EXTfldval retVal;
-	retVal.setObjInst( newObj->mObjInst, qtrue ); 
+	retVal.setObjInst( newObj->getInstance(), qtrue ); 
 	ECOaddParam( pThreadData->mEci, &retVal );
 }
 
@@ -734,30 +715,21 @@ void JsonValue::methodRoot( tThreadData* pThreadData, qshort pParamCount ) {
 	newObj->setJsonValue(document);
 	
 	EXTfldval retVal;
-	retVal.setObjInst( newObj->mObjInst, qtrue ); 
+	retVal.setObjInst( newObj->getInstance(), qtrue ); 
 	ECOaddParam( pThreadData->mEci, &retVal );
 }
 
 // Return size
 void JsonValue::methodSize( tThreadData* pThreadData, qshort pParamCount ) {
-	// Get size from value object
-	int size = jsonValue->size();
-	qlong qsize = static_cast<qlong>(size);
-	
-	// Return to Omnis
 	EXTfldval fValReturn;
-	fValReturn.setLong(qsize); 
+    getEXTFldValFromInt(fValReturn, jsonValue->size());
 	ECOaddParam(pThreadData->mEci, &fValReturn);
 }
 
 // Returns true if Value object empty
 void JsonValue::methodEmpty( tThreadData* pThreadData, qshort pParamCount ) {
-	// Get size from value object
-	qbool status = getQBoolFromBool( jsonValue->empty() );
-	
-	// Return to Omnis
 	EXTfldval fValReturn;
-	fValReturn.setBool(status); 
+    getEXTFldValFromBool(fValReturn, jsonValue->empty());
 	ECOaddParam(pThreadData->mEci, &fValReturn);
 }
 
@@ -773,14 +745,11 @@ void JsonValue::methodIsValidIndex( tThreadData* pThreadData, qshort pParamCount
 	if ( getParamVar(pThreadData, 1, indexVal) == qfalse)
 		return;
 	
-	int index = indexVal.getLong();
-	
-	// Send key to Value object
-	qbool status = getQBoolFromBool( jsonValue->isValidIndex(index) );
+	int index = getIntFromEXTFldVal(indexVal);
 	
 	// Return to Omnis
 	EXTfldval fValReturn;
-	fValReturn.setBool(status); 
+    getEXTFldValFromBool(fValReturn, jsonValue->isValidIndex(index));
 	ECOaddParam(pThreadData->mEci, &fValReturn);
 }
 
@@ -794,12 +763,9 @@ void JsonValue::methodIsMember( tThreadData* pThreadData, qshort pParamCount ) {
 	
 	std::string key = getStringFromEXTFldVal(keyVal);
 	
-	// Send key to Value object
-	qbool status = getQBoolFromBool( jsonValue->isMember(key) );
-	
 	// Return to Omnis
 	EXTfldval fValReturn;
-	fValReturn.setBool(status); 
+    getEXTFldValFromBool(fValReturn, jsonValue->isMember(key));
 	ECOaddParam(pThreadData->mEci, &fValReturn);
 }
 

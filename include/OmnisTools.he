@@ -13,13 +13,22 @@
 #include <extcomp.he>
 #include <chrbasic.he>
 
+#define USE_BOOST
+#ifdef USE_BOOST
+#include <boost/shared_ptr.hpp>
+#endif
+
 //Std Library includes
 #include <string>
+#include <map>
 
 #ifndef OMNIS_TOOLS_HE_
 #define OMNIS_TOOLS_HE_
 
 namespace OmnisTools {
+	
+	// Generic result type for returning error status
+	typedef qlong tResult;
 	
 	// Thread data struct is an ease-of-use tool to keep track of the current context, 
 	// rather than just passing eci everywhere
@@ -32,47 +41,157 @@ namespace OmnisTools {
 		std::string mExtraErrorText;
 	}; 
 	
+	// Struct for managing EXTfldval types
+	struct FieldValType {
+		ffttype valType;
+		qshort valSubType;
+	};
+	
 	// Parameter helpers
 	qbool getParamVar( tThreadData* pThreadData, qshort pParamNum, EXTfldval& pOutVar );
 	qbool getParamVar( EXTCompInfo* pEci, qshort pParamNum, EXTfldval& pOutVar );
+	qbool getParamList( tThreadData* pThreadData, qshort pParamNum, EXTqlist& pOutList, qbool pCanBeRow = qfalse );
+	qbool getParamBool( tThreadData* pThreadData, qshort pParamNum, qbool& pOutBool );
+	qbool getParamShort( tThreadData* pThreadData, qshort pParamNum, qshort& pOutShort );
+	qbool getParamLong( tThreadData* pThreadData, qshort pParamNum, qlong& pOutInteger );
+	
+	FieldValType getType(EXTfldval&);
+	
+	// List helpers
+	qbool isList( EXTfldval& pFVal, qbool pCanBeRow = qfalse);
 	
 	// qbool/bool helpers
 	qbool getQBoolFromBool(bool);
 	bool getBoolFromQBool(qbool);
 	
-	// double/EXTfldval helpers
-	double getDoubleFromEXTFldVal(EXTfldval&);
-	void getEXTFldValFromDouble(EXTfldval&, double);
+	// std::wstring/EXTfldval helpers
+	std::wstring getWStringFromEXTFldVal(EXTfldval& fVal);
+	void getEXTFldValFromWString(EXTfldval&, const std::wstring);
+    void getEXTFldValFromWChar(EXTfldval&, const wchar_t*);
 	
 	// std::string/EXTfldval helpers
 	std::string getStringFromEXTFldVal(EXTfldval&);
-	void getEXTFldValFromString(EXTfldval&, std::string);
+	void getEXTFldValFromString(EXTfldval&, const std::string);
+    void getEXTFldValFromChar(EXTfldval&, const char*);
 	
 	// std::string/qchar* helpers
-	qchar* getQCharFromString( std::string readString, qlong &retLength );
+	qchar* getQCharFromString( const std::string readString, qlong &retLength );
+	qchar* getQCharFromWString( const std::wstring readString, qlong &retLength );
+	
+    // Binary/EXTfldval helpers
+    template<class T>
+    void getEXTfldvalFromBinary(EXTfldval& fVal, T* data) {
+        if (data) {
+            qlong binSize = sizeof(data) / sizeof(T);
+            qbyte* binAssign = static_cast<qbyte*>(MEMmalloc(binSize * sizeof(qbyte)));
+            if (binAssign) {
+                MEMmovel(data, binAssign, binSize);
+                fVal.setBinary(fftBinary, binAssign, binSize);
+            }
+        }
+    }
+    
+    template<class T>
+    T* getBinaryFromEXTfldval(EXTfldval& fVal, qlong& length) {
+        qlong binSize = fVal.getBinLen();
+        qbyte* binData = 0;
+        
+        fVal.getBinary(binSize, binData, binSize);
+        
+        // Set return values and data reference
+        length = static_cast<qlong>(binSize);
+        
+        return reinterpret_cast<T*>(binData);
+    }
+    
+    template<class T>
+    T* getBinaryFromEXTfldval(EXTfldval& fVal) {
+        qlong discardLength = 0;
+        return getBinaryFromEXTfldval<T>(fVal, discardLength);
+    }
+    
+    // strxxx helpers
+    str15 initStr15(const char*);
+    str31 initStr31(const char*);
+    str80 initStr80(const char*);
+    str255 initStr255(const char*);
+    
+	// C++ type helpers
+	bool getBoolFromEXTFldVal(EXTfldval& fVal);
+	void getEXTFldValFromBool(EXTfldval& fVal, bool);
+	int getIntFromEXTFldVal(EXTfldval& fVal);
+	void getEXTFldValFromInt(EXTfldval& fVal, int);
+	long getLongFromEXTFldVal(EXTfldval& fVal);
+	void getEXTFldValFromLong(EXTfldval& fVal, long);
+    float getFloatFromEXTFldVal(EXTfldval& fVal);
+	void getEXTFldValFromFloat(EXTfldval& fVal, float);
+	double getDoubleFromEXTFldVal(EXTfldval& fVal);
+	void getEXTFldValFromDouble(EXTfldval& fVal, double);
+    
+    void getEXTFldValFromConstant(EXTfldval& fVal, qlong constID, qlong prefixID = 0);
+#ifdef USE_BOOST
+	int getIntFromEXTFldVal(EXTfldval& fVal, qlong firstConstID, qlong lastConstID);
+#endif
 	
 	// get ISO 8601 std::string from Date
 	std::string getISO8601DateStringFromEXTFldVal(EXTfldval&);
 	
+	// POSIX/HFS Paths
+	qbool ensurePosixPath(EXTfldval&);
+	
 	// ************ TEMPLATES ************ //
-
+	
 	// Generic method for retrieving an object by it's instance
 	template <class T>
-	T* getObjForInstance(tThreadData* pThreadData, qobjinst objinst) {
-		objinst = reinterpret_cast<qobjinst>(ECOgetNVObject(objinst)); // Attempt to get super class for NV Objects that are inherited by Omnis objects
-		LPARAM objinstPtr = reinterpret_cast<LPARAM>(objinst);
-		void* omnisPtr = ECOfindNVObject(pThreadData->mEci->mOmnisInstance, objinstPtr);
+	T* getObjForInstance(tThreadData* pThreadData, qobjinst inst) {
+		if (!inst) {
+			return 0;
+		}
 		
+		inst = (qobjinst) ECOgetNVObject(inst); // Attempt to get super class for NV Objects that are inherited by Omnis objects
+		if (!inst) {
+			return 0;
+		}
+		
+		LPARAM lparamPtr = (LPARAM) inst;
+		void* omnisPtr = ECOfindNVObject(pThreadData->mEci->mOmnisInstance, lparamPtr);
+		if (!omnisPtr) {
+			return 0;
+		}
+		
+		// Verify that the correct object was retrieved
 		T* retPtr = reinterpret_cast<T*>( omnisPtr );
+		if (retPtr->objResourceId != T::objResourceId ) {
+			return 0;
+		}
+		
 		return retPtr;
+	}
+	
+	// Generic method for setting an EXTfldval with an object
+	template <class T>
+	void getEXTFldValForObj(EXTfldval& fVal, T* obj) {
+		if (!obj)
+			return;
+		
+		qobjinst inst = obj->getInstance();
+		fVal.setObjInst( inst, qtrue );
 	}
 	
 	// Generic method for retrieving an object from it's EXTfldval
 	template <class T>
 	T* getObjForEXTfldval(tThreadData* pThreadData, EXTfldval &fVal) {
-		qobjinst objinst = fVal.getObjInst(qfalse);
+		qobjinst inst;
+		if (getType(fVal).valType == fftObject) {
+			inst = fVal.getObjInst(qfalse);
+		} else if (getType(fVal).valType == fftObjref) {
+			inst = fVal.getObjRef();
+		} else {
+			// Unknown type
+			return 0;
+		}
 		
-		return getObjForInstance<T>(pThreadData, objinst);
+		return getObjForInstance<T>(pThreadData, inst);
 	}
 	
 	// Generic method for creating a new object in the Omnis pool
@@ -98,6 +217,27 @@ namespace OmnisTools {
 		
 		return createNVObj<T>(objectType, pThreadData);
 	}
+    
+    // Generic method to copy a non-visual object from the Omnis dispatch
+    template<class T>
+    void copyNVObj( qlong propID, objCopyInfo* copyInfo, OmnisTools::tThreadData* pThreadData) {
+        
+        LPARAM source = reinterpret_cast<LPARAM>(ECOgetNVObject( (qobjinst) copyInfo->mSourceObject));
+        T* src = (T*) ECOfindNVObject( pThreadData->mEci->mOmnisInstance, source );
+        if( src )
+        {
+            LPARAM destination = reinterpret_cast<LPARAM>(ECOgetNVObject( (qobjinst) copyInfo->mDestinationObject));
+            
+            T* dest = (T*)ECOfindNVObject( pThreadData->mEci->mOmnisInstance, destination );
+            if( !dest )
+            {
+                dest = (T*) src->dup(propID, (qobjinst)copyInfo->mDestinationObject, pThreadData);
+                ECOinsertNVObject( pThreadData->mEci->mOmnisInstance, copyInfo->mDestinationObject, dest );
+            } else {
+                dest->copy( src );
+            }
+        }
+    }
 }
-	
-#endif OMNIS_TOOLS_HE_
+
+#endif // OMNIS_TOOLS_HE_
