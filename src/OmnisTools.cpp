@@ -581,8 +581,7 @@ std::string OmnisTools::getISO8601DateStringFromEXTFldVal(EXTfldval& fVal) {
 		|| theType.valSubType == dpFdtime2000
 	    || theType.valSubType == dpFdtimeC
         || theType.valSubType == 52)) //  NOTE: Odd date type that comes through, but is not defined.
-    {
-		//sprintf(inBuffer, "%i-%i-%i", theDate.mYear, theDate.mMonth, theDate.mDay);	
+    {	
         sin << int(theDate.mYear);
         if (theDate.mMonth < 10) {
             sin << "-0" << int(theDate.mMonth);
