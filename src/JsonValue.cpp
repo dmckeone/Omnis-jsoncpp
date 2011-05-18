@@ -10,7 +10,11 @@
 
 #include <string>
 
+// Format of strings 
+#include <boost/format.hpp>
+
 using boost::shared_ptr;
+using boost::format;
 
 // Resource #'s for Value Type constants
 const static qshort kConstValueTypeStart = 23001,
@@ -833,14 +837,259 @@ void JsonValue::methodSet( tThreadData* pThreadData, qshort pParamCount) {
 }
 
 // Convert the current value object into a list
-void JsonValue::methodValueToList( tThreadData*, qshort ) {
+void JsonValue::methodValueToList( tThreadData* pThreadData, qshort pParamCount ) {
     
-    return;
+    return;  // TODO: Finish value to list conversion
+    
+    EXTfldval retVal;
+    EXTqlist* retList = new EXTqlist(listVlen);
+    qlong rowNum;
+    
+    str255 colName;
+    EXTfldval colVal, colNameVal;
+    
+    // Write contents to list
+    if (jsonValue->isObject() || jsonValue->isArray()) {
+        // Write container object directly to list
+        writeValueToList(pThreadData, retList, jsonValue, 0,0);
+    } else {
+        // Write all regular values to a single column in the list
+        getEXTFldValFromString(colNameVal, "Value");
+        colNameVal.getChar(colName, qtrue);
+        
+        addColForValue(retList, jsonValue, colName);
+        
+        rowNum = retList->insertRow(0);
+        if (rowNum > 0) {
+            writeValueToList(pThreadData, retList, jsonValue, rowNum ,1);
+        }
+    }
+    
+    // Return list
+    retVal.setList(retList, qtrue);
+    ECOaddParam(pThreadData->mEci, &retVal);
 }
 
 // Convert a list into the current value object
-void JsonValue::methodListToValue( tThreadData*, qshort ) {
+void JsonValue::methodListToValue( tThreadData* pThreadData, qshort pParamCount ) {
     
-    return;
+    EXTqlist inList;
+    if (getParamList(pThreadData, 1, inList) == qfalse) {
+        pThreadData->mExtraErrorText = "Unrecognized parameter 1.  Expected list.";
+        return;
+    }
+    
+    // Clear out previous contents
+	document = shared_ptr<Json::Value>(new Json::Value());
+    jsonValue = &(*document);
+    
+    EXTfldval colVal, colValName;
+    str255 colName;
+    Json::Value obj;
+    
+    // Resize array to correct number of elements (since we know what it is)
+    jsonValue->resize(uint(inList.rowCnt()));
+    
+    // Loop all rows and all columns and create a Json::Value.  Each row is 1 line in an array and each column is part of an object.
+    for (qlong row = 1; row <= inList.rowCnt(); ++row) {
+        // Create new object for each row
+        obj = Json::Value();  
+        
+        for (qlong col = 1; col <= inList.colCnt(); ++col) {
+            inList.getColValRef(row, col, colVal, qfalse);
+            
+            inList.getCol(col, colName);
+            colValName.setChar(colName);
+            
+            // Must ignore binary and picture data since it is not support by JSON
+            if ( !(getType(colVal).valType == fftBinary || getType(colVal).valType == fftPicture)) {
+                
+                // Also ignore lists for the time being
+                if (getType(colVal).valType != fftList) {
+                    getValueFromEXTFldVal(pThreadData, colVal, obj, getStringFromEXTFldVal(colValName));
+                }
+            }
+        }
+        
+        (*jsonValue)[uint(row-1)] = obj;
+    }
+}
+
+// Add a column to a list based on the Json::Value type
+void JsonValue::addColForValue(EXTqlist* list, Json::Value* val, str255& colName) {
+    // Perform appropriate initialization for each type
+    switch (val->type()) {
+        case Json::nullValue:
+            list->addCol(fftCharacter, dpFcharacter, 10000000, &colName);
+            break;
+        case Json::intValue:
+            list->addCol(fftInteger, dpDefault, 0, &colName);
+            break;
+        case Json::uintValue:
+            list->addCol(fftInteger, dpDefault, 0, &colName);
+            break;
+        case Json::realValue:
+            list->addCol(fftNumber, dpDefault, 0, &colName);
+            break;
+        case Json::stringValue:
+            list->addCol(fftCharacter, dpFcharacter, 10000000, &colName);
+            break;
+        case Json::booleanValue:
+            list->addCol(fftBoolean, dpDefault, 0, &colName);
+            break;
+        case Json::arrayValue:
+        case Json::objectValue:
+            list->addCol(fftList, dpDefault, 0, &colName);
+            break;
+        default:
+            break;
+    }
+}
+
+// Get an EXTFldVal based on a Json::Value
+void JsonValue::getValueFromEXTFldVal(tThreadData* pThreadData, EXTfldval& fVal, Json::Value& val, std::string label) {
+    // Perform appropriate initialization for each type
+    
+    FieldValType theType = getType(fVal);
+    
+    if (theType.valType == fftCharacter) {
+        val[label] = getStringFromEXTFldVal(fVal);
+    } else if (theType.valType == fftInteger) {
+        val[label] = getIntFromEXTFldVal(fVal);
+    } else if (theType.valType == fftNumber) {
+        val[label] = getDoubleFromEXTFldVal(fVal);
+    } else if (theType.valType == fftDate) {
+        val[label] = getISO8601DateStringFromEXTFldVal(fVal);
+    } else if (theType.valType == fftBoolean) {
+        val[label] = getBoolFromEXTFldVal(fVal);
+    }
+}
+
+// Get an EXTFldVal based on a Json::Value
+void JsonValue::getEXTFldValFromValue(tThreadData* pThreadData, EXTfldval& fVal, Json::Value* val) {
+    // Perform appropriate initialization for each type
+    switch (val->type()) {
+        case Json::nullValue:
+            fVal.setNull(fftCharacter, dpFcharacter);
+            break;
+        case Json::intValue:
+            getEXTFldValFromInt(fVal, val->asInt());
+            break;
+        case Json::uintValue:
+            getEXTFldValFromInt(fVal, val->asUInt());
+            break;
+        case Json::realValue:
+            getEXTFldValFromDouble(fVal, val->asDouble());
+            break;
+        case Json::stringValue:
+            getEXTFldValFromString(fVal, val->asString());
+            break;
+        case Json::booleanValue:
+            getEXTFldValFromBool(fVal, val->asBool());
+            break;
+        case Json::arrayValue:
+        case Json::objectValue:
+            // Object and array handled above
+            break;
+        default:
+            break;
+    }
+}
+
+
+// Write value to passed in list
+void JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json::Value* val, qlong row, qshort col) {
+    EXTqlist* innerList;
+    str255 colName;
+    EXTfldval colVal, colNameVal;
+    std::string label;
+    
+    // Variables for jsoncpp
+    Json::Value innerVal;
+    Json::Value::Members memberNames;
+    
+    // Based on the type of the value write to a list
+    if (val->isNull()) {
+        // Nothing to do
+    } else if (val->isObject()) {
+        // Write a single row for the object with a column name as the name value pair
+        
+        // Get member names
+        memberNames = val->getMemberNames();
+        
+        // Determine if we are adding to an existing (top-level) list or into a column
+        if (col == 0) {
+            innerList = list;
+        } else {
+            list->getColValRef(row, col, colVal, qtrue);
+            if (getType(colVal).valType == fftList) {
+                innerList = colVal.getList(qfalse);
+            } else {
+                innerList = new EXTqlist(listVlen);
+                colVal.setList(innerList,qtrue);
+            }
+        }
+        
+        // Loop all member names and create a column for each
+        for (qshort c = 1; c <= val->size(); ++c) {
+            // Add column for member
+            getEXTFldValFromString(colNameVal, memberNames[c-1]); // jsoncpp index is off of 0
+            colNameVal.getChar(colName, qtrue);
+            
+            innerVal = (*val)[memberNames[c-1]];  // jsoncpp index is off of 0
+            addColForValue(innerList, &innerVal, colName);
+        }
+        
+        // Add a row and write all the values
+        qlong rowNum = innerList->insertRow(0);
+        if (rowNum > 0) {    
+            for (qshort c = 1; c <= val->size(); ++c) {
+                // Get Json::Value and write to column
+                innerVal = (*val)[memberNames[c-1]];  // jsoncpp index is off of 0
+                writeValueToList(pThreadData, innerList, &innerVal, rowNum, c);
+            }
+        }
+        
+    } else if (val->isArray()) {
+        // Write a single row for the array with a title 'Element1' as the name
+        
+        // Determine if we are adding to an existing (top-level) list or into a column
+        if (col == 0) {
+            innerList = list;
+        } else {
+            list->getColValRef(row, col, colVal, qtrue);
+            innerList = colVal.getList(qfalse);
+        }
+        
+        // Loop all array items and create a column for each
+        getEXTFldValFromString(colNameVal, label);
+        colNameVal.getChar(colName, qtrue);
+        
+        innerVal = (*val)[uint(0)];  // Get first element
+        addColForValue(innerList, &innerVal, colName);
+        
+        // Add inner list
+        if (col > 0) {
+            list->getColValRef(row, col, colVal, qtrue);
+            colVal.setList(innerList, qtrue);
+            innerList = colVal.getList(qfalse);
+        }
+        
+        // Add a row for each item in the list 
+        for (qshort r = 1; r <= val->size(); ++r) {
+            // Get Json::Value and write to column
+            innerVal = (*val)[r-1];  // jsoncpp index is off of 0
+            writeValueToList(pThreadData, innerList, &innerVal, r, 0);
+        }
+        
+    } else {
+        // Regular value
+        if (row > 0 && col > 0) {
+            // Can only write regular value if column has already been created
+            list->getColValRef(row, col, colVal, qtrue);
+            
+            getEXTFldValFromValue(pThreadData, colVal, val);
+        }
+    }
 }
 

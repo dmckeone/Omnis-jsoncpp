@@ -116,6 +116,12 @@ private:
 	void setValueFromEXTfldval( tThreadData*, EXTfldval&, std::string group);
 	void setValueFromEXTfldval( tThreadData*, EXTfldval&, int group);
 	void setValueFromParameter( tThreadData*, qshort );
+    
+    // List conversions
+    void getValueFromEXTFldVal(tThreadData* pThreadData, EXTfldval& fVal, Json::Value& val, std::string label);
+    void getEXTFldValFromValue(tThreadData* pThreadData, EXTfldval& fVal, Json::Value* val);
+    void addColForValue(EXTqlist* list, Json::Value* val, str255& colName);
+    void writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json::Value* val, qlong row, qshort col);
 };
 
 #endif /* JSON_VALUE_HE */
