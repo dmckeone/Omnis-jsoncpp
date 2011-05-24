@@ -533,6 +533,8 @@ void JsonValue::setValueFromEXTfldval(tThreadData* pThreadData, EXTfldval &fVal)
 		*jsonValue = getDoubleFromEXTFldVal(fVal);
 	} else if (valType == fftBoolean) {
 		*jsonValue = getBoolFromEXTFldVal(fVal);
+    } else if (valType == fftDate) {
+        *jsonValue = getISO8601DateStringFromEXTFldVal(fVal);
 	} else if (valType == fftObject) {
 		JsonValue* assignObj = getObjForEXTfldval<JsonValue>(pThreadData, fVal);
 		if (assignObj) {
@@ -555,7 +557,9 @@ void JsonValue::setValueFromEXTfldval(tThreadData* pThreadData, EXTfldval &fVal,
 		(*jsonValue)[group] = getDoubleFromEXTFldVal(fVal);
 	} else if (valType == fftBoolean) {
 		(*jsonValue)[group] = getBoolFromEXTFldVal(fVal);
-	}
+	} else if (valType == fftDate) {
+        (*jsonValue)[group] = getISO8601DateStringFromEXTFldVal(fVal);
+    }
 }
 
 // Helper method to set the jsonValue for a specific group
@@ -569,12 +573,14 @@ void JsonValue::setValueFromEXTfldval(tThreadData* pThreadData, EXTfldval &fVal,
 	if (valType == fftCharacter) {
 		(*jsonValue)[group] = getStringFromEXTFldVal(fVal);
 	} else if (valType == fftInteger) {
-		(*jsonValue)[group] = static_cast<int>( fVal.getLong() );
+		(*jsonValue)[group] = getIntFromEXTFldVal(fVal);
 	} else if (valType == fftNumber) {
 		(*jsonValue)[group] = getDoubleFromEXTFldVal(fVal);
 	} else if (valType == fftBoolean) {
-		(*jsonValue)[group] = getBoolFromQBool(fVal.getBool());
-	}
+		(*jsonValue)[group] = getBoolFromEXTFldVal(fVal);
+	} else if (valType == fftDate) {
+        (*jsonValue)[group] = getISO8601DateStringFromEXTFldVal(fVal);
+    }
 	
 	// If no parameters were passed or an object couldn't be found, then init to NULL
 	if ( (*jsonValue)[group].isNull() ) {
@@ -878,10 +884,6 @@ void JsonValue::methodListToValue( tThreadData* pThreadData, qshort pParamCount 
         pThreadData->mExtraErrorText = "Unrecognized parameter 1.  Expected list.";
         return;
     }
-    
-    // Clear out previous contents
-	document = shared_ptr<Json::Value>(new Json::Value());
-    jsonValue = &(*document);
     
     EXTfldval colVal, colValName;
     str255 colName;
