@@ -13,9 +13,11 @@
 #include <sstream>
 #include <iostream>
 #include <map>
+#include <string>
 
 #ifdef USE_BOOST
 #include <boost/lexical_cast.hpp>
+#include <boost/regex.hpp>
 
 using boost::lexical_cast;
 using boost::bad_lexical_cast;
@@ -460,6 +462,28 @@ void OmnisTools::getEXTFldValFromDouble(EXTfldval& fVal, double d) {
 	fVal.setNum(omnReal, dp);
 }
 
+// Get an EXTfldval for a C time
+void OmnisTools::getEXTFldValFromTime(EXTfldval& fVal, struct tm* cTime) {
+    
+    datestamptype convDate;
+    
+    // Date
+    convDate.mYear = static_cast<qshort>(cTime->tm_year+1900);  // Years since 1900
+    convDate.mMonth = static_cast<char>(cTime->tm_mon+1); // 0 = January, 11 = December
+    convDate.mDay = static_cast<char>(cTime ->tm_mday);
+    convDate.mDateOk = static_cast<char>(qtrue);
+    
+    // Time
+    convDate.mHour = static_cast<char>(cTime->tm_hour);
+    convDate.mMin = static_cast<char>(cTime->tm_min);
+    convDate.mSec = static_cast<char>(cTime->tm_sec);
+    convDate.mTimeOk = static_cast<char>(qtrue);
+    
+    convDate.mHunOk = static_cast<char>(qfalse);
+    
+    fVal.setDate(convDate, dpFdtimeC);
+}
+
 // Get an EXTfldval for a defined constant
 void OmnisTools::getEXTFldValFromConstant(EXTfldval& fVal, qlong constID, qlong prefixID) {
     
@@ -495,7 +519,7 @@ void OmnisTools::getEXTFldValFromConstant(EXTfldval& fVal, qlong constID, qlong 
 
 // Get an integer for an EXTfldval where the EXTfldval contains a constant
 #ifdef USE_BOOST
-static std::map<std::wstring,int> constCache;
+static std::map<std::string,int> constCache;
 int OmnisTools::getIntFromEXTFldVal(EXTfldval& fVal, qlong firstID, qlong lastID) {
 	
 	if (getType(fVal).valType == fftInteger) {
@@ -506,10 +530,10 @@ int OmnisTools::getIntFromEXTFldVal(EXTfldval& fVal, qlong firstID, qlong lastID
 	
 	int retNum = -1;
 	// Get string that needs to be matched
-	std::wstring matchString = getWStringFromEXTFldVal(fVal);
+	std::string matchString = getStringFromEXTFldVal(fVal);
 	
 	// Get map iterator for searching
-	std::map<std::wstring,int>::iterator it;
+	std::map<std::string,int>::iterator it;
 	it = constCache.find(matchString);
 	if (it != constCache.end()) {
 		retNum = it->second;
@@ -518,23 +542,23 @@ int OmnisTools::getIntFromEXTFldVal(EXTfldval& fVal, qlong firstID, qlong lastID
 		int tildePos, colonPos, numPos, constNum;
 		EXTfldval convVar;
 		str255 resourceValue;
-		std::wstring resourceMatch, resourceString;
-		std::wstring numString = L"";
+		std::string resourceMatch, resourceString;
+		std::string numString = "";
 		
 		for( int i = firstID; i <= lastID; ++i) {
 			// Load resource and put into std::wstring for easy substr
 			RESloadString(gInstLib,i,resourceValue);
 			convVar.setChar(resourceValue, dpDefault);
-			resourceString = getWStringFromEXTFldVal(convVar);
-			tildePos = resourceString.find(L"~") + 1;
-			colonPos = resourceString.find(L":");
+			resourceString = getStringFromEXTFldVal(convVar);
+			tildePos = resourceString.find("~") + 1;
+			colonPos = resourceString.find(":");
 			if (colonPos != -1) { // All constants should have colons.  If it doesn't then don't interpret the line
 				resourceMatch = resourceString.substr(tildePos, colonPos-tildePos);
 				
 				// While looping add items to the const cache
 				numPos = colonPos + 1;
 				numString.clear();
-				while (resourceString[numPos] != L':' && numPos < static_cast<int>(resourceString.length())) {
+				while (resourceString[numPos] != ':' && numPos < static_cast<int>(resourceString.length())) {
 					numString += resourceString[numPos++];
 				}
 				try {
@@ -594,13 +618,13 @@ std::string OmnisTools::getISO8601DateStringFromEXTFldVal(EXTfldval& fVal) {
 	// Set time part of string
     if (theDate.mTimeOk == qtrue
         && !(theType.valSubType == dpFdate1900
-            || theType.valSubType == dpFdate1900
-            || theType.valSubType == dpFdate1980
-            || theType.valSubType == dpFdate2000
-            || theType.valSubType == dpFdtime1900
-            || theType.valSubType == dpFdtime1980
-            || theType.valSubType == dpFdtime2000
-            || theType.valSubType == dpFdtimeC))
+             || theType.valSubType == dpFdate1900
+             || theType.valSubType == dpFdate1980
+             || theType.valSubType == dpFdate2000
+             || theType.valSubType == dpFdtime1900
+             || theType.valSubType == dpFdtime1980
+             || theType.valSubType == dpFdtime2000
+             || theType.valSubType == dpFdtimeC))
     {
         sin << "T";
         if (theDate.mHour < 10) {
@@ -629,6 +653,103 @@ std::string OmnisTools::getISO8601DateStringFromEXTFldVal(EXTfldval& fVal) {
 	
 	return retString;
 }
+
+#ifdef USE_BOOST
+// RegExs used for date-checking
+static boost::regex dateCheck = boost::regex("^(\\d+)-(\\d{1,2})-(\\d{1,2})$");  // Regex: ^\d+-\d{1,2}-\d{1,2}$ -- Looks like 2011-09-02 or 2011-9-2
+static boost::regex timeCheck = boost::regex("^T(\\d{1,2}):(\\d{1,2}):?(\\d{0,2})\\.?(\\d*)Z?$");  // Regex: ^T\d{1,2}:\d{1,2}:\d{1,2}\.?\d*Z?$ -- Looks like T20:09:02.34398Z 
+static boost::regex datetimeCheck = boost::regex("^(\\d+)-(\\d{1,2})-(\\d{1,2})T(\\d{1,2}):(\\d{1,2}):?(\\d{0,2})\\.?(\\d*)Z?$");  // Combination of date and time check.
+
+// This method determines if a string is an ISO8601 Date
+OmnisTools::ISO8601DateType OmnisTools::isISO8601Date(std::string dateString) {
+
+    if( boost::regex_match(dateString,datetimeCheck) ) { 
+        return kISODateTime;
+        
+    } else if ( boost::regex_match(dateString,dateCheck) ) {
+        return kISODate;
+        
+    } else if ( boost::regex_match(dateString,timeCheck) ) {
+        return kISOTime;
+    }
+    
+    return kISODateNone;
+}
+#endif
+
+#ifdef USE_BOOST
+// This method sets up the passed in EXTfldval with a date representing the ISO8601 Date passed in
+void OmnisTools::getEXTfldvalFromISO8601DateString(EXTfldval& fVal, std::string dateString) {
+
+    boost::smatch theMatch;
+    datestamptype theDate;
+    
+    if( boost::regex_match(dateString,theMatch,datetimeCheck) ) { 
+        // Match date/time
+        fVal.setEmpty(fftDate, dpFdtimeC);
+        fVal.getDate(theDate);
+        
+        theDate.mDateOk = qtrue;
+        theDate.mYear = lexical_cast<qshort>(theMatch[1]);  // First match is year
+        theDate.mMonth = (char) lexical_cast<qshort>(theMatch[2]);  // Second match is month
+        theDate.mDay = (char) lexical_cast<qshort>(theMatch[3]);  // Third match is day
+        
+        theDate.mTimeOk = qtrue;
+        theDate.mHour = (char) lexical_cast<qshort>(theMatch[4]);  // Fourth match is hour
+        theDate.mMin = (char) lexical_cast<qshort>(theMatch[5]);  // Fifth match is minute
+        
+        theDate.mSecOk = qfalse;
+        theDate.mHunOk = qfalse;
+        
+        // Optional matches
+        if (theMatch[6].matched && theMatch[6].length() > 0) {
+            // Appears to have the seconds portion
+            theDate.mSecOk = qtrue;
+            theDate.mSec = lexical_cast<int>(theMatch[6]);  // Sixth match is seconds
+        }
+        
+        fVal.setDate(theDate, dpFdtimeC);
+        
+    } else if ( boost::regex_match(dateString,theMatch,dateCheck) ) {
+        // Match date
+        fVal.setEmpty(fftDate, dpFdate2000);
+        fVal.getDate(theDate);
+        
+        theDate.mDateOk = qtrue;
+        theDate.mYear = lexical_cast<qshort>(theMatch[1]);  // First match is year
+        theDate.mMonth = (char) lexical_cast<qshort>(theMatch[2]);  // Second match is month
+        theDate.mDay = (char) lexical_cast<qshort>(theMatch[3]);  // Third match is day
+        
+        theDate.mTimeOk = qfalse;
+        theDate.mSecOk = qfalse;
+        theDate.mHunOk = qfalse;
+        
+        fVal.setDate(theDate, dpFdate2000);
+        
+    } else if ( boost::regex_match(dateString,theMatch,timeCheck) ) {
+        // Match time
+        fVal.setEmpty(fftDate, dpFtime);
+        fVal.getDate(theDate);
+        
+        theDate.mDateOk = qfalse;
+        theDate.mTimeOk = qtrue;
+        theDate.mHour = (char) lexical_cast<qshort>(theMatch[1]);  // First match is hour
+        theDate.mMin = (char) lexical_cast<qshort>(theMatch[2]);  // Second match is minute
+        
+        theDate.mSecOk = qfalse;
+        theDate.mHunOk = qfalse;
+        
+        // Optional matches
+        if (theMatch[3].matched && theMatch[3].length() > 0) {
+            // Appears to have the seconds portion
+            theDate.mSecOk = qtrue;
+            theDate.mSec = (char) lexical_cast<qshort>(theMatch[3]);  // Third match is seconds
+        }
+        
+        fVal.setDate(theDate);
+    }
+}
+#endif
 
 qbool OmnisTools::ensurePosixPath(EXTfldval& pathVal) {
 #ifdef ismac

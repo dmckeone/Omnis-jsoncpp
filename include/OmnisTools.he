@@ -13,12 +13,16 @@
 #include <extcomp.he>
 #include <chrbasic.he>
 
+
 #define USE_BOOST
 #ifdef USE_BOOST
 #include <boost/shared_ptr.hpp>
 #endif
 
-//Std Library includes
+// C Library includes
+#include <ctime>
+
+// STD Library includes
 #include <string>
 #include <map>
 
@@ -128,13 +132,29 @@ namespace OmnisTools {
 	double getDoubleFromEXTFldVal(EXTfldval& fVal);
 	void getEXTFldValFromDouble(EXTfldval& fVal, double);
     
+    // C type helpers
+    void getEXTFldValFromTime(EXTfldval& fVal, struct tm* utcTime);
+    
     void getEXTFldValFromConstant(EXTfldval& fVal, qlong constID, qlong prefixID = 0);
 #ifdef USE_BOOST
 	int getIntFromEXTFldVal(EXTfldval& fVal, qlong firstConstID, qlong lastConstID);
 #endif
 	
 	// get ISO 8601 std::string from Date
+#ifdef USE_BOOST
+    // Enum for types. None is intentionally zero for false
+    enum ISO8601DateType {
+        kISODateNone = 0,
+        kISODateTime = 1,
+        kISODate = 2,
+        kISOTime = 3
+    };
+    
+    ISO8601DateType isISO8601Date(std::string);
+    void getEXTfldvalFromISO8601DateString(EXTfldval&, std::string);
+#endif
 	std::string getISO8601DateStringFromEXTFldVal(EXTfldval&);
+    
 	
 	// POSIX/HFS Paths
 	qbool ensurePosixPath(EXTfldval&);

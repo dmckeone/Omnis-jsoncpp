@@ -68,8 +68,10 @@ BEGIN
     23005                   "StringValueType:4:StringValueType:UTF-8 String Value"
     23006                   "BooleanValueType:5:BooleanValueType:Boolean Value"
     23007                   "ArrayValueType:6:ArrayValueType:Array Value (ordered list)"
-
     23008                   "ObjectValueType:7:ObjectValueType:Object Value (collection of name/value pairs)"
+    23009                   "DateTimeValueType:8:DateTimeValueType: ISO8601 Date-Time String Value"
+    23010                   "DateValueType:9:DateValueType: ISO8601 Date String Value"
+    23011                   "TimeValueType:10:TimeValueType: ISO8601 Time String Value"
 
     31000                   "NVObjWndProc"
 END

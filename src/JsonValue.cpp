@@ -9,6 +9,7 @@
 #include "JsonValue.he"
 
 #include <string>
+#include <map>
 
 // Format of strings 
 #include <boost/format.hpp>
@@ -414,7 +415,22 @@ void JsonValue::propertyValueType(EXTfldval &retVal) {
 			retVal.setConstant(kConstValueTypeStart, kConstValueTypeEnd, 3);
 			break;
 		case Json::stringValue:
-			retVal.setConstant(kConstValueTypeStart, kConstValueTypeEnd, 4);
+            // String can be a string or a date
+            switch( isISO8601Date(jsonValue ->asString())) {
+                case kISODateTime:
+                    retVal.setConstant(kConstValueTypeStart, kConstValueTypeEnd, 8);
+                    break;
+                case kISODate:
+                    retVal.setConstant(kConstValueTypeStart, kConstValueTypeEnd, 9);
+                    break;
+                case kISOTime:
+                    retVal.setConstant(kConstValueTypeStart, kConstValueTypeEnd, 10);
+                    break;
+                default:
+                    retVal.setConstant(kConstValueTypeStart, kConstValueTypeEnd, 4);
+                    break;
+            }
+        
 			break;
 		case Json::booleanValue:
 			retVal.setConstant(kConstValueTypeStart, kConstValueTypeEnd, 5);
@@ -446,7 +462,21 @@ void JsonValue::propertyValueTypeDesc(EXTfldval &retVal) {
 			getEXTFldValFromString(retVal,"kJSONRealValueType");
 			break;
 		case Json::stringValue:
-			getEXTFldValFromString(retVal,"kJSONStringValueType");
+            // String can be a string or a date
+            switch( isISO8601Date(jsonValue->asString())) {
+                case kISODateTime:
+                    getEXTFldValFromString(retVal,"kJSONDateTimeValueType");
+                    break;
+                case kISODate:
+                    getEXTFldValFromString(retVal,"kJSONDateValueType");
+                    break;
+                case kISOTime:
+                    getEXTFldValFromString(retVal,"kJSONTimeValueType");
+                    break;
+                default:
+                    getEXTFldValFromString(retVal,"kJSONStringValueType");
+                    break;
+            }
 			break;
 		case Json::booleanValue:
 			getEXTFldValFromString(retVal,"kJSONBooleanValueType");
@@ -478,7 +508,12 @@ void JsonValue::getPropertyContents(EXTfldval &retVal, tThreadData* pThreadData)
             getEXTFldValFromDouble(retVal, jsonValue->asDouble());
 			break;
 		case Json::stringValue:
-			getEXTFldValFromString(retVal,jsonValue->asString());
+            // String can be a string or a date
+            if (isISO8601Date(jsonValue ->asString())) {
+                getEXTfldvalFromISO8601DateString(retVal, jsonValue->asString());
+            } else {
+                getEXTFldValFromString(retVal,jsonValue->asString());
+            }
 			break;
 		case Json::booleanValue:
             getEXTFldValFromBool(retVal, jsonValue->asBool());
@@ -845,35 +880,26 @@ void JsonValue::methodSet( tThreadData* pThreadData, qshort pParamCount) {
 // Convert the current value object into a list
 void JsonValue::methodValueToList( tThreadData* pThreadData, qshort pParamCount ) {
     
-    return;  // TODO: Finish value to list conversion
+    if (!(jsonValue->isObject() || jsonValue->isArray())) {
+        pThreadData->mExtraErrorText = "Value is not an object or an array.  Can only convert single objects or arrays of objects to a list."; 
+    }
     
     EXTfldval retVal;
     EXTqlist* retList = new EXTqlist(listVlen);
-    qlong rowNum;
     
     str255 colName;
     EXTfldval colVal, colNameVal;
     
-    // Write contents to list
-    if (jsonValue->isObject() || jsonValue->isArray()) {
-        // Write container object directly to list
-        writeValueToList(pThreadData, retList, jsonValue, 0,0);
+    // Write container object directly to list
+    if ( writeValueToList(pThreadData, retList, jsonValue, 0,0) ) {
+        // Return list
+        retVal.setList(retList, qtrue);
+        ECOaddParam(pThreadData->mEci, &retVal);
+
     } else {
-        // Write all regular values to a single column in the list
-        getEXTFldValFromString(colNameVal, "Value");
-        colNameVal.getChar(colName, qtrue);
-        
-        addColForValue(retList, jsonValue, colName);
-        
-        rowNum = retList->insertRow(0);
-        if (rowNum > 0) {
-            writeValueToList(pThreadData, retList, jsonValue, rowNum ,1);
-        }
-    }
-    
-    // Return list
-    retVal.setList(retList, qtrue);
-    ECOaddParam(pThreadData->mEci, &retVal);
+        delete retList;
+        // DEV NOTE: writeValueToList will write extra error text
+    }    
 }
 
 // Convert a list into the current value object
@@ -890,14 +916,14 @@ void JsonValue::methodListToValue( tThreadData* pThreadData, qshort pParamCount 
     Json::Value obj;
     
     // Resize array to correct number of elements (since we know what it is)
-    jsonValue->resize(uint(inList.rowCnt()));
+    jsonValue->resize(Json::UInt(inList.rowCnt()));
     
     // Loop all rows and all columns and create a Json::Value.  Each row is 1 line in an array and each column is part of an object.
-    for (qlong row = 1; row <= inList.rowCnt(); ++row) {
+    for (qshort row = 1; row <= inList.rowCnt(); ++row) {
         // Create new object for each row
         obj = Json::Value();  
         
-        for (qlong col = 1; col <= inList.colCnt(); ++col) {
+        for (qshort col = 1; col <= inList.colCnt(); ++col) {
             inList.getColValRef(row, col, colVal, qfalse);
             
             inList.getCol(col, colName);
@@ -913,39 +939,59 @@ void JsonValue::methodListToValue( tThreadData* pThreadData, qshort pParamCount 
             }
         }
         
-        (*jsonValue)[uint(row-1)] = obj;
+        (*jsonValue)[Json::UInt(row-1)] = obj;
     }
 }
 
 // Add a column to a list based on the Json::Value type
-void JsonValue::addColForValue(EXTqlist* list, Json::Value* val, str255& colName) {
+qshort JsonValue::addColForValue(EXTqlist* list, Json::Value* val, str255& colName) {
+    
+    qshort colNum = 0;
+    
     // Perform appropriate initialization for each type
     switch (val->type()) {
         case Json::nullValue:
-            list->addCol(fftCharacter, dpFcharacter, 10000000, &colName);
+            colNum = list->addCol(fftCharacter, dpFcharacter, 10000000, &colName);
             break;
         case Json::intValue:
-            list->addCol(fftInteger, dpDefault, 0, &colName);
+            colNum = list->addCol(fftInteger, dpDefault, 0, &colName);
             break;
         case Json::uintValue:
-            list->addCol(fftInteger, dpDefault, 0, &colName);
+            colNum = list->addCol(fftInteger, dpDefault, 0, &colName);
             break;
         case Json::realValue:
-            list->addCol(fftNumber, dpDefault, 0, &colName);
+            colNum = list->addCol(fftNumber, dpFloat, 0, &colName);
             break;
         case Json::stringValue:
-            list->addCol(fftCharacter, dpFcharacter, 10000000, &colName);
+            // String can also be a date, check the type
+            switch( isISO8601Date(val->asString()) ) {
+                case kISODateTime:
+                    colNum = list->addCol(fftDate, dpFdtimeC, 0, &colName);
+                    break;
+                case kISODate:
+                    colNum = list->addCol(fftDate, dpFdate2000, 0, &colName);
+                    break;
+                case kISOTime:
+                    colNum = list->addCol(fftDate, dpFtime, 0, &colName);
+                    break;
+                default:
+                    colNum = list->addCol(fftCharacter, dpFcharacter, 10000000, &colName);
+                    break;
+            }
+            
             break;
         case Json::booleanValue:
-            list->addCol(fftBoolean, dpDefault, 0, &colName);
+            colNum = list->addCol(fftBoolean, dpDefault, 0, &colName);
             break;
         case Json::arrayValue:
         case Json::objectValue:
-            list->addCol(fftList, dpDefault, 0, &colName);
+            colNum = list->addCol(fftList, dpDefault, 0, &colName);
             break;
         default:
             break;
     }
+    
+    return colNum;
 }
 
 // Get an EXTFldVal based on a Json::Value
@@ -969,6 +1015,9 @@ void JsonValue::getValueFromEXTFldVal(tThreadData* pThreadData, EXTfldval& fVal,
 
 // Get an EXTFldVal based on a Json::Value
 void JsonValue::getEXTFldValFromValue(tThreadData* pThreadData, EXTfldval& fVal, Json::Value* val) {
+    
+    std::string stringCheck;
+    
     // Perform appropriate initialization for each type
     switch (val->type()) {
         case Json::nullValue:
@@ -984,7 +1033,16 @@ void JsonValue::getEXTFldValFromValue(tThreadData* pThreadData, EXTfldval& fVal,
             getEXTFldValFromDouble(fVal, val->asDouble());
             break;
         case Json::stringValue:
-            getEXTFldValFromString(fVal, val->asString());
+            // String could also be a date value in ISO8601 format
+            stringCheck = val->asString();
+                      
+            // Check which kind of string it is
+            if( isISO8601Date(stringCheck) ) {
+                getEXTfldvalFromISO8601DateString(fVal, stringCheck);
+            } else {
+                // Must be a string
+                getEXTFldValFromString(fVal, stringCheck);
+            }
             break;
         case Json::booleanValue:
             getEXTFldValFromBool(fVal, val->asBool());
@@ -1000,7 +1058,8 @@ void JsonValue::getEXTFldValFromValue(tThreadData* pThreadData, EXTfldval& fVal,
 
 
 // Write value to passed in list
-void JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json::Value* val, qlong row, qshort col) {
+bool JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json::Value* val, qlong row, qshort col) 
+{    
     EXTqlist* innerList;
     str255 colName;
     EXTfldval colVal, colNameVal;
@@ -1032,29 +1091,44 @@ void JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json
             }
         }
         
-        // Loop all member names and create a column for each
-        for (qshort c = 1; c <= val->size(); ++c) {
-            // Add column for member
-            getEXTFldValFromString(colNameVal, memberNames[c-1]); // jsoncpp index is off of 0
-            colNameVal.getChar(colName, qtrue);
+        // Build set of column names in the list
+        std::map<std::string, qshort> colMap;
+        std::map<std::string, qshort>::iterator colMapIterator;
+        qshort colCount = innerList->colCnt();
+        for(qshort col = 1; col <= colCount; ++col) {
+            // Get column name
+            innerList->getCol(col,qfalse,colName);
             
-            innerVal = (*val)[memberNames[c-1]];  // jsoncpp index is off of 0
-            addColForValue(innerList, &innerVal, colName);
+            // Convert to string and insert in map
+            colVal.setChar(colName);
+            colMap[getStringFromEXTFldVal(colVal)] = col;
+        }
+        
+        // Loop all member names and create a column for each (if applicable)
+        for (qshort c = 1; c <= (qshort) val->size(); ++c) {
+            // Check for existing column name and add if it's missing
+            colMapIterator = colMap.find(memberNames[c-1]);
+            if(colMapIterator == colMap.end()) {
+                // Add column for member
+                colName = initStr255(memberNames[c-1].c_str());  // jsoncpp index is off of 0
+                innerVal = (*val)[memberNames[c-1]];  // jsoncpp index is off of 0
+                
+                // Add column and add to column map
+                colMap[memberNames[c-1]] = addColForValue(innerList, &innerVal, colName);;
+            }             
         }
         
         // Add a row and write all the values
-        qlong rowNum = innerList->insertRow(0);
+        qlong rowNum = innerList->insertRow();
         if (rowNum > 0) {    
-            for (qshort c = 1; c <= val->size(); ++c) {
+            for (qshort c = 1; c <= (qshort) val->size(); ++c) {
                 // Get Json::Value and write to column
                 innerVal = (*val)[memberNames[c-1]];  // jsoncpp index is off of 0
-                writeValueToList(pThreadData, innerList, &innerVal, rowNum, c);
+                writeValueToList(pThreadData, innerList, &innerVal, rowNum, colMap[memberNames[c-1]]);
             }
         }
         
-    } else if (val->isArray()) {
-        // Write a single row for the array with a title 'Element1' as the name
-        
+    } else if (val->isArray()) {        
         // Determine if we are adding to an existing (top-level) list or into a column
         if (col == 0) {
             innerList = list;
@@ -1063,25 +1137,16 @@ void JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json
             innerList = colVal.getList(qfalse);
         }
         
-        // Loop all array items and create a column for each
-        getEXTFldValFromString(colNameVal, label);
-        colNameVal.getChar(colName, qtrue);
-        
-        innerVal = (*val)[uint(0)];  // Get first element
-        addColForValue(innerList, &innerVal, colName);
-        
-        // Add inner list
-        if (col > 0) {
-            list->getColValRef(row, col, colVal, qtrue);
-            colVal.setList(innerList, qtrue);
-            innerList = colVal.getList(qfalse);
-        }
-        
-        // Add a row for each item in the list 
-        for (qshort r = 1; r <= val->size(); ++r) {
-            // Get Json::Value and write to column
-            innerVal = (*val)[r-1];  // jsoncpp index is off of 0
-            writeValueToList(pThreadData, innerList, &innerVal, r, 0);
+        innerVal = (*val)[Json::UInt(0)];  // Get first element
+        if( innerVal.isObject() ) {            
+            // Array of objects; this means a list in Omnis terms
+            for (qshort r = 1; r <= (qshort) val->size(); ++r) {
+                // Get Json::Value and write to column
+                innerVal = (*val)[r-1];  // jsoncpp index is off of 0
+                writeValueToList(pThreadData, innerList, &innerVal, r, 0);
+            }
+        } else {
+            // TODO: Generic array?
         }
         
     } else {
@@ -1093,5 +1158,7 @@ void JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json
             getEXTFldValFromValue(pThreadData, colVal, val);
         }
     }
+    
+    return true;
 }
 

@@ -50,11 +50,10 @@
 				Optimization="3"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="1"
-				AdditionalIncludeDirectories="../include;../../Windows/COMPLIB;&quot;$(BOOST_ROOT)&quot;"
+				AdditionalIncludeDirectories="../../include;../../../../OmnisDependencies/Windows/COMPLIB;&quot;$(BOOST_ROOT)&quot;"
 				PreprocessorDefinitions="NDEBUG;WIN32;_WINDOWS;iswin32;isXCOMPLIB;NO_STRICT;isunicode;UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_UNICODE"
 				StringPooling="true"
 				RuntimeLibrary="2"
-				StructMemberAlignment="2"
 				EnableFunctionLevelLinking="true"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="false"
@@ -78,11 +77,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="odbc32.lib odbccp32.lib omnisu.lib"
+				AdditionalDependencies="odbc32.lib odbccp32.lib omnisu.lib libboost_regex-vc90-mt-gd-1_47.lib"
 				OutputFile="$(outdir)\$(ProjectName).dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="..\..\Windows\ULIBS;&quot;$(BOOST_ROOT)\stage\lib&quot;"
+				AdditionalLibraryDirectories="..\..\..\..\OmnisDependencies\Windows\ULIBS;&quot;$(BOOST_ROOT)\stage\lib&quot;"
 				IgnoreDefaultLibraryNames="libc.lib"
 				ModuleDefinitionFile="..\src\$(ProjectName).def"
 				ProgramDatabaseFile="$(IntDir)/$(ProjectName).pdb"
@@ -149,11 +148,10 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../include;../../Windows/COMPLIB;&quot;$(BOOST_ROOT)&quot;"
+				AdditionalIncludeDirectories="../../include;../../../../OmnisDependencies/Windows/COMPLIB;&quot;$(BOOST_ROOT)&quot;"
 				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;iswin32;isXCOMPLIB;NO_STRICT;isunicode;_UNICODE;UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE"
 				MinimalRebuild="true"
 				RuntimeLibrary="3"
-				StructMemberAlignment="2"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="false"
 				PrecompiledHeaderFile="$(IntDir)/$(ProjectName).pch"
@@ -177,13 +175,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="odbc32.lib odbccp32.lib omnisu.lib"
+				AdditionalDependencies="odbc32.lib odbccp32.lib omnisu.lib libboost_regex-vc90-mt-gd-1_47.lib"
 				OutputFile="$(outdir)/$(ProjectName).dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="..\..\Windows\ULIBS;&quot;$(BOOST_ROOT)\stage\lib&quot;"
-				IgnoreDefaultLibraryNames="libc.lib"
-				ModuleDefinitionFile="..\src\$(ProjectName).def"
+				AdditionalLibraryDirectories="..\..\..\..\OmnisDependencies\Windows\ULIBS;&quot;$(BOOST_ROOT)\stage\lib&quot;"
+				IgnoreDefaultLibraryNames="libc.lib;msvcrt.lib"
+				ModuleDefinitionFile="..\..\src\$(ProjectName).def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(IntDir)/$(ProjectName).pdb"
 				SubSystem="2"
@@ -225,54 +223,58 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat;for;f90"
 			>
 			<File
-				RelativePath="..\src\jsoncpp.cpp"
+				RelativePath="..\..\src\jsoncpp.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\JsonReader.cpp"
+				RelativePath="..\..\src\JsonReader.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\JsonValue.cpp"
+				RelativePath="..\..\src\JsonValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\JsonWriter.cpp"
+				RelativePath="..\..\src\JsonWriter.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\NVObjBase.cpp"
+				RelativePath="..\..\src\NVObjBase.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\OmnisTools.cpp"
+				RelativePath="..\..\src\OmnisTools.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\Static.cpp"
 				>
 			</File>
 			<Filter
 				Name="json"
 				>
 				<File
-					RelativePath="..\src\jsoncpp\json_internalarray.inl"
+					RelativePath="..\..\src\jsoncpp\json_internalarray.inl"
 					>
 				</File>
 				<File
-					RelativePath="..\src\jsoncpp\json_internalmap.inl"
+					RelativePath="..\..\src\jsoncpp\json_internalmap.inl"
 					>
 				</File>
 				<File
-					RelativePath="..\src\jsoncpp\json_reader.cpp"
+					RelativePath="..\..\src\jsoncpp\json_reader.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\src\jsoncpp\json_value.cpp"
+					RelativePath="..\..\src\jsoncpp\json_value.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\src\jsoncpp\json_valueiterator.inl"
+					RelativePath="..\..\src\jsoncpp\json_valueiterator.inl"
 					>
 				</File>
 				<File
-					RelativePath="..\src\jsoncpp\json_writer.cpp"
+					RelativePath="..\..\src\jsoncpp\json_writer.cpp"
 					>
 				</File>
 			</Filter>
@@ -282,11 +284,11 @@
 			Filter="ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe"
 			>
 			<File
-				RelativePath="..\src\jsoncpp.def"
+				RelativePath="..\..\src\jsoncpp.def"
 				>
 			</File>
 			<File
-				RelativePath="..\src\jsoncpp.rc"
+				RelativePath="..\..\src\jsoncpp.rc"
 				>
 			</File>
 		</Filter>
@@ -295,11 +297,7 @@
 			Filter="h;hpp;hxx;hm;inl;fi;fd"
 			>
 			<File
-				RelativePath="..\include\json_batchallocator.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\jsoncpp.he"
+				RelativePath="..\..\include\jsoncpp.he"
 				>
 				<FileConfiguration
 					Name="UNICODE Release|Win32"
@@ -310,62 +308,66 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\include\JsonReader.he"
+				RelativePath="..\..\include\JsonReader.he"
 				>
 			</File>
 			<File
-				RelativePath="..\include\JsonValue.he"
+				RelativePath="..\..\include\JsonValue.he"
 				>
 			</File>
 			<File
-				RelativePath="..\include\JsonWriter.he"
+				RelativePath="..\..\include\JsonWriter.he"
 				>
 			</File>
 			<File
-				RelativePath="..\include\NVObjBase.he"
+				RelativePath="..\..\include\NVObjBase.he"
 				>
 			</File>
 			<File
-				RelativePath="..\include\OmnisTools.he"
+				RelativePath="..\..\include\OmnisTools.he"
 				>
 			</File>
 			<File
-				RelativePath="..\src\resource.h"
+				RelativePath="..\..\include\Static.he"
 				>
 			</File>
 			<Filter
 				Name="json"
 				>
 				<File
-					RelativePath="..\include\json\autolink.h"
+					RelativePath="..\..\include\json\autolink.h"
 					>
 				</File>
 				<File
-					RelativePath="..\include\json\config.h"
+					RelativePath="..\..\include\json\config.h"
 					>
 				</File>
 				<File
-					RelativePath="..\include\json\features.h"
+					RelativePath="..\..\include\json\features.h"
 					>
 				</File>
 				<File
-					RelativePath="..\include\json\forwards.h"
+					RelativePath="..\..\include\json\forwards.h"
 					>
 				</File>
 				<File
-					RelativePath="..\include\json\json.h"
+					RelativePath="..\..\include\json\json.h"
 					>
 				</File>
 				<File
-					RelativePath="..\include\json\reader.h"
+					RelativePath="..\..\include\json_batchallocator.h"
 					>
 				</File>
 				<File
-					RelativePath="..\include\json\value.h"
+					RelativePath="..\..\include\json\reader.h"
 					>
 				</File>
 				<File
-					RelativePath="..\include\json\writer.h"
+					RelativePath="..\..\include\json\value.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\json\writer.h"
 					>
 				</File>
 			</Filter>
