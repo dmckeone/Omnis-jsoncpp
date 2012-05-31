@@ -51,9 +51,6 @@ http://www.tigerlogic.com/tigerlogic/omnis/products/components/buildyourown.jsp
 ../include/OmnisTools.he
 ../src/OmnisTools.cpp    : These files hold a series of helper methods that I've found useful while creating components.
 
-../include/Static.he
-../src/Static.cpp    : These files hold an example implementation of static methods.  There is 1 static method, $staticEmpty().
-
 ../src/jsoncpp.rc : This file holds the "resources" -- string table for method, property, and constant descriptions -- that Omnis uses for the component.  (Resource 32000 is the name of the entry point method in NVObjTemplate.cpp)
 
 ../src/jsoncpp.def : This file holds the entry point name for Windows components (Should match resource 32000 in jsoncpp)
