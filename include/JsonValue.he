@@ -121,7 +121,7 @@ private:
     void getValueFromEXTFldVal(tThreadData* pThreadData, EXTfldval& fVal, Json::Value& val, std::string label);
     void getEXTFldValFromValue(tThreadData* pThreadData, EXTfldval& fVal, Json::Value* val);
     qshort addColForValue(EXTqlist* list, Json::Value* val, str255& colName);
-    bool writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json::Value* val, qlong row, qshort col);
+    bool writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json::Value* parent, Json::Value* val, qlong row, qshort col, const char* parentName = 0);
 };
 
 #endif /* JSON_VALUE_HE */

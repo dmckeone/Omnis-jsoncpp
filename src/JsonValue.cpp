@@ -891,7 +891,7 @@ void JsonValue::methodValueToList( tThreadData* pThreadData, qshort pParamCount 
     EXTfldval colVal, colNameVal;
     
     // Write container object directly to list
-    if ( writeValueToList(pThreadData, retList, jsonValue, 0,0) ) {
+    if ( writeValueToList(pThreadData, retList, 0, jsonValue, 0,0) ) {
         // Return list
         retVal.setList(retList, qtrue);
         ECOaddParam(pThreadData->mEci, &retVal);
@@ -1058,9 +1058,10 @@ void JsonValue::getEXTFldValFromValue(tThreadData* pThreadData, EXTfldval& fVal,
 
 
 // Write value to passed in list
-bool JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json::Value* val, qlong row, qshort col) 
+bool JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json::Value* parent, Json::Value* val, qlong row, qshort col, const char* parentName) 
 {    
     EXTqlist* innerList;
+    EXTqlist* arrayList;
     str255 colName;
     EXTfldval colVal, colNameVal;
     std::string label;
@@ -1114,7 +1115,7 @@ bool JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json
                 innerVal = (*val)[memberNames[c-1]];  // jsoncpp index is off of 0
                 
                 // Add column and add to column map
-                colMap[memberNames[c-1]] = addColForValue(innerList, &innerVal, colName);;
+                colMap[memberNames[c-1]] = addColForValue(innerList, &innerVal, colName);
             }             
         }
         
@@ -1124,7 +1125,7 @@ bool JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json
             for (qshort c = 1; c <= (qshort) val->size(); ++c) {
                 // Get Json::Value and write to column
                 innerVal = (*val)[memberNames[c-1]];  // jsoncpp index is off of 0
-                writeValueToList(pThreadData, innerList, &innerVal, rowNum, colMap[memberNames[c-1]]);
+                writeValueToList(pThreadData, innerList, val, &innerVal, rowNum, colMap[memberNames[c-1]], memberNames[c-1].c_str());
             }
         }
         
@@ -1143,10 +1144,38 @@ bool JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json
             for (qshort r = 1; r <= (qshort) val->size(); ++r) {
                 // Get Json::Value and write to column
                 innerVal = (*val)[r-1];  // jsoncpp index is off of 0
-                writeValueToList(pThreadData, innerList, &innerVal, r, 0);
+                writeValueToList(pThreadData, innerList, val, &innerVal, r, 0);
             }
         } else {
-            // TODO: Generic array?
+            // Plain array
+            if (col == 0) {
+                // Stand-alone, just set the list up as the array
+                arrayList = innerList;
+                
+            } else {
+                // Part of a column
+                arrayList = new EXTqlist(listVlen);
+                
+            }
+            
+            // Setup name of column to be parent element (if there is one) otherwise just name it "Element"
+            if(parentName) {
+                colName = initStr255(parentName);
+            } else {
+                colName = initStr255("Element");
+            }
+            
+            innerVal = (*val)[Json::UInt(0)]; // Get first element in array
+            addColForValue(arrayList, &innerVal, colName);
+            
+            for (qshort r = 1; r <= (qshort) val->size(); ++r) {
+                innerVal = (*val)[r-1];  // jsoncpp index is off of 0
+                writeValueToList(pThreadData, arrayList, val, &innerVal, r, 0);
+            }
+            
+            if (col != 0) {
+                colVal.setList(arrayList, qtrue); // Set column in list
+            }
         }
         
     } else {

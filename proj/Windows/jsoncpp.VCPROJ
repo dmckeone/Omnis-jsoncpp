@@ -17,7 +17,7 @@
 	<Configurations>
 		<Configuration
 			Name="UNICODE Release|Win32"
-			OutputDirectory=".\build\deploy"
+			OutputDirectory="..\..\deploy\Windows"
 			IntermediateDirectory=".\build\release"
 			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
@@ -52,9 +52,7 @@
 				FavorSizeOrSpeed="1"
 				AdditionalIncludeDirectories="../../include;../../../../OmnisDependencies/Windows/COMPLIB;&quot;$(BOOST_ROOT)&quot;"
 				PreprocessorDefinitions="NDEBUG;WIN32;_WINDOWS;iswin32;isXCOMPLIB;NO_STRICT;isunicode;UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_UNICODE"
-				StringPooling="true"
 				RuntimeLibrary="2"
-				EnableFunctionLevelLinking="true"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="false"
 				PrecompiledHeaderFile="$(IntDir)/$(ProjectName).pch"
@@ -77,13 +75,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="odbc32.lib odbccp32.lib omnisu.lib libboost_regex-vc90-mt-gd-1_47.lib"
+				AdditionalDependencies="odbc32.lib odbccp32.lib omnisu.lib libboost_regex-vc90-mt-1_47.lib"
 				OutputFile="$(outdir)\$(ProjectName).dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="..\..\..\..\OmnisDependencies\Windows\ULIBS;&quot;$(BOOST_ROOT)\stage\lib&quot;"
 				IgnoreDefaultLibraryNames="libc.lib"
-				ModuleDefinitionFile="..\src\$(ProjectName).def"
+				ModuleDefinitionFile="..\..\src\$(ProjectName).def"
 				ProgramDatabaseFile="$(IntDir)/$(ProjectName).pdb"
 				SubSystem="2"
 				RandomizedBaseAddress="1"

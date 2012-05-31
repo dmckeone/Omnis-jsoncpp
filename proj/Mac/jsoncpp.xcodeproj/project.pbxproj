@@ -23,7 +23,7 @@
 /* Begin PBXBuildFile section */
 		96CA4E550907E8CC00C234AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		96CA4E5A0907E8CC00C234AA /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
-		B07E4055144F314B00D91C17 /* libboost_regex-xgcc42-mt-1_47.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E4054144F314B00D91C17 /* libboost_regex-xgcc42-mt-1_47.a */; };
+		B05E2B0B147B007A001D3168 /* libboost_regex-xgcc42-mt-1_48.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B05E2B0A147B007A001D3168 /* libboost_regex-xgcc42-mt-1_48.a */; };
 		B086C3DE138184EB005B7A43 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B086C3D8138184EB005B7A43 /* jsoncpp.cpp */; };
 		B086C3DF138184EB005B7A43 /* JsonReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B086C3D9138184EB005B7A43 /* JsonReader.cpp */; };
 		B086C3E0138184EB005B7A43 /* JsonValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B086C3DA138184EB005B7A43 /* JsonValue.cpp */; };
@@ -66,7 +66,7 @@
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		96CA4E610907E8CC00C234AA /* jsoncpp.u_xcomp */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jsoncpp.u_xcomp; sourceTree = BUILT_PRODUCTS_DIR; };
-		B07E4054144F314B00D91C17 /* libboost_regex-xgcc42-mt-1_47.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_regex-xgcc42-mt-1_47.a"; path = "../../../../../Boost/boost_1_47_0/stage/lib/libboost_regex-xgcc42-mt-1_47.a"; sourceTree = "<group>"; };
+		B05E2B0A147B007A001D3168 /* libboost_regex-xgcc42-mt-1_48.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_regex-xgcc42-mt-1_48.a"; path = "../../../../../Boost/boost_1_48_0/stage/lib/libboost_regex-xgcc42-mt-1_48.a"; sourceTree = "<group>"; };
 		B086C3C3138184CE005B7A43 /* json_batchallocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = json_batchallocator.h; path = ../../include/json_batchallocator.h; sourceTree = "<group>"; };
 		B086C3C4138184CE005B7A43 /* jsoncpp.he */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = jsoncpp.he; path = ../../include/jsoncpp.he; sourceTree = "<group>"; };
 		B086C3C5138184CE005B7A43 /* JsonReader.he */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = JsonReader.he; path = ../../include/JsonReader.he; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			files = (
 				96CA4E5A0907E8CC00C234AA /* Carbon.framework in Frameworks */,
 				B086C3FA138271B2005B7A43 /* u_complib.framework in Frameworks */,
-				B07E4055144F314B00D91C17 /* libboost_regex-xgcc42-mt-1_47.a in Frameworks */,
+				B05E2B0B147B007A001D3168 /* libboost_regex-xgcc42-mt-1_48.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +127,7 @@
 		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				B07E4054144F314B00D91C17 /* libboost_regex-xgcc42-mt-1_47.a */,
+				B05E2B0A147B007A001D3168 /* libboost_regex-xgcc42-mt-1_48.a */,
 				B086C3F9138271B2005B7A43 /* u_complib.framework */,
 				08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */,
 			);
@@ -312,6 +312,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Boost/boost_1_48_0/stage/lib,
+				);
 			};
 			name = Development;
 		};
@@ -319,6 +323,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Boost/boost_1_48_0/stage/lib,
+				);
 				SKIP_INSTALL = NO;
 			};
 			name = Deployment;
