@@ -1,4 +1,4 @@
-NVObjTemplate
+Omnis-jsoncpp
 Copyright (c) 2010 David McKeone
 All rights reserved.
 
@@ -148,7 +148,7 @@ OPTIONAL -- BOOST LIBRARIES
 
 
 6) Ensure that the Omnis executable has been set so 'Build and Run' can be used
-     Windows: a) Open Visual Studio 2008 project NVObjTemplate.vcprog
+     Windows: a) Open Visual Studio 2008 project jsoncpp.vcprog
               b) Go to 'Debug' menu
               c) Select 'Start Debugging'
               d) A window will appear asking to find the executable
@@ -156,7 +156,7 @@ OPTIONAL -- BOOST LIBRARIES
               f) Click OK
               g) A window may appear saying that the executable does not have debug information - that is ok, dismiss the message.
 
-         Mac: a) Open XCode project NVObjTemplate.xcodeproj
+         Mac: a) Open XCode project jsoncpp.xcodeproj
               b) Locate "Omnis" under "Executables"
               c) Right-Click on "Omnis" and select "Get Info"
               d) Change "Path" to the path of the Omnis Studio application bundle
@@ -164,11 +164,11 @@ OPTIONAL -- BOOST LIBRARIES
 
 7) Attempt to compile the project
      Windows: NOTE -- If you did step 6 then the project has already been compiled and Omnis opened, but the steps are here for completeness.
-              a) Open Visual Studio 2008 project NVObjTemplate.vcprog
+              a) Open Visual Studio 2008 project jsoncpp.vcprog
               b) Go to 'Build' menu -or- Go to 'Debug' menu
               c) Select 'Build Solution' -or- Select 'Start Debugging' to compile component and open Omnis
 
-         Mac: a) Open XCode project NVObjTemplate.xcodeproj
+         Mac: a) Open XCode project jsoncpp.xcodeproj
               b) Go to 'Build' menu
               c) Select 'Build Results' -or- 'Build and Debug' to compile component and open Omnis
 

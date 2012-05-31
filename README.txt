@@ -1,4 +1,4 @@
-NVObjTemplate
+Omnis-jsoncpp
 Copyright (c) 2010 David McKeone
 All rights reserved.
 
@@ -30,16 +30,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ---------------------------------------------------------------
 
-
-This project was started so that a build tree and example library could be created that showed how 
-to setup cross-platform Omnis externals with support for a version control system (such as 
-Subversion, Git or Mercurial) and an automated build system.
-
-If this example is used on a Mac, then a project can be simultaneously used by XCode and Visual 
-Studio 2008 (in Parallels or VMWare) against the same set of source files (Important so development 
-can occur in a single development environment, but builds can be made on all platforms).  Only 
-additional source files need to be added to each project when changes occur.  Linux support is not 
-available at this time.
+This project is a wrapper of the jsoncpp library for reading/writing JSON files.
 
 It is required to download the SDK from TigerLogic in order to setup the build environment variables 
 required for this project: 
@@ -51,8 +42,8 @@ http://www.tigerlogic.com/tigerlogic/omnis/products/components/buildyourown.jsp
 
 ---------------------------------------------------------------
 
-../include/NVObjTemplate.he
-../src/NVObjTemplate.cpp     : Main entry point for Omnis external.  These files control the dispatch of messages to appropriate non-visual objects and the definition of non-visual objects.
+../include/jsoncpp.he
+../src/jsoncpp.cpp     : Main entry point for Omnis external.  These files control the dispatch of messages to appropriate non-visual objects and the definition of non-visual objects.
 
 ../include/NVObjBase.he
 ../src/NVObjBase.cpp    : These files hold the base class, NVObjBase, to be used for all non-visual objects.  It provides basic methods for defining a non-visual object.
@@ -60,15 +51,12 @@ http://www.tigerlogic.com/tigerlogic/omnis/products/components/buildyourown.jsp
 ../include/OmnisTools.he
 ../src/OmnisTools.cpp    : These files hold a series of helper methods that I've found useful while creating components.
 
-../include/Simple.he
-../src/Simple.cpp    : These files hold an example implementation of a non-visual object, Simple.  Simple has 1 property and 2 methods.  
-
 ../include/Static.he
 ../src/Static.cpp    : These files hold an example implementation of static methods.  There is 1 static method, $staticEmpty().
 
-../src/NVObjTemplate.rc : This file holds the "resources" -- string table for method, property, and constant descriptions -- that Omnis uses for the component.  (Resource 32000 is the name of the entry point method in NVObjTemplate.cpp)
+../src/jsoncpp.rc : This file holds the "resources" -- string table for method, property, and constant descriptions -- that Omnis uses for the component.  (Resource 32000 is the name of the entry point method in NVObjTemplate.cpp)
 
-../src/NVObjTemplate.def : This file holds the entry point name for Windows components (Should match resource 32000 in NVObjTemplate.rc)
+../src/jsoncpp.def : This file holds the entry point name for Windows components (Should match resource 32000 in jsoncpp)
 
 
 ---------------------------------------------------------------
@@ -76,7 +64,6 @@ http://www.tigerlogic.com/tigerlogic/omnis/products/components/buildyourown.jsp
 - BUILD TREE
 
 ---------------------------------------------------------------
-
 
 
 Windows and Mac projects are configured to look at directories within the "MyProjects" folder, so no
@@ -124,12 +111,8 @@ deploy\Windows\ = Windows component
 
 ---------------------------------------------------------------
 
-
-
 The Omnis directory must be setup prior to compiling any debug versions of the external.  It is read 
 from an Environment Variable, OMNIS_XCOMP_PATH.
-
-
 
 For windows this is like: C:\TigerLogic\OS50\xcomp
 - Set under System Properties (Access by Right-Clicking My Computer and then selecting Properties)
@@ -139,34 +122,4 @@ For windows this is like: C:\TigerLogic\OS50\xcomp
 For Mac this is like: HD:Applications:OmnisStudio:Contents:MacOS:xcomp
 - Set in the environment.plist file in the user home directory ~/.MacOSX/environment.plist 
 - Requires log off of OS X
-
----------------------------------------------------------------
-
-- CUSTOMIZATION (How to change name from NVObjTemplate)
-
----------------------------------------------------------------
-
-Obviously the purpose of any template is to get you started with creating your own components.  While 
-renaming the classes can be a delicate process these are the things that I've found to be a good starting place.
-
-All:
-- Since many files are being renamed they may need to be re-added to the project.  Especially if you 
-  rename on Mac and then open Windows project or vice-versa.
-
-Mac: 
-- Rename the NVObjTemplate.xcodeproj project file (while the project is closed)
-- Rename NVObjTemplate.he and NVObjTemplate.cpp
-- Perform a global find/replace for NVObjTemplate
-- Perform a global find/replace for NV_OBJ_TEMPLATE_HE
-- Rename NVObjTemplate.rc
-- Rename NVObjTemplate.def
-
-Windows:
-- In Visual Studio, right-click on Solution and rename
-- In Visual Studio, right-click on Project and rename
-- Rename NVObjTemplate.he and NVObjTemplate.cpp
-- Perform a global find/replace for NVObjTemplate
-- Perform a global find/replace for NV_OBJ_TEMPLATE_HE
-- Rename NVObjTemplate.rc 
-- Rename NVObjTemplate.def
 
