@@ -119,7 +119,8 @@ const static qshort cMethodConstruct      = 2100,
 					cMethodRoot           = 2120,
 					cMethodSet            = 2121,
 					cMethodValueToList    = 2122,
-					cMethodListToValue    = 2123;
+					cMethodListToValue    = 2123,
+                    cMethodDelete         = 2124;
 
 /**************************************************************************************************
  **                                 INSTANCE METHODS                                             **
@@ -229,6 +230,10 @@ qlong JsonValue::methodCall( tThreadData* pThreadData )
 			pThreadData->mCurMethodName = "$listToValue";
 			methodListToValue(pThreadData, paramCount);
 			break;
+        case cMethodDelete:
+            pThreadData->mCurMethodName = "$delete";
+            methodDelete(pThreadData, paramCount);
+            break;
 	}
 
 	return 0L;
@@ -260,7 +265,9 @@ ECOparam cJsonValueMethodsParamsTable[] =
 	4004, fftInteger,   0, 0,
 	4005, fftCharacter, 0, 0,
     // $listToValue
-    4006, fftList,      0, 0
+    4006, fftList,      0, 0,
+    // $delete
+    4007, fftCharacter, 0, 0
 };
 
 // Table of Methods available for Simple
@@ -297,7 +304,8 @@ ECOmethodEvent cJsonValueMethodsTable[] =
 	cMethodRoot,           cMethodRoot,           fftObject,    0, 0, 0, 0,
 	cMethodSet,            cMethodSet,            fftNone,      0, 0, 0, 0,
     cMethodValueToList,    cMethodValueToList,    fftList,      0, 0, 0, 0,
-    cMethodListToValue,    cMethodListToValue,    fftNone,      1, &cJsonValueMethodsParamsTable[6], 0, 0
+    cMethodListToValue,    cMethodListToValue,    fftNone,      1, &cJsonValueMethodsParamsTable[6], 0, 0,
+    cMethodDelete,         cMethodDelete,         fftObject,    1, &cJsonValueMethodsParamsTable[7], 0, 0
 };
 
 // List of methods in Simple
@@ -875,6 +883,24 @@ void JsonValue::methodSet( tThreadData* pThreadData, qshort pParamCount) {
 		return;
 	
 	setValueFromEXTfldval(pThreadData, fVal);
+}
+
+// This method removes the key given in the first parameter
+void JsonValue::methodDelete( tThreadData* pThreadData, qshort pParamCount) {
+    EXTfldval fVal, retVal;
+    
+    if ( getParamVar(pThreadData, 1, fVal) == qfalse)
+        return;
+    
+    if (!jsonValue->isObject()) 
+        return;
+    
+    Json::Value old = jsonValue->removeMember(getStringFromEXTFldVal(fVal));
+    if (!old.isNull()) {
+        getEXTfldvalForValue(pThreadData, retVal, new Json::Value(old));
+    }
+    
+    ECOaddParam( pThreadData->mEci, &retVal );
 }
 
 // Convert the current value object into a list

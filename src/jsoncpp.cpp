@@ -23,8 +23,10 @@
 
 // Version Information
 // 1.0 -- Adapted from Generic
+// 1.1 -- Small fixes, and version change for deployment
+// 1.2 -- Add $delete
 #define VERSION_MAJOR 1
-#define VERSION_MINOR 0
+#define VERSION_MINOR 2
 
 // Resources for constants
 const static qshort kConstResourcePrefix = 23000,

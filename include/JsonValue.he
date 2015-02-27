@@ -103,6 +103,9 @@ private:
 	// Assignment
 	void methodSet( tThreadData*, qshort );
     
+    // Removal
+    void methodDelete( tThreadData*, qshort );
+    
     // List-Value
 	void methodValueToList( tThreadData*, qshort );
 	void methodListToValue( tThreadData*, qshort );

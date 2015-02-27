@@ -31,6 +31,7 @@ BEGIN
     2121					"$set:$set(Element) sets the current object to the value specified in Element"
     2122					"$valueToList:$valueToList() Returns a list representing the value object."
     2123					"$listToValue:$listToValue(List) Puts the contents of the list into the value object"
+    2124                    "$delete:$delete() removes a key from an object value."
 
     2200                    "$parse:$parse(std::string document, Json::Value root, bool comments) returns a Value object"
 
@@ -51,6 +52,7 @@ BEGIN
     4004                    "Index:index in array"
     4005                    "Key:key in object"
     4006                    "List:list to convert to value"
+    4007                    "Key:key in object"
 
     4100                    "Document:Character string with JSON document"
     4101                    "Root:Value object to store the root element in"

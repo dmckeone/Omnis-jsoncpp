@@ -50,7 +50,7 @@
 				Optimization="3"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="1"
-				AdditionalIncludeDirectories="../../include;../../../../OmnisDependencies/Windows/COMPLIB;&quot;$(BOOST_ROOT)&quot;"
+				AdditionalIncludeDirectories="../../include;&quot;$(OMNIS_LIB_PATH)/COMPLIB&quot;;&quot;$(BOOST_ROOT)&quot;"
 				PreprocessorDefinitions="NDEBUG;WIN32;_WINDOWS;iswin32;isXCOMPLIB;NO_STRICT;isunicode;UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE;_UNICODE"
 				RuntimeLibrary="2"
 				TreatWChar_tAsBuiltInType="false"
@@ -75,7 +75,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="odbc32.lib odbccp32.lib omnisu.lib libboost_regex-vc90-mt-1_47.lib"
+				AdditionalDependencies="odbc32.lib odbccp32.lib omnisu.lib libboost_regex-vc90-mt-1_49.lib"
 				OutputFile="$(outdir)\$(ProjectName).dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -146,7 +146,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../include;../../../../OmnisDependencies/Windows/COMPLIB;&quot;$(BOOST_ROOT)&quot;"
+				AdditionalIncludeDirectories="../../include;&quot;$(OMNIS_LIB_PATH)/COMPLIB&quot;;&quot;$(BOOST_ROOT)&quot;"
 				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;iswin32;isXCOMPLIB;NO_STRICT;isunicode;_UNICODE;UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_NONSTDC_NO_DEPRECATE"
 				MinimalRebuild="true"
 				RuntimeLibrary="3"
@@ -173,11 +173,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="odbc32.lib odbccp32.lib omnisu.lib libboost_regex-vc90-mt-gd-1_47.lib"
+				AdditionalDependencies="odbc32.lib odbccp32.lib omnisu.lib libboost_regex-vc90-mt-gd-1_49.lib"
 				OutputFile="$(outdir)/$(ProjectName).dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="..\..\..\..\OmnisDependencies\Windows\ULIBS;&quot;$(BOOST_ROOT)\stage\lib&quot;"
+				AdditionalLibraryDirectories="&quot;$(OMNIS_LIB_PATH)\ULIBS&quot;;&quot;$(BOOST_ROOT)\stage\lib&quot;"
 				IgnoreDefaultLibraryNames="libc.lib;msvcrt.lib"
 				ModuleDefinitionFile="..\..\src\$(ProjectName).def"
 				GenerateDebugInformation="true"
