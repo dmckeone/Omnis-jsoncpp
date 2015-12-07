@@ -980,10 +980,11 @@ qshort JsonValue::addColForValue(EXTqlist* list, Json::Value* val, str255& colNa
             colNum = list->addCol(fftCharacter, dpFcharacter, 10000000, &colName);
             break;
         case Json::intValue:
-            colNum = list->addCol(fftInteger, dpDefault, 0, &colName);
+            colNum = list->addCol(fftInteger, 0, 10000000, &colName);
+            
             break;
         case Json::uintValue:
-            colNum = list->addCol(fftInteger, dpDefault, 0, &colName);
+            colNum = list->addCol(fftInteger, 0, 10000000, &colName);
             break;
         case Json::realValue:
             colNum = list->addCol(fftNumber, dpFloat, 0, &colName);
@@ -1208,9 +1209,9 @@ bool JsonValue::writeValueToList( tThreadData* pThreadData, EXTqlist* list, Json
         // Regular value
         if (row > 0 && col > 0) {
             // Can only write regular value if column has already been created
-            list->getColValRef(row, col, colVal, qtrue);
-            
-            getEXTFldValFromValue(pThreadData, colVal, val);
+            EXTfldval tempVal;
+            getEXTFldValFromValue(pThreadData, tempVal, val);
+            list->putColVal(row, col, tempVal);
         }
     }
     
