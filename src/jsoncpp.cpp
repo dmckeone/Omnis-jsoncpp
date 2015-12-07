@@ -25,8 +25,9 @@
 // 1.0 -- Adapted from Generic
 // 1.1 -- Small fixes, and version change for deployment
 // 1.2 -- Add $delete
+// 1.3 -- Fix long integer in $valueToList returning short integer instead.
 #define VERSION_MAJOR 1
-#define VERSION_MINOR 2
+#define VERSION_MINOR 3
 
 // Resources for constants
 const static qshort kConstResourcePrefix = 23000,

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>13EB0C71-5063-4C59-9807-9D3D4FBF7B52</string>
+	<key>IDESourceControlProjectName</key>
+	<string>jsoncpp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>113D600A3367BB7EBBCB2C7400E1BD1397BBF376</key>
+		<string>github.com:dmckeone/Omnis-jsoncpp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>proj/Mac/jsoncpp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>113D600A3367BB7EBBCB2C7400E1BD1397BBF376</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:dmckeone/Omnis-jsoncpp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>113D600A3367BB7EBBCB2C7400E1BD1397BBF376</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>113D600A3367BB7EBBCB2C7400E1BD1397BBF376</string>
+			<key>IDESourceControlWCCName</key>
+			<string>jsoncpp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
